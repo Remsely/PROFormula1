@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">PROFormula</string>
+    <string name="home_screen_name">PRO FORMULA 1</string>
+    <string name="title_home">Главная</string>
+    <string name="title_championship">Чемпионат</string>
+    <string name="title_calendar">Календарь</string>
+    <string name="title_content">Контент</string>
+    <string name="title_seasons">Сезоны</string>
+</resources>

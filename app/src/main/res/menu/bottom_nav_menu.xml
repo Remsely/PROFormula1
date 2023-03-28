@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/home_button_selector"
+        android:title="@string/title_home" />
+
+    <item
+        android:id="@+id/navigation_championship"
+        android:icon="@drawable/championship_button_selector"
+        android:title="@string/title_championship" />
+
+    <item
+        android:id="@+id/navigation_calendar"
+        android:icon="@drawable/calendar_button_selector"
+        android:title="@string/title_calendar" />
+
+    <item
+        android:id="@+id/navigation_content"
+        android:icon="@drawable/content_button_selector"
+        android:title="@string/title_content" />
+
+    <item
+        android:id="@+id/navigation_seasons"
+        android:icon="@drawable/seasons_button_selector"
+        android:title="@string/title_seasons" />
+
+</menu>
