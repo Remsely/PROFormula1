@@ -45,16 +45,18 @@
             android:padding="5dp">
 
             <ImageView
+                android:id="@+id/notification_image_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/notifications_button"
-                android:scaleType="centerInside" />
+                android:scaleType="centerInside"/>
 
         </LinearLayout>
 
     </RelativeLayout>
 
     <ScrollView
+        android:id="@+id/home_screen_scroll_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/home_screen_top_panel">
@@ -66,25 +68,27 @@
             android:orientation="vertical"
             android:paddingLeft="7dp"
             android:paddingRight="7dp"
-            android:paddingBottom="113dp"
             tools:ignore="MissingConstraints">
 
             <TextView
+                android:id="@+id/soon_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingBottom="2dp"
-                android:text="Скоро"
+                android:text="@string/soon"
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 android:fontFamily="@font/open_sans_bold"/>
 
             <LinearLayout
+                android:id="@+id/soon_stage_frame_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/simple_frame"
                 android:orientation="vertical">
 
                 <RelativeLayout
+                    android:id="@+id/soon_top_part_of_frame"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="fill_horizontal"
@@ -92,6 +96,7 @@
                     android:padding="7dp">
 
                     <LinearLayout
+                        android:id="@+id/soon_stage_name_and_place_of_event_layout"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
@@ -100,7 +105,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:id="@+id/soon_stage_name"
-                            android:text="Название Гран-при"
+                            android:text="@string/stage_name"
                             android:textColor="@color/white"
                             android:textSize="20sp"
                             android:fontFamily="@font/open_sans_bold"/>
@@ -109,33 +114,37 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:id="@+id/soon_stage_place"
-                            android:text="Место проведения Гран-при"
+                            android:text="@string/stage_place"
                             android:textColor="@color/white"
                             android:textSize="16sp"
                             android:fontFamily="@font/open_sans_bold"/>
                     </LinearLayout>
 
                     <ImageView
+                        android:id="@+id/soon_stage_flag"
                         android:layout_width="70dp"
                         android:layout_height="40dp"
-                        android:layout_alignParentRight="true"
+                        android:layout_alignParentEnd="true"
                         android:background="@drawable/flag" />
 
                 </RelativeLayout>
 
                 <LinearLayout
+                    android:id="@+id/soon_stage_top_line"
                     android:layout_width="match_parent"
                     android:layout_height="4dp"
-                    android:background="@color/black" />
+                    android:background="@color/black"
+                    android:orientation="horizontal" />
 
                 <LinearLayout
+                    android:id="@+id/soon_stage_first_event_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:paddingLeft="7dp"
+                        android:paddingStart="7dp"
                         android:id="@+id/soon_stage_first_event"
                         android:text="1 событие Гран-при"
                         android:textColor="@color/white"
@@ -143,9 +152,12 @@
                         android:fontFamily="@font/open_sans"/>
 
                     <TextView
+                        android:paddingRight="3dp"
+                        android:paddingLeft="3dp"
+                        android:id="@+id/soon_stage_first_till"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text=" - "
+                        android:text="@string/till"
                         android:textColor="@color/white"
                         android:textSize="16sp"
                         android:fontFamily="@font/open_sans"/>
@@ -176,9 +188,12 @@
                         android:fontFamily="@font/open_sans"/>
 
                     <TextView
+                        android:paddingRight="3dp"
+                        android:paddingLeft="3dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text=" - "
+                        android:id="@+id/soon_stage_second_till"
+                        android:text="@string/till"
                         android:textColor="@color/white"
                         android:textSize="16sp"
                         android:fontFamily="@font/open_sans"/>
@@ -209,9 +224,12 @@
                         android:fontFamily="@font/open_sans"/>
 
                     <TextView
+                        android:paddingRight="3dp"
+                        android:paddingLeft="3dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text=" - "
+                        android:id="@+id/soon_stage_third_till"
+                        android:text="@string/till"
                         android:textColor="@color/white"
                         android:textSize="16sp"
                         android:fontFamily="@font/open_sans"/>
@@ -242,9 +260,12 @@
                         android:id="@+id/soon_stage_fourth_event"/>
 
                     <TextView
+                        android:paddingRight="3dp"
+                        android:paddingLeft="3dp"
+                        android:id="@+id/soon_stage_fourth_till"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text=" - "
+                        android:text="@string/till"
                         android:textColor="@color/white"
                         android:textSize="16sp"
                         android:fontFamily="@font/open_sans"/>
@@ -275,9 +296,12 @@
                         android:fontFamily="@font/open_sans"/>
 
                     <TextView
+                        android:paddingRight="3dp"
+                        android:paddingLeft="3dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text=" - "
+                        android:id="@+id/soon_stage_fifth_till"
+                        android:text="@string/till"
                         android:textColor="@color/white"
                         android:textSize="16sp"
                         android:fontFamily="@font/open_sans"/>
@@ -295,54 +319,37 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/soon_stage_bottom_line"
                     android:layout_width="match_parent"
                     android:layout_height="4dp"
-                    android:background="@color/black" />
+                    android:background="@color/black"
+                    android:orientation="horizontal" />
 
                 <TextView
+                    android:id="@+id/soon_stage_where_translation"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingLeft="7dp"
                     android:paddingRight="7dp"
-                    android:text="Где смотреть?"
+                    android:text="@string/where_see"
                     android:textColor="@color/white"
                     android:textSize="16sp"
                     android:fontFamily="@font/open_sans_bold"/>
 
                 <TextView
+                    android:id="@+id/soon_stage_reference"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingLeft="7dp"
                     android:paddingRight="7dp"
-                    android:text="Ссылка"
+                    android:text="@string/references"
                     android:textColor="#E70000"
                     android:textSize="16sp"
                     android:fontFamily="@font/open_sans"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="7dp"
-                    android:paddingRight="7dp"
-                    android:text="Ссылка"
-                    android:textColor="#E70000"
-                    android:textSize="16sp"
-                    android:fontFamily="@font/open_sans"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="7dp"
-                    android:paddingRight="7dp"
-                    android:paddingBottom="2dp"
-                    android:text="Ссылка"
-                    android:textColor="#E70000"
-                    android:textSize="16sp"
-                    android:fontFamily="@font/open_sans"/>
-
             </LinearLayout>
 
             <TextView
+                android:id="@+id/recently_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingTop="7dp"
@@ -353,19 +360,22 @@
                 android:fontFamily="@font/open_sans_bold"/>
 
             <LinearLayout
+                android:id="@+id/recently_stage_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/simple_frame"
                 android:orientation="vertical">
 
                 <RelativeLayout
+                    android:id="@+id/recently_top_part_of_frame"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="fill_horizontal"
                     android:orientation="horizontal"
-                    android:padding="4dp">
+                    android:padding="7dp">
 
                     <LinearLayout
+                        android:id="@+id/recently_stage_name_and_place_of_event_layout"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
@@ -374,35 +384,40 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:id="@+id/recently_stage_name"
-                            android:text="Название Гран-при"
+                            android:text="@string/stage_name"
                             android:textColor="@color/white"
                             android:textSize="20sp"
                             android:fontFamily="@font/open_sans_bold"/>
 
                         <TextView
+                            android:id="@+id/recently_stage_place"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Место проведения Гран-при"
-                            android:id="@+id/recently_stage_place"
+                            android:text="@string/stage_place"
                             android:textColor="@color/white"
                             android:textSize="16sp"
                             android:fontFamily="@font/open_sans_bold"/>
                     </LinearLayout>
 
                     <ImageView
+                        android:id="@+id/recently_stage_flag"
                         android:layout_width="70dp"
                         android:layout_height="40dp"
-                        android:layout_alignParentRight="true"
-                        android:background="@drawable/flag" />
+                        android:layout_alignParentEnd="true"
+                        android:background="@drawable/flag"
+                        android:contentDescription="TODO" />
 
                 </RelativeLayout>
 
                 <LinearLayout
+                    android:id="@+id/recently_stage_top_line"
                     android:layout_width="match_parent"
                     android:layout_height="4dp"
-                    android:background="@color/black" />
+                    android:background="@color/black"
+                    android:orientation="horizontal" />
 
                 <TableLayout
+                    android:id="@+id/recently_stage_results_table"
                     android:paddingTop="2dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -412,8 +427,9 @@
 
                     <TableRow>
                         <TextView
+                            android:id="@+id/recently_stage_results_table_first_number"
                             android:layout_weight="0.5"
-                            android:text="1"
+                            android:text="@string/_1"
                             android:textColor="@color/gold"
                             android:textSize="13sp"
                             android:layout_width="wrap_content"
@@ -421,50 +437,58 @@
                             android:fontFamily="@font/open_sans_semibold"/>
 
                         <LinearLayout
+                            android:id="@+id/recently_stage_results_table_first_place_pilot_layout"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:gravity="center"
                             android:paddingRight="4dp">
 
                             <ImageView
+                                android:id="@+id/recently_stage_results_table_first_place_pilot_flag"
                                 android:layout_width="20dp"
                                 android:layout_height="15dp"
                                 android:background="@drawable/flag" />
 
                             <TextView
+                                android:id="@+id/recently_stage_results_table_first_place_pilot_name"
+                                android:paddingLeft="2dp"
                                 android:layout_weight="0.5"
-                                android:text="Имя пилота 1"
+                                android:text="@string/pilot_name"
                                 android:textColor="@color/white"
-                                android:layout_width="wrap_content"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:textSize="13sp"
                                 android:fontFamily="@font/open_sans"/>
                         </LinearLayout>
 
                         <LinearLayout
+                            android:id="@+id/recently_stage_results_table_first_place_team_layout"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:paddingRight="4dp">
 
                             <ImageView
+                                android:id="@+id/recently_stage_results_table_first_place_team_flag"
                                 android:layout_width="20dp"
                                 android:layout_height="15dp"
                                 android:background="@drawable/flag" />
 
                             <TextView
+                                android:id="@+id/recently_stage_results_table_first_place_team_name"
+                                android:paddingStart="2dp"
                                 android:layout_weight="0.5"
-                                android:text="Команда 1"
+                                android:text="@string/team_name"
                                 android:textColor="@color/white"
-                                android:layout_width="wrap_content"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:textSize="13sp"
                                 android:fontFamily="@font/open_sans"/>
                         </LinearLayout>
 
                         <TextView
+                            android:id="@+id/recently_stage_results_table_first_place_time"
                             android:layout_weight="0.5"
-                            android:text="Время 1"
+                            android:text="@string/time"
                             android:textColor="@color/white"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -473,20 +497,22 @@
                             android:gravity="center"/>
 
                         <TextView
+                            android:id="@+id/recently_stage_results_table_first_place_points"
                             android:layout_weight="0.5"
-                            android:text="Очки 1"
+                            android:text="@string/points"
                             android:textColor="@color/white"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/open_sans"
-                            android:gravity="right"
+                            android:lagravity="right"
                             android:textSize="13sp"/>
                     </TableRow>
 
                     <TableRow>
                         <TextView
+                            android:id="@+id/recently_stage_results_table_second_number"
                             android:layout_weight="0.5"
-                            android:text="2"
+                            android:text="@string/_2"
                             android:textColor="@color/silver"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -494,50 +520,59 @@
                             android:textSize="13sp"/>
 
                         <LinearLayout
+                            android:id="@+id/recently_stage_results_table_second_place_pilot_layout"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:paddingRight="4dp">
 
                             <ImageView
+                                android:id="@+id/recently_stage_results_table_second_place_pilot_flag"
                                 android:layout_width="20dp"
                                 android:layout_height="15dp"
                                 android:background="@drawable/flag" />
 
                             <TextView
+                                android:id="@+id/recently_stage_results_table_second_place_pilot_name"
+                                android:paddingLeft="2dp"
                                 android:layout_weight="0.5"
-                                android:text="Имя пилота 2"
+                                android:text="@string/pilot_name"
                                 android:textColor="@color/white"
-                                android:layout_width="wrap_content"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/open_sans"
                                 android:textSize="13sp"/>
                         </LinearLayout>
 
                         <LinearLayout
+                            android:id="@+id/recently_stage_results_table_second_place_team_layout"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:paddingRight="4dp">
 
                             <ImageView
+                                android:id="@+id/recently_stage_results_table_second_place_team_flag"
                                 android:layout_width="20dp"
                                 android:layout_height="15dp"
                                 android:background="@drawable/flag" />
 
                             <TextView
+                                android:id="@+id/recently_stage_results_table_second_place_team_name"
+                                android:paddingLeft="2dp"
                                 android:layout_weight="0.5"
-                                android:text="Команда 2"
+                                android:text="@string/team_name"
                                 android:textColor="@color/white"
-                                android:layout_width="wrap_content"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/open_sans"
                                 android:textSize="13sp"/>
                         </LinearLayout>
 
                         <TextView
+                            android:id="@+id/recently_stage_results_table_second_place_time"
                             android:layout_weight="0.5"
-                            android:text="Время 2"
+                            android:text="@string/time"
                             android:textColor="@color/white"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -546,8 +581,9 @@
                             android:gravity="center"/>
 
                         <TextView
+                            android:id="@+id/recently_stage_results_table_second_place_points"
                             android:layout_weight="0.5"
-                            android:text="Очки 2"
+                            android:text="@string/points"
                             android:textColor="@color/white"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -558,8 +594,9 @@
 
                     <TableRow>
                         <TextView
+                            android:id="@+id/recently_stage_results_table_third_number"
                             android:layout_weight="0.5"
-                            android:text="3"
+                            android:text="@string/_3"
                             android:textColor="@color/bronze"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -567,50 +604,59 @@
                             android:textSize="13sp"/>
 
                         <LinearLayout
+                            android:id="@+id/recently_stage_results_table_third_place_pilot_layout"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:paddingRight="4dp">
 
                             <ImageView
+                                android:id="@+id/recently_stage_results_table_third_place_pilot_flag"
                                 android:layout_width="20dp"
                                 android:layout_height="15dp"
                                 android:background="@drawable/flag" />
 
                             <TextView
+                                android:id="@+id/recently_stage_results_table_third_place_pilot_name"
+                                android:paddingLeft="2dp"
                                 android:layout_weight="0.5"
-                                android:text="Имя пилота 3"
+                                android:text="@string/pilot_name"
                                 android:textColor="@color/white"
-                                android:layout_width="wrap_content"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/open_sans"
                                 android:textSize="13sp"/>
                         </LinearLayout>
 
                         <LinearLayout
+                            android:id="@+id/recently_stage_results_table_third_place_team_layout"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:paddingRight="4dp">
 
                             <ImageView
+                                android:id="@+id/recently_stage_results_table_third_place_team_flag"
                                 android:layout_width="20dp"
                                 android:layout_height="15dp"
                                 android:background="@drawable/flag" />
 
                             <TextView
+                                android:id="@+id/recently_stage_results_table_third_place_team_name"
+                                android:paddingLeft="2dp"
                                 android:layout_weight="0.5"
-                                android:text="Команда 3"
+                                android:text="@string/team_name"
                                 android:textColor="@color/white"
-                                android:layout_width="wrap_content"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/open_sans"
                                 android:textSize="13sp"/>
                         </LinearLayout>
 
                         <TextView
+                            android:id="@+id/recently_stage_results_table_third_place_time"
                             android:layout_weight="0.5"
-                            android:text="Время 3"
+                            android:text="@string/time"
                             android:textColor="@color/white"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -619,8 +665,9 @@
                             android:gravity="center"/>
 
                         <TextView
+                            android:id="@+id/recently_stage_results_table_third_place_points"
                             android:layout_weight="0.5"
-                            android:text="Очки 3"
+                            android:text="@string/points"
                             android:textColor="@color/white"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -631,8 +678,9 @@
 
                     <TableRow>
                         <TextView
+                            android:id="@+id/recently_stage_results_table_fourth_number"
                             android:layout_weight="0.5"
-                            android:text="4"
+                            android:text="@string/_4"
                             android:textColor="@color/white"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -640,49 +688,59 @@
                             android:textSize="13sp"/>
 
                         <LinearLayout
+                            android:id="@+id/recently_stage_results_table_fourth_place_pilot_layout"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:paddingRight="4dp">
 
                             <ImageView
+                                android:id="@+id/recently_stage_results_table_fourth_place_pilot_flag"
                                 android:layout_width="20dp"
                                 android:layout_height="15dp"
                                 android:background="@drawable/flag" />
 
                             <TextView
+                                android:id="@+id/recently_stage_results_table_fourth_place_pilot_name"
+                                android:paddingLeft="2dp"
                                 android:layout_weight="0.5"
-                                android:text="Имя пилота 4"
+                                android:text="@string/pilot_name"
                                 android:textColor="@color/white"
-                                android:layout_width="wrap_content"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/open_sans"
                                 android:textSize="13sp"/>
                         </LinearLayout>
 
                         <LinearLayout
+                            android:id="@+id/recently_stage_results_table_fourth_place_team_layout"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:paddingRight="4dp">
+
                             <ImageView
+                                android:id="@+id/recently_stage_results_table_fourth_place_team_flag"
                                 android:layout_width="20dp"
                                 android:layout_height="15dp"
                                 android:background="@drawable/flag" />
 
                             <TextView
+                                android:id="@+id/recently_stage_results_table_fourth_place_team_name"
+                                android:paddingLeft="2dp"
                                 android:layout_weight="0.5"
-                                android:text="Команда 4"
+                                android:text="@string/team_name"
                                 android:textColor="@color/white"
-                                android:layout_width="wrap_content"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/open_sans"
                                 android:textSize="13sp"/>
                         </LinearLayout>
 
                         <TextView
+                            android:id="@+id/recently_stage_results_table_fourth_place_time"
                             android:layout_weight="0.5"
-                            android:text="Время 4"
+                            android:text="@string/time"
                             android:textColor="@color/white"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -691,8 +749,9 @@
                             android:gravity="center"/>
 
                         <TextView
+                            android:id="@+id/recently_stage_results_table_fourth_place_points"
                             android:layout_weight="0.5"
-                            android:text="Очки 4"
+                            android:text="@string/points"
                             android:textColor="@color/white"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -703,8 +762,9 @@
 
                     <TableRow>
                         <TextView
+                            android:id="@+id/recently_stage_results_table_fifth_number"
                             android:layout_weight="0.5"
-                            android:text="5"
+                            android:text="@string/_5"
                             android:textColor="@color/white"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -712,50 +772,59 @@
                             android:textSize="13sp"/>
 
                         <LinearLayout
+                            android:id="@+id/recently_stage_results_table_fifth_place_pilot_layout"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:paddingRight="4dp">
 
                             <ImageView
+                                android:id="@+id/recently_stage_results_table_fifth_place_pilot_flag"
                                 android:layout_width="20dp"
                                 android:layout_height="15dp"
                                 android:background="@drawable/flag" />
 
                             <TextView
+                                android:id="@+id/recently_stage_results_table_fifth_place_pilot_name"
+                                android:paddingLeft="2dp"
                                 android:layout_weight="0.5"
-                                android:text="Имя пилота 5"
+                                android:text="@string/pilot_name"
                                 android:textColor="@color/white"
-                                android:layout_width="wrap_content"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/open_sans"
                                 android:textSize="13sp"/>
                         </LinearLayout>
 
                         <LinearLayout
+                            android:id="@+id/recently_stage_results_table_fifth_place_team_layout"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:paddingRight="4dp">
 
                             <ImageView
+                                android:id="@+id/recently_stage_results_table_fifth_place_team_flag"
                                 android:layout_width="20dp"
                                 android:layout_height="15dp"
                                 android:background="@drawable/flag" />
 
                             <TextView
+                                android:id="@+id/recently_stage_results_table_fifth_place_team_name"
+                                android:paddingLeft="2dp"
                                 android:layout_weight="0.5"
-                                android:text="Команда 5"
+                                android:text="@string/team_name"
                                 android:textColor="@color/white"
-                                android:layout_width="wrap_content"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/open_sans"
                                 android:textSize="13sp"/>
                         </LinearLayout>
 
                         <TextView
+                            android:id="@+id/recently_stage_results_table_fifth_place_time"
                             android:layout_weight="0.5"
-                            android:text="Время 5"
+                            android:text="@string/time"
                             android:textColor="@color/white"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -764,8 +833,9 @@
                             android:gravity="center"/>
 
                         <TextView
+                            android:id="@+id/recently_stage_results_table_fifth_place_points"
                             android:layout_weight="0.5"
-                            android:text="Очки 5"
+                            android:text="@string/points"
                             android:textColor="@color/white"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -776,8 +846,9 @@
 
                     <TableRow>
                         <TextView
+                            android:id="@+id/recently_stage_results_table_sixth_number"
                             android:layout_weight="0.5"
-                            android:text="6"
+                            android:text="@string/_6"
                             android:textColor="@color/white"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -785,51 +856,60 @@
                             android:textSize="13sp"/>
 
                         <LinearLayout
+                            android:id="@+id/recently_stage_results_table_sixth_place_pilot_layout"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:paddingRight="4dp">
 
                             <ImageView
+                                android:id="@+id/recently_stage_results_table_sixth_place_pilot_flag"
                                 android:layout_width="20dp"
                                 android:layout_height="15dp"
                                 android:background="@drawable/flag"
                                 android:textSize="13sp"/>
 
                             <TextView
+                                android:id="@+id/recently_stage_results_table_sixth_place_pilot_name"
+                                android:paddingLeft="2dp"
                                 android:layout_weight="0.5"
-                                android:text="Имя пилота 6"
+                                android:text="@string/pilot_name"
                                 android:textColor="@color/white"
-                                android:layout_width="wrap_content"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/open_sans"
                                 android:textSize="13sp"/>
                         </LinearLayout>
 
                         <LinearLayout
+                            android:id="@+id/recently_stage_results_table_sixth_place_team_layout"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:paddingRight="4dp">
 
                             <ImageView
+                                android:id="@+id/recently_stage_results_table_sixth_place_team_flag"
                                 android:layout_width="20dp"
                                 android:layout_height="15dp"
                                 android:background="@drawable/flag" />
 
                             <TextView
+                                android:id="@+id/recently_stage_results_table_sixth_place_team_name"
+                                android:paddingLeft="2dp"
                                 android:layout_weight="0.5"
-                                android:text="Команда 6"
+                                android:text="@string/team_name"
                                 android:textColor="@color/white"
-                                android:layout_width="wrap_content"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/open_sans"
                                 android:textSize="13sp"/>
                         </LinearLayout>
 
                         <TextView
+                            android:id="@+id/recently_stage_results_table_sixth_place_time"
                             android:layout_weight="0.5"
-                            android:text="Время 6"
+                            android:text="@string/time"
                             android:textColor="@color/white"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -838,8 +918,9 @@
                             android:gravity="center"/>
 
                         <TextView
+                            android:id="@+id/recently_stage_results_table_sixth_place_points"
                             android:layout_weight="0.5"
-                            android:text="Очки 6"
+                            android:text="@string/points"
                             android:textColor="@color/white"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -850,8 +931,9 @@
 
                     <TableRow>
                         <TextView
+                            android:id="@+id/recently_stage_results_table_seventh_number"
                             android:layout_weight="0.5"
-                            android:text="7"
+                            android:text="@string/_7"
                             android:textColor="@color/white"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -859,50 +941,59 @@
                             android:textSize="13sp"/>
 
                         <LinearLayout
+                            android:id="@+id/recently_stage_results_table_seventh_place_pilot_layout"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:paddingRight="4dp">
 
                             <ImageView
+                                android:id="@+id/recently_stage_results_table_seventh_place_pilot_flag"
                                 android:layout_width="20dp"
                                 android:layout_height="15dp"
                                 android:background="@drawable/flag" />
 
                             <TextView
+                                android:id="@+id/recently_stage_results_table_seventh_place_pilot_name"
+                                android:paddingLeft="2dp"
                                 android:layout_weight="0.5"
-                                android:text="Имя пилота 7"
+                                android:text="@string/pilot_name"
                                 android:textColor="@color/white"
-                                android:layout_width="wrap_content"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/open_sans"
                                 android:textSize="13sp"/>
                         </LinearLayout>
 
                         <LinearLayout
+                            android:id="@+id/recently_stage_results_table_seventh_place_team_layout"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:paddingRight="4dp">
 
                             <ImageView
+                                android:id="@+id/recently_stage_results_table_seventh_place_team_flag"
                                 android:layout_width="20dp"
                                 android:layout_height="15dp"
                                 android:background="@drawable/flag" />
 
                             <TextView
+                                android:id="@+id/recently_stage_results_table_seventh_place_team_name"
+                                android:paddingLeft="2dp"
                                 android:layout_weight="0.5"
-                                android:text="Команда 7"
+                                android:text="@string/team_name"
                                 android:textColor="@color/white"
-                                android:layout_width="wrap_content"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/open_sans"
                                 android:textSize="13sp"/>
                         </LinearLayout>
 
                         <TextView
+                            android:id="@+id/recently_stage_results_table_seventh_place_time"
                             android:layout_weight="0.5"
-                            android:text="Время 7"
+                            android:text="@string/time"
                             android:textColor="@color/white"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -911,8 +1002,9 @@
                             android:gravity="center"/>
 
                         <TextView
+                            android:id="@+id/recently_stage_results_table_seventh_place_points"
                             android:layout_weight="0.5"
-                            android:text="Очки 7"
+                            android:text="@string/points"
                             android:textColor="@color/white"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -923,8 +1015,9 @@
 
                     <TableRow>
                         <TextView
+                            android:id="@+id/recently_stage_results_table_eighth_number"
                             android:layout_weight="0.5"
-                            android:text="8"
+                            android:text="@string/_8"
                             android:textColor="@color/white"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -932,50 +1025,59 @@
                             android:textSize="13sp"/>
 
                         <LinearLayout
+                            android:id="@+id/recently_stage_results_table_eighth_place_pilot_layout"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:paddingRight="4dp">
 
                             <ImageView
+                                android:id="@+id/recently_stage_results_table_eighth_place_pilot_flag"
                                 android:layout_width="20dp"
                                 android:layout_height="15dp"
                                 android:background="@drawable/flag" />
 
                             <TextView
+                                android:id="@+id/recently_stage_results_table_eighth_place_pilot_name"
+                                android:paddingLeft="2dp"
                                 android:layout_weight="0.5"
-                                android:text="Имя пилота 8"
+                                android:text="@string/pilot_name"
                                 android:textColor="@color/white"
-                                android:layout_width="wrap_content"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/open_sans"
                                 android:textSize="13sp"/>
                         </LinearLayout>
 
                         <LinearLayout
+                            android:id="@+id/recently_stage_results_table_eighth_place_team_layout"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:paddingRight="4dp">
 
                             <ImageView
+                                android:id="@+id/recently_stage_results_table_eighth_place_team_flag"
                                 android:layout_width="20dp"
                                 android:layout_height="15dp"
                                 android:background="@drawable/flag" />
 
                             <TextView
+                                android:id="@+id/recently_stage_results_table_eighth_place_team_name"
+                                android:paddingLeft="2dp"
                                 android:layout_weight="0.5"
-                                android:text="Команда 8"
+                                android:text="@string/team_name"
                                 android:textColor="@color/white"
-                                android:layout_width="wrap_content"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/open_sans"
                                 android:textSize="13sp"/>
                         </LinearLayout>
 
                         <TextView
+                            android:id="@+id/recently_stage_results_table_eighth_place_time"
                             android:layout_weight="0.5"
-                            android:text="Время 8"
+                            android:text="@string/time"
                             android:textColor="@color/white"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -984,8 +1086,9 @@
                             android:gravity="center"/>
 
                         <TextView
+                            android:id="@+id/recently_stage_results_table_eighth_place_points"
                             android:layout_weight="0.5"
-                            android:text="Очки 8"
+                            android:text="@string/points"
                             android:textColor="@color/white"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -996,8 +1099,9 @@
 
                     <TableRow>
                         <TextView
+                            android:id="@+id/recently_stage_results_table_ninth_number"
                             android:layout_weight="0.5"
-                            android:text="9"
+                            android:text="@string/_9"
                             android:textColor="@color/white"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -1005,50 +1109,59 @@
                             android:textSize="13sp"/>
 
                         <LinearLayout
+                            android:id="@+id/recently_stage_results_table_ninth_place_pilot_layout"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:paddingRight="4dp">
 
                             <ImageView
+                                android:id="@+id/recently_stage_results_table_ninth_place_pilot_flag"
                                 android:layout_width="20dp"
                                 android:layout_height="15dp"
                                 android:background="@drawable/flag" />
 
                             <TextView
+                                android:id="@+id/recently_stage_results_table_ninth_place_pilot_name"
+                                android:paddingLeft="2dp"
                                 android:layout_weight="0.5"
-                                android:text="Имя пилота 9"
+                                android:text="@string/pilot_name"
                                 android:textColor="@color/white"
-                                android:layout_width="wrap_content"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/open_sans"
                                 android:textSize="13sp"/>
                         </LinearLayout>
 
                         <LinearLayout
+                            android:id="@+id/recently_stage_results_table_ninth_place_team_layout"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:paddingRight="4dp">
 
                             <ImageView
+                                android:id="@+id/recently_stage_results_table_ninth_place_team_flag"
                                 android:layout_width="20dp"
                                 android:layout_height="15dp"
                                 android:background="@drawable/flag" />
 
                             <TextView
+                                android:id="@+id/recently_stage_results_table_ninth_place_team_name"
+                                android:paddingLeft="2dp"
                                 android:layout_weight="0.5"
-                                android:text="Команда 9"
+                                android:text="@string/team_name"
                                 android:textColor="@color/white"
-                                android:layout_width="wrap_content"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/open_sans"
                                 android:textSize="13sp"/>
                         </LinearLayout>
 
                         <TextView
+                            android:id="@+id/recently_stage_results_table_ninth_place_time"
                             android:layout_weight="0.5"
-                            android:text="Время 9"
+                            android:text="@string/time"
                             android:textColor="@color/white"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -1057,8 +1170,9 @@
                             android:gravity="center"/>
 
                         <TextView
+                            android:id="@+id/recently_stage_results_table_ninth_place_points"
                             android:layout_weight="0.5"
-                            android:text="Очки 9"
+                            android:text="@string/points"
                             android:textColor="@color/white"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -1069,8 +1183,9 @@
 
                     <TableRow>
                         <TextView
+                            android:id="@+id/recently_stage_results_table_tenth_number"
                             android:layout_weight="0.5"
-                            android:text="10"
+                            android:text="@string/_10"
                             android:textColor="@color/white"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -1078,50 +1193,59 @@
                             android:textSize="13sp"/>
 
                         <LinearLayout
+                            android:id="@+id/recently_stage_results_table_tenth_place_pilot_layout"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:paddingRight="4dp">
+                            android:paddingEnd="4dp">
 
                             <ImageView
+                                android:id="@+id/recently_stage_results_table_tenth_place_pilot_flag"
                                 android:layout_width="20dp"
                                 android:layout_height="15dp"
                                 android:background="@drawable/flag" />
 
                             <TextView
+                                android:id="@+id/recently_stage_results_table_tenth_place_pilot_name"
+                                android:paddingLeft="2dp"
                                 android:layout_weight="0.5"
-                                android:text="Имя пилота 10"
+                                android:text="@string/pilot_name"
                                 android:textColor="@color/white"
-                                android:layout_width="wrap_content"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/open_sans"
                                 android:textSize="13sp"/>
                         </LinearLayout>
 
                         <LinearLayout
+                            android:id="@+id/recently_stage_results_table_tenth_place_team_layout"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:paddingRight="4dp">
+                            android:paddingEnd="4dp">
 
                             <ImageView
+                                android:id="@+id/recently_stage_results_table_tenth_place_team_flag"
                                 android:layout_width="20dp"
                                 android:layout_height="15dp"
                                 android:background="@drawable/flag" />
 
                             <TextView
+                                android:id="@+id/recently_stage_results_table_tenth_place_team_name"
+                                android:paddingLeft="2dp"
                                 android:layout_weight="0.5"
-                                android:text="Команда 10"
+                                android:text="@string/team_name"
                                 android:textColor="@color/white"
-                                android:layout_width="wrap_content"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/open_sans"
                                 android:textSize="13sp"/>
                         </LinearLayout>
 
                         <TextView
+                            android:id="@+id/recently_stage_results_table_tenth_place_time"
                             android:layout_weight="0.5"
-                            android:text="Время 10"
+                            android:text="@string/time"
                             android:textColor="@color/white"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -1130,8 +1254,9 @@
                             android:gravity="center"/>
 
                         <TextView
+                            android:id="@+id/recently_stage_results_table_tenth_place_points"
                             android:layout_weight="0.5"
-                            android:text="Очки 10"
+                            android:text="@string/points"
                             android:textColor="@color/white"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -1157,13 +1282,13 @@
                 android:orientation="vertical">
 
                 <TextView
-
+                    android:id="@+id/about_stage_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingLeft="7dp"
                     android:paddingRight="7dp"
                     android:paddingBottom="2dp"
-                    android:text="Об этапе"
+                    android:text="@string/about_stage"
                     android:gravity="center"
                     android:textColor="@color/white"
                     android:textSize="20sp"
@@ -1175,37 +1300,16 @@
                     android:background="@color/black" />
 
                 <TextView
+                    android:id="@+id/about_stage_references"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingLeft="7dp"
                     android:paddingRight="7dp"
                     android:paddingBottom="2dp"
-                    android:text="Ссылка\nСсылка\nСсылка\nСсылка"
-                    android:textColor="@color/white"
+                    android:text="@string/references"
+                    android:textColor="@color/red"
                     android:textSize="16sp"
-                    android:fontFamily="@font/open_sans"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="7dp"
-                    android:paddingRight="7dp"
-                    android:paddingBottom="2dp"
-                    android:text="Ссылка\nСсылка\nСсылка\nСсылка"
-                    android:textColor="@color/white"
-                    android:textSize="16sp"
-                    android:fontFamily="@font/open_sans"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="7dp"
-                    android:paddingRight="7dp"
-                    android:paddingBottom="2dp"
-                    android:text="Ссылка\nСсылка\nСсылка\nСсылка"
-                    android:textColor="@color/white"
-                    android:textSize="16sp"
-                    android:fontFamily="@font/open_sans"/>
+                    android:fontFamily="@font/open_sans" />
             </LinearLayout>
 
         </LinearLayout>

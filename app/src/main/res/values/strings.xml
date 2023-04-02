@@ -6,4 +6,25 @@
     <string name="title_calendar">Календарь</string>
     <string name="title_content">Контент</string>
     <string name="title_seasons">Сезоны</string>
+    <string name="soon">Скоро</string>
+    <string name="till"> - </string>
+    <string name="stage_name">Название Гран-при</string>
+    <string name="stage_place">Место проведения Гран-при</string>
+    <string name="where_see">Где смотреть?</string>
+    <string name="about_stage">Об этапе</string>
+    <string name="references">Ссылки</string>
+    <string name="_1">1</string>
+    <string name="_2">2</string>
+    <string name="_3">3</string>
+    <string name="_4">4</string>
+    <string name="_5">5</string>
+    <string name="_6">6</string>
+    <string name="_7">7</string>
+    <string name="_8">8</string>
+    <string name="_9">9</string>
+    <string name="_10">10</string>
+    <string name="pilot_name">Имя пилота</string>
+    <string name="team_name">Команда</string>
+    <string name="time">Время</string>
+    <string name="points">Очки</string>
 </resources>
