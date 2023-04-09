@@ -20,15 +20,8 @@ public class SeasonsFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        SeasonsViewModel dashboardViewModel =
-                new ViewModelProvider(this).get(SeasonsViewModel.class);
-
         binding = FragmentSeasonsBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
-
-        final TextView textView = binding.textSeasons;
-        dashboardViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
-        return root;
+        return binding.getRoot();
     }
 
     @Override

@@ -1,20 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     tools:context=".ui.championship.ChampionshipFragment"
-    android:background="@color/black"
-    tools:ignore="MissingDefaultResource">
+    android:background="@color/black">
 
     <TextView
         android:id="@+id/home_screen_name"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         android:layout_marginBottom="2dp"
         android:fontFamily="@font/open_sans_bold"
         android:gravity="center"
@@ -22,4 +19,46 @@
         android:textColor="@color/red"
         android:textSize="30sp" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/championship_tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="24dp"
+        android:background="@drawable/simple_frame"
+        app:tabTextAppearance="@style/tab_text"
+        app:tabTextColor="@color/white"
+        app:tabSelectedTextColor="@color/red"
+        app:tabIndicatorHeight="2dp"
+        app:tabIndicatorFullWidth="false"
+        app:tabGravity="fill"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp">
+        
+        <com.google.android.material.tabs.TabItem
+            android:text="@string/individual_standings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <com.google.android.material.tabs.TabItem
+            android:text="@string/team_standings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <com.google.android.material.tabs.TabItem
+            android:text="@string/stages"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </com.google.android.material.tabs.TabLayout>
+    
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/championship_viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+    
+    <FrameLayout
+        android:visibility="gone"
+        android:id="@+id/championship_FrameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+</LinearLayout>

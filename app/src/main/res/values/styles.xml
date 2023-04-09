@@ -4,4 +4,8 @@
         parent="Widget.Design.BottomNavigationView">
         <item name="fontFamily">@font/open_sans</item>
     </style>
+    <style name="tab_text" parent="@android:style/TextAppearance.Widget.TabWidget">
+        <item name="android:fontFamily">@font/open_sans_semibold</item>
+        <item name="android:textSize">10sp</item>
+    </style>
 </resources>

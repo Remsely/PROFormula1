@@ -20,15 +20,8 @@ public class ContentFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        ContentViewModel dashboardViewModel =
-                new ViewModelProvider(this).get(ContentViewModel.class);
-
         binding = FragmentContentBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
-
-        final TextView textView = binding.textContent;
-        dashboardViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
-        return root;
+        return binding.getRoot();
     }
 
     @Override
