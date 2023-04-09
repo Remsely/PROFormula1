@@ -364,7 +364,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/simple_frame"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:layout_marginBottom="8dp">
 
                 <RelativeLayout
                     android:id="@+id/recently_top_part_of_frame"
@@ -440,6 +441,7 @@
                             android:id="@+id/recently_stage_results_table_first_place_pilot_layout"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:gravity="center"
                             android:paddingEnd="4dp">
 
                             <ImageView
@@ -465,7 +467,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:paddingRight="4dp">
+                            android:paddingEnd="4dp"
+                            android:layout_marginBottom="2dp">
 
                             <ImageView
                                 android:id="@+id/recently_stage_results_table_first_place_team_flag"
@@ -524,6 +527,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
+                            android:layout_marginBottom="2dp"
                             android:paddingRight="4dp">
 
                             <ImageView
@@ -608,6 +612,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
+                            android:layout_marginBottom="2dp"
                             android:paddingRight="4dp">
 
                             <ImageView
@@ -692,6 +697,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
+                            android:layout_marginBottom="2dp"
                             android:paddingRight="4dp">
 
                             <ImageView
@@ -776,6 +782,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
+                            android:layout_marginBottom="2dp"
                             android:paddingRight="4dp">
 
                             <ImageView
@@ -860,6 +867,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
+                            android:layout_marginBottom="2dp"
                             android:paddingRight="4dp">
 
                             <ImageView
@@ -945,6 +953,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
+                            android:layout_marginBottom="2dp"
                             android:paddingRight="4dp">
 
                             <ImageView
@@ -1029,6 +1038,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
+                            android:layout_marginBottom="2dp"
                             android:paddingRight="4dp">
 
                             <ImageView
@@ -1113,6 +1123,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
+                            android:layout_marginBottom="2dp"
                             android:paddingRight="4dp">
 
                             <ImageView
@@ -1268,12 +1279,6 @@
                 </TableLayout>
 
             </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="8dp"
-                android:background="@drawable/divider"
-                android:orientation="vertical"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
