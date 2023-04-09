@@ -16,9 +16,7 @@ import com.google.android.material.tabs.TabLayout;
 import edu.samsungit.remsely.proformula.databinding.FragmentChampionshipBinding;
 
 public class ChampionshipFragment extends Fragment {
-
     private FragmentChampionshipBinding binding;
-
     TabLayout tabLayout;
     ViewPager2 viewPager2;
     ViewPagerAdapter viewPagerAdapter;
