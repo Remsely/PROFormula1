@@ -13,7 +13,7 @@
 
     <fragment
         android:id="@+id/navigation_championship"
-        android:name="edu.samsungit.remsely.proformula.ui.campionship.ChampionshipFragment"
+        android:name="edu.samsungit.remsely.proformula.ui.championship.ChampionshipFragment"
         android:label="@string/title_championship"
         tools:layout="@layout/fragment_championship" />
 

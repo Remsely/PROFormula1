@@ -49,7 +49,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/notifications_button"
-                android:scaleType="centerInside"/>
+                android:scaleType="centerInside" />
 
         </LinearLayout>
 
@@ -440,7 +440,7 @@
                             android:id="@+id/recently_stage_results_table_first_place_pilot_layout"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:paddingRight="4dp">
+                            android:paddingEnd="4dp">
 
                             <ImageView
                                 android:id="@+id/recently_stage_results_table_first_place_pilot_flag"
@@ -494,7 +494,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/open_sans"
                             android:textSize="13sp"
-                            android:gravity="center"/>
+                            android:gravity="right"/>
 
                         <TextView
                             android:id="@+id/recently_stage_results_table_first_place_points"
@@ -504,7 +504,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/open_sans"
-                            android:lagravity="right"
+                            android:gravity="right"
                             android:textSize="13sp"/>
                     </TableRow>
 
@@ -578,7 +578,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/open_sans"
                             android:textSize="13sp"
-                            android:gravity="center"/>
+                            android:gravity="right"/>
 
                         <TextView
                             android:id="@+id/recently_stage_results_table_second_place_points"
@@ -662,7 +662,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/open_sans"
                             android:textSize="13sp"
-                            android:gravity="center"/>
+                            android:gravity="right"/>
 
                         <TextView
                             android:id="@+id/recently_stage_results_table_third_place_points"
@@ -746,7 +746,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/open_sans"
                             android:textSize="13sp"
-                            android:gravity="center"/>
+                            android:gravity="right"/>
 
                         <TextView
                             android:id="@+id/recently_stage_results_table_fourth_place_points"
@@ -830,7 +830,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/open_sans"
                             android:textSize="13sp"
-                            android:gravity="center"/>
+                            android:gravity="right"/>
 
                         <TextView
                             android:id="@+id/recently_stage_results_table_fifth_place_points"
@@ -915,7 +915,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/open_sans"
                             android:textSize="13sp"
-                            android:gravity="center"/>
+                            android:gravity="right"/>
 
                         <TextView
                             android:id="@+id/recently_stage_results_table_sixth_place_points"
@@ -999,7 +999,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/open_sans"
                             android:textSize="13sp"
-                            android:gravity="center"/>
+                            android:gravity="right"/>
 
                         <TextView
                             android:id="@+id/recently_stage_results_table_seventh_place_points"
@@ -1083,7 +1083,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/open_sans"
                             android:textSize="13sp"
-                            android:gravity="center"/>
+                            android:gravity="right"/>
 
                         <TextView
                             android:id="@+id/recently_stage_results_table_eighth_place_points"
@@ -1167,7 +1167,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/open_sans"
                             android:textSize="13sp"
-                            android:gravity="center"/>
+                            android:gravity="right"/>
 
                         <TextView
                             android:id="@+id/recently_stage_results_table_ninth_place_points"
@@ -1251,7 +1251,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/open_sans"
                             android:textSize="13sp"
-                            android:gravity="center"/>
+                            android:gravity="right"/>
 
                         <TextView
                             android:id="@+id/recently_stage_results_table_tenth_place_points"

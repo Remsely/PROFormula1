@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="open_sans_normal">
-        <item name="android:fontFamily" type="@font/open_sans"/>
-        <item name="fontFamily" type="@font/open_sans"/>
-        <item name="android:textStyle">normal</item>
+    <style name="Widget.BottomNavigationView"
+        parent="Widget.Design.BottomNavigationView">
+        <item name="fontFamily">@font/open_sans</item>
     </style>
 </resources>

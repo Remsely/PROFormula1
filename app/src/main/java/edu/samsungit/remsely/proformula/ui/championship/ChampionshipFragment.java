@@ -1,10 +1,9 @@
-package edu.samsungit.remsely.proformula.ui.campionship;
+package edu.samsungit.remsely.proformula.ui.championship;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -20,13 +19,8 @@ public class ChampionshipFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         ChampionshipViewModel dashboardViewModel =
                 new ViewModelProvider(this).get(ChampionshipViewModel.class);
-
         binding = FragmentChampionshipBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
-
-        final TextView textView = binding.textChampionship;
-        dashboardViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
-        return root;
+        return binding.getRoot();
     }
 
     @Override

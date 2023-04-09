@@ -5,7 +5,6 @@ import androidx.lifecycle.ViewModelProvider;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -13,10 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import edu.samsungit.remsely.proformula.R;
-import edu.samsungit.remsely.proformula.databinding.FragmentChampionshipBinding;
 import edu.samsungit.remsely.proformula.databinding.FragmentContentBinding;
-import edu.samsungit.remsely.proformula.ui.campionship.ChampionshipViewModel;
 
 public class ContentFragment extends Fragment {
 
