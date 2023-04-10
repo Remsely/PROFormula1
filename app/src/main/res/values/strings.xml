@@ -29,7 +29,7 @@
     <string name="time">Время</string>
     <string name="points">Очки</string>
     <string name="individual_standings">Личный зачет</string>
-    <string name="team_standings">Коммандный зачет</string>
+    <string name="team_standings">Командный зачет</string>
     <string name="stages">Этапы</string>
     <string name="documentation_team_name">Полное название команды</string>
     <string name="_20">20</string>
@@ -52,4 +52,6 @@
     <string name="season">СЕЗОН</string>
     <string name="champion">Чемпион:</string>
     <string name="constructor">Конструктор:</string>
+    <string name="pilots">Пилоты</string>
+    <string name="teams">Команды</string>
 </resources>
