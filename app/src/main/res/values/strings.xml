@@ -54,4 +54,6 @@
     <string name="constructor">Конструктор:</string>
     <string name="pilots">Пилоты</string>
     <string name="teams">Команды</string>
+    <string name="notifications_dialog_fragment">УВЕДОМЛЕНИЯ</string>
+    <string name="free_practise">Свободные заезды</string>
 </resources>

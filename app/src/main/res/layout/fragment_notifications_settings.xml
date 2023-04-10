@@ -1,0 +1,464 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".ui.notifications_settings_dialog.NotificationsSettingsFragment"
+    android:orientation="vertical"
+    android:background="@color/black"
+    android:paddingBottom="8dp"
+    android:minWidth="1400dp"
+    android:minHeight="450dp">
+
+    <RelativeLayout
+        android:id="@+id/home_screen_top_panel"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="1dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_gravity="center">
+
+        <TextView
+            android:id="@+id/home_screen_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentTop="true"
+            android:fontFamily="@font/open_sans_bold"
+            android:gravity="center"
+            android:text="@string/notifications_dialog_fragment"
+            android:textColor="@color/red"
+            android:textSize="30sp" />
+
+        <LinearLayout
+            android:id="@+id/notifications_back_button"
+            android:layout_width="45dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/simple_frame"
+            android:gravity="center"
+            android:padding="5dp">
+
+            <ImageView
+                android:padding="5dp"
+                android:id="@+id/notifications_back_button_image_view"
+                android:layout_width="32dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/back_button_to_right"
+                android:scaleType="centerInside" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
+        android:id="@+id/soon_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="2dp"
+        android:text="@string/free_practise"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:fontFamily="@font/open_sans_bold"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/simple_frame"
+        android:orientation="vertical"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <Switch
+                android:paddingStart="2dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+            <TextView
+                android:layout_marginStart="1dp"
+                android:layout_marginEnd="1dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="2dp"
+                android:text="Уведомлять о предстоящих свободных заездах"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:fontFamily="@font/open_sans_bold"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <Switch
+                android:paddingStart="2dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+            <TextView
+                android:layout_marginStart="1dp"
+                android:layout_marginEnd="1dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="2dp"
+                android:text="Уведомлять о результатах свободных заездов"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:fontFamily="@font/open_sans_bold"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="2dp"
+        android:text="Квалификации"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:fontFamily="@font/open_sans_bold"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/simple_frame"
+        android:orientation="vertical"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <Switch
+                android:paddingStart="2dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+            <TextView
+                android:layout_marginStart="1dp"
+                android:layout_marginEnd="1dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="2dp"
+                android:text="Уведомлять о предстоящих квалификациях"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:fontFamily="@font/open_sans_bold"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <Switch
+                android:paddingStart="2dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+            <TextView
+                android:layout_marginStart="1dp"
+                android:layout_marginEnd="1dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="2dp"
+                android:text="Уведомлять о ходе квалификаций"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:fontFamily="@font/open_sans_bold"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <Switch
+                android:paddingStart="2dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+            <TextView
+                android:layout_marginStart="1dp"
+                android:layout_marginEnd="1dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="2dp"
+                android:text="Уведомлять о результатах квалификаций"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:fontFamily="@font/open_sans_bold"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="2dp"
+        android:text="Спринтерские гонки"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:fontFamily="@font/open_sans_bold"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/simple_frame"
+        android:orientation="vertical"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <Switch
+                android:paddingStart="2dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+            <TextView
+                android:layout_marginStart="1dp"
+                android:layout_marginEnd="1dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="2dp"
+                android:text="Уведомлять о предстоящих спринтерских гонках"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:fontFamily="@font/open_sans_bold"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <Switch
+                android:paddingStart="2dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+            <TextView
+                android:layout_marginStart="1dp"
+                android:layout_marginEnd="1dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="2dp"
+                android:text="Уведомлять о ходе спринтерских гонок"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:fontFamily="@font/open_sans_bold"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <Switch
+                android:paddingStart="2dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+            <TextView
+                android:layout_marginStart="1dp"
+                android:layout_marginEnd="1dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="2dp"
+                android:text="Уведомлять о результатах спринтерских гонок"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:fontFamily="@font/open_sans_bold"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="2dp"
+        android:text="Воскресные гонки"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:fontFamily="@font/open_sans_bold"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/simple_frame"
+        android:orientation="vertical"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <Switch
+                android:paddingStart="2dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+            <TextView
+                android:layout_marginStart="1dp"
+                android:layout_marginEnd="1dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="2dp"
+                android:text="Уведомлять о предстоящих гонках"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:fontFamily="@font/open_sans_bold"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <Switch
+                android:paddingStart="2dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+            <TextView
+                android:layout_marginStart="1dp"
+                android:layout_marginEnd="1dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="2dp"
+                android:text="Уведомлять о ходе гонок"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:fontFamily="@font/open_sans_bold"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <Switch
+                android:paddingStart="2dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+            <TextView
+                android:layout_marginStart="1dp"
+                android:layout_marginEnd="1dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="2dp"
+                android:text="Уведомлять о результатах гонок"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:fontFamily="@font/open_sans_bold"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="2dp"
+        android:text="Звук уведомлений"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:fontFamily="@font/open_sans_bold"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/simple_frame"
+        android:orientation="vertical"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <Switch
+                android:paddingStart="2dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:ignore="UseSwitchCompatOrMaterialXml"
+                android:checked="true"/>
+
+            <TextView
+                android:layout_marginStart="1dp"
+                android:layout_marginEnd="1dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="2dp"
+                android:text="Включить звук уведомлений"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:fontFamily="@font/open_sans_bold"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

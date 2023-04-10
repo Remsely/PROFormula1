@@ -1315,7 +1315,12 @@
                     android:textSize="16sp"
                     android:fontFamily="@font/open_sans" />
             </LinearLayout>
-
         </LinearLayout>
     </ScrollView>
+    <FrameLayout
+        android:visibility="gone"
+        android:id="@+id/mainScreen_FrameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
 </LinearLayout>
