@@ -1,31 +1,26 @@
 package edu.samsungit.remsely.proformula.ui.notifications_settings_dialog;
 
-import androidx.fragment.app.DialogFragment;
-import androidx.lifecycle.ViewModelProvider;
-
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
+import edu.samsungit.remsely.proformula.MainActivity;
 import edu.samsungit.remsely.proformula.R;
 import edu.samsungit.remsely.proformula.databinding.FragmentNotificationsSettingsBinding;
-import edu.samsungit.remsely.proformula.databinding.FragmentSeasonsBinding;
 
-public class NotificationsSettingsFragment extends DialogFragment {
+public class NotificationsSettingsFragment extends Fragment {
     private FragmentNotificationsSettingsBinding binding;
 
-    private  static final String TAG = "NotificationDialog";
-    private LinearLayout mCloseNotificationsDialog;
-
     private NotificationsSettingsViewModel mViewModel;
-
+    private LinearLayout mOpenHomeFragment;
     public static NotificationsSettingsFragment newInstance() {
         return new NotificationsSettingsFragment();
     }
@@ -40,11 +35,13 @@ public class NotificationsSettingsFragment extends DialogFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mCloseNotificationsDialog = binding.notificationsBackButton;
-        mCloseNotificationsDialog.setOnClickListener(v -> {
-            getDialog().dismiss();
+        mOpenHomeFragment = binding.notificationsBackButton;
+        navigateToHome();
+    }
+
+    public void navigateToHome(){
+        mOpenHomeFragment.setOnClickListener(v -> {
+            Navigation.findNavController(v).navigate(R.id.action_navigation_notifications_settings_to_navigation_home2);
         });
-
-
     }
 }
