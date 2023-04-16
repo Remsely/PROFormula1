@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.grand_prix_results.GrandPrixResultsFragment"
+    android:orientation="vertical"
+    android:background="@color/black">
+
+    <LinearLayout
+        android:id="@+id/grand_prix_results_screen_top_panel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="1dp"
+        android:gravity="top"
+        android:orientation="horizontal"
+        android:layout_gravity="fill_horizontal"
+        android:layout_marginBottom="8dp">
+
+        <LinearLayout
+            android:id="@+id/grand_prix_results_back_button"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:background="@drawable/simple_frame"
+            android:gravity="center"
+            android:padding="5dp">
+
+            <ImageView
+                android:padding="5dp"
+                android:id="@+id/grand_prix_results_back_button_image_view"
+                android:layout_width="32dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/back_button_to_left"
+                android:scaleType="centerInside" />
+        </LinearLayout>
+        <TextView
+            android:paddingLeft="4dp"
+            android:id="@+id/grand_prix_results_screen_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/open_sans_bold"
+            android:gravity="right"
+            android:text="ГРАН-ПРИ АВСТРАЛИИ 2023"
+            android:textColor="@color/red"
+            android:textSize="25sp" />
+
+    </LinearLayout>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/grand_prix_results_tab_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="28dp"
+        android:background="@color/dark_grey"
+        app:tabTextAppearance="@style/tab_text"
+        app:tabTextColor="@color/white"
+        app:tabSelectedTextColor="@color/red"
+        app:tabIndicatorHeight="2dp"
+        app:tabIndicatorFullWidth="false"
+        app:tabGravity="fill"
+        app:tabMode="scrollable">
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/practise_1"/>
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/practise_2"/>
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/practise_3"/>
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/qualification"/>
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/race"/>
+    </com.google.android.material.tabs.TabLayout>
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/grand_prix_results_view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <FrameLayout
+        android:visibility="gone"
+        android:id="@+id/grand_prix_results_FrameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+</LinearLayout>

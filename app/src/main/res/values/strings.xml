@@ -56,4 +56,9 @@
     <string name="teams">Команды</string>
     <string name="notifications_dialog_fragment">УВЕДОМЛЕНИЯ</string>
     <string name="free_practise">Свободные заезды</string>
+    <string name="practise_1">Практика №1</string>
+    <string name="practise_2">Практика №2</string>
+    <string name="practise_3">Практика №3</string>
+    <string name="qualification">Квалификация</string>
+    <string name="race">Гонка</string>
 </resources>

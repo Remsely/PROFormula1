@@ -359,7 +359,7 @@
                 android:fontFamily="@font/open_sans_bold"/>
 
             <LinearLayout
-                android:id="@+id/recently_stage_title"
+                android:id="@+id/recently_stage_frame"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/simple_frame"
@@ -372,7 +372,10 @@
                     android:layout_height="wrap_content"
                     android:gravity="fill_horizontal"
                     android:orientation="horizontal"
-                    android:padding="7dp">
+                    android:paddingLeft="7dp"
+                    android:paddingRight="7dp"
+                    android:paddingTop="7dp"
+                    android:paddingBottom="3dp">
 
                     <LinearLayout
                         android:id="@+id/recently_stage_name_and_place_of_event_layout"
@@ -1317,10 +1320,4 @@
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
-    <FrameLayout
-        android:visibility="gone"
-        android:id="@+id/mainScreen_FrameLayout"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"/>
 </LinearLayout>

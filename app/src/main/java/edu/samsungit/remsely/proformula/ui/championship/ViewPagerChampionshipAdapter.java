@@ -8,8 +8,8 @@ import edu.samsungit.remsely.proformula.ui.individual_standings.IndividualStandi
 import edu.samsungit.remsely.proformula.ui.season_stages.SeasonStagesFragment;
 import edu.samsungit.remsely.proformula.ui.team_standings.TeamStandingsFragment;
 
-public class ViewPagerAdapter extends FragmentStateAdapter {
-    public ViewPagerAdapter(@NonNull ChampionshipFragment fragmentActivity) {
+public class ViewPagerChampionshipAdapter extends FragmentStateAdapter {
+    public ViewPagerChampionshipAdapter(@NonNull ChampionshipFragment fragmentActivity) {
         super(fragmentActivity);
     }
 

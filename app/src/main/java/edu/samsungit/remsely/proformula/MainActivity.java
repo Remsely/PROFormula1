@@ -23,9 +23,6 @@ public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
     public NavController navController;
 
-    HomeFragment homeFragment;
-    NotificationsSettingsFragment notificationsSettingsFragment;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +32,5 @@ public class MainActivity extends AppCompatActivity {
         navView.setItemIconTintList(null);
         navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
         NavigationUI.setupWithNavController(binding.navView, navController);
-        homeFragment = new HomeFragment();
-        notificationsSettingsFragment = new NotificationsSettingsFragment();
     }
 }

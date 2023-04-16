@@ -24,6 +24,8 @@ import edu.samsungit.remsely.proformula.ui.notifications_settings_dialog.Notific
 public class HomeFragment extends Fragment {
     private FragmentHomeBinding binding;
     private LinearLayout mOpenNotificationSettingsFragment;
+
+    private LinearLayout mOpenGrandPrixResultsFragment;
     MainActivity mainActivity;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -38,7 +40,9 @@ public class HomeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         mOpenNotificationSettingsFragment = binding.notificationsButton;
+        mOpenGrandPrixResultsFragment = binding.recentlyStageFrame;
         navigateToNotificationsSettings();
+        navigateToGrandPrixResults();
     }
 
     @Override
@@ -50,6 +54,12 @@ public class HomeFragment extends Fragment {
     public void navigateToNotificationsSettings(){
         mOpenNotificationSettingsFragment.setOnClickListener(v -> {
             Navigation.findNavController(v).navigate(R.id.action_navigation_home_to_notificationsSettingsFragment);
+        });
+    }
+
+    public void navigateToGrandPrixResults(){
+        mOpenGrandPrixResultsFragment.setOnClickListener(v -> {
+            Navigation.findNavController(v).navigate(R.id.action_navigation_home_to_grandPrixResultsFragment);
         });
     }
 }

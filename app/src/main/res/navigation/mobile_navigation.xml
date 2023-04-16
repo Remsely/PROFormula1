@@ -15,6 +15,11 @@
             app:destination="@id/navigation_notifications_settings"
             app:enterAnim="@android:anim/slide_in_left"
             app:exitAnim="@android:anim/slide_out_right" />
+        <action
+            android:id="@+id/action_navigation_home_to_grandPrixResultsFragment"
+            app:destination="@id/grandPrixResultsFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
     </fragment>
 
     <fragment
@@ -52,4 +57,9 @@
             app:enterAnim="@android:anim/slide_in_left"
             app:exitAnim="@android:anim/slide_out_right" />
     </fragment>
+    <fragment
+        android:id="@+id/grandPrixResultsFragment"
+        android:name="edu.samsungit.remsely.proformula.ui.grand_prix_results.GrandPrixResultsFragment"
+        android:label="fragment_grand_prix_results"
+        tools:layout="@layout/fragment_grand_prix_results" />
 </navigation>

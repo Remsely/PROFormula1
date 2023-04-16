@@ -1,0 +1,1510 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.race_against_time.RaceAgainstTimeResultsFragment"
+    android:background="@color/black">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/simple_frame"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp">
+
+    <TableLayout
+        android:id="@+id/race_against_time_results_table"
+        android:paddingTop="2dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="7dp"
+        android:paddingEnd="7dp"
+        android:paddingBottom="2dp">
+
+        <TableRow>
+            <TextView
+                android:id="@+id/race_against_time_results_table_first_number"
+                android:layout_weight="0.5"
+                android:text="@string/_1"
+                android:textColor="@color/gold"
+                android:textSize="13sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/open_sans_semibold"/>
+
+            <LinearLayout
+                android:id="@+id/race_against_time_results_table_first_place_pilot_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingEnd="4dp">
+
+                <ImageView
+                    android:id="@+id/race_against_time_results_table_first_place_pilot_flag"
+                    android:layout_width="20dp"
+                    android:layout_height="15dp"
+                    android:background="@drawable/flag" />
+
+                <TextView
+                    android:id="@+id/race_against_time_results_table_first_place_pilot_name"
+                    android:paddingLeft="2dp"
+                    android:layout_weight="0.5"
+                    android:text="@string/pilot_name"
+                    android:textColor="@color/white"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="13sp"
+                    android:fontFamily="@font/open_sans"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/race_against_time_results_table_first_place_team_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingEnd="4dp"
+                android:layout_marginBottom="2dp">
+
+                <ImageView
+                    android:id="@+id/race_against_time_results_table_first_place_team_flag"
+                    android:layout_width="20dp"
+                    android:layout_height="15dp"
+                    android:background="@drawable/flag" />
+
+                <TextView
+                    android:id="@+id/race_against_time_results_table_first_place_team_name"
+                    android:paddingStart="2dp"
+                    android:layout_weight="0.5"
+                    android:text="@string/team_name"
+                    android:textColor="@color/white"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="13sp"
+                    android:fontFamily="@font/open_sans"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/race_against_time_results_table_first_place_time"
+                android:layout_weight="0.5"
+                android:text="@string/time"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/open_sans"
+                android:textSize="13sp"
+                android:gravity="right"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:id="@+id/race_against_time_results_table_second_number"
+                android:layout_weight="0.5"
+                android:text="@string/_2"
+                android:textColor="@color/silver"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/open_sans_semibold"
+                android:textSize="13sp"/>
+
+            <LinearLayout
+                android:id="@+id/race_against_time_results_table_second_place_pilot_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginBottom="2dp"
+                android:paddingRight="4dp">
+
+                <ImageView
+                    android:id="@+id/race_against_time_results_table_second_place_pilot_flag"
+                    android:layout_width="20dp"
+                    android:layout_height="15dp"
+                    android:background="@drawable/flag" />
+
+                <TextView
+                    android:id="@+id/race_against_time_results_table_second_place_pilot_name"
+                    android:paddingLeft="2dp"
+                    android:layout_weight="0.5"
+                    android:text="@string/pilot_name"
+                    android:textColor="@color/white"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/open_sans"
+                    android:textSize="13sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/race_against_time_results_table_second_place_team_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingRight="4dp">
+
+                <ImageView
+                    android:id="@+id/race_against_time_results_table_second_place_team_flag"
+                    android:layout_width="20dp"
+                    android:layout_height="15dp"
+                    android:background="@drawable/flag" />
+
+                <TextView
+                    android:id="@+id/race_against_time_results_table_second_place_team_name"
+                    android:paddingLeft="2dp"
+                    android:layout_weight="0.5"
+                    android:text="@string/team_name"
+                    android:textColor="@color/white"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/open_sans"
+                    android:textSize="13sp"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/race_against_time_results_table_second_place_time"
+                android:layout_weight="0.5"
+                android:text="@string/time"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/open_sans"
+                android:textSize="13sp"
+                android:gravity="right"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:id="@+id/race_against_time_results_table_third_number"
+                android:layout_weight="0.5"
+                android:text="@string/_3"
+                android:textColor="@color/bronze"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/open_sans_semibold"
+                android:textSize="13sp"/>
+
+            <LinearLayout
+                android:id="@+id/race_against_time_results_table_third_place_pilot_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginBottom="2dp"
+                android:paddingRight="4dp">
+
+                <ImageView
+                    android:id="@+id/race_against_time_results_table_third_place_pilot_flag"
+                    android:layout_width="20dp"
+                    android:layout_height="15dp"
+                    android:background="@drawable/flag" />
+
+                <TextView
+                    android:id="@+id/race_against_time_results_table_third_place_pilot_name"
+                    android:paddingLeft="2dp"
+                    android:layout_weight="0.5"
+                    android:text="@string/pilot_name"
+                    android:textColor="@color/white"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/open_sans"
+                    android:textSize="13sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/race_against_time_results_table_third_place_team_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingRight="4dp">
+
+                <ImageView
+                    android:id="@+id/race_against_time_results_table_third_place_team_flag"
+                    android:layout_width="20dp"
+                    android:layout_height="15dp"
+                    android:background="@drawable/flag" />
+
+                <TextView
+                    android:id="@+id/race_against_time_results_table_third_place_team_name"
+                    android:paddingLeft="2dp"
+                    android:layout_weight="0.5"
+                    android:text="@string/team_name"
+                    android:textColor="@color/white"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/open_sans"
+                    android:textSize="13sp"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/race_against_time_results_table_third_place_time"
+                android:layout_weight="0.5"
+                android:text="@string/time"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/open_sans"
+                android:textSize="13sp"
+                android:gravity="right"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:id="@+id/race_against_time_results_table_fourth_number"
+                android:layout_weight="0.5"
+                android:text="@string/_4"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/open_sans_semibold"
+                android:textSize="13sp"/>
+
+            <LinearLayout
+                android:id="@+id/race_against_time_results_table_fourth_place_pilot_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginBottom="2dp"
+                android:paddingRight="4dp">
+
+                <ImageView
+                    android:id="@+id/race_against_time_results_table_fourth_place_pilot_flag"
+                    android:layout_width="20dp"
+                    android:layout_height="15dp"
+                    android:background="@drawable/flag" />
+
+                <TextView
+                    android:id="@+id/race_against_time_results_table_fourth_place_pilot_name"
+                    android:paddingLeft="2dp"
+                    android:layout_weight="0.5"
+                    android:text="@string/pilot_name"
+                    android:textColor="@color/white"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/open_sans"
+                    android:textSize="13sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/race_against_time_results_table_fourth_place_team_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingRight="4dp">
+
+                <ImageView
+                    android:id="@+id/race_against_time_results_table_fourth_place_team_flag"
+                    android:layout_width="20dp"
+                    android:layout_height="15dp"
+                    android:background="@drawable/flag" />
+
+                <TextView
+                    android:id="@+id/race_against_time_results_table_fourth_place_team_name"
+                    android:paddingLeft="2dp"
+                    android:layout_weight="0.5"
+                    android:text="@string/team_name"
+                    android:textColor="@color/white"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/open_sans"
+                    android:textSize="13sp"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/race_against_time_results_table_fourth_place_time"
+                android:layout_weight="0.5"
+                android:text="@string/time"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/open_sans"
+                android:textSize="13sp"
+                android:gravity="right"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:id="@+id/race_against_time_results_table_fifth_number"
+                android:layout_weight="0.5"
+                android:text="@string/_5"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/open_sans_semibold"
+                android:textSize="13sp"/>
+
+            <LinearLayout
+                android:id="@+id/race_against_time_results_table_fifth_place_pilot_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginBottom="2dp"
+                android:paddingRight="4dp">
+
+                <ImageView
+                    android:id="@+id/race_against_time_results_table_fifth_place_pilot_flag"
+                    android:layout_width="20dp"
+                    android:layout_height="15dp"
+                    android:background="@drawable/flag" />
+
+                <TextView
+                    android:id="@+id/race_against_time_results_table_fifth_place_pilot_name"
+                    android:paddingLeft="2dp"
+                    android:layout_weight="0.5"
+                    android:text="@string/pilot_name"
+                    android:textColor="@color/white"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/open_sans"
+                    android:textSize="13sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/race_against_time_results_table_fifth_place_team_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingRight="4dp">
+
+                <ImageView
+                    android:id="@+id/race_against_time_results_table_fifth_place_team_flag"
+                    android:layout_width="20dp"
+                    android:layout_height="15dp"
+                    android:background="@drawable/flag" />
+
+                <TextView
+                    android:id="@+id/race_against_time_results_table_fifth_place_team_name"
+                    android:paddingLeft="2dp"
+                    android:layout_weight="0.5"
+                    android:text="@string/team_name"
+                    android:textColor="@color/white"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/open_sans"
+                    android:textSize="13sp"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/race_against_time_results_table_fifth_place_time"
+                android:layout_weight="0.5"
+                android:text="@string/time"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/open_sans"
+                android:textSize="13sp"
+                android:gravity="right"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:id="@+id/race_against_time_results_table_sixth_number"
+                android:layout_weight="0.5"
+                android:text="@string/_6"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/open_sans_semibold"
+                android:textSize="13sp"/>
+
+            <LinearLayout
+                android:id="@+id/race_against_time_results_table_sixth_place_pilot_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginBottom="2dp"
+                android:paddingRight="4dp">
+
+                <ImageView
+                    android:id="@+id/race_against_time_results_table_sixth_place_pilot_flag"
+                    android:layout_width="20dp"
+                    android:layout_height="15dp"
+                    android:background="@drawable/flag"
+                    android:textSize="13sp"/>
+
+                <TextView
+                    android:id="@+id/race_against_time_results_table_sixth_place_pilot_name"
+                    android:paddingLeft="2dp"
+                    android:layout_weight="0.5"
+                    android:text="@string/pilot_name"
+                    android:textColor="@color/white"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/open_sans"
+                    android:textSize="13sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/race_against_time_results_table_sixth_place_team_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingRight="4dp">
+
+                <ImageView
+                    android:id="@+id/race_against_time_results_table_sixth_place_team_flag"
+                    android:layout_width="20dp"
+                    android:layout_height="15dp"
+                    android:background="@drawable/flag" />
+
+                <TextView
+                    android:id="@+id/race_against_time_results_table_sixth_place_team_name"
+                    android:paddingLeft="2dp"
+                    android:layout_weight="0.5"
+                    android:text="@string/team_name"
+                    android:textColor="@color/white"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/open_sans"
+                    android:textSize="13sp"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/race_against_time_results_table_sixth_place_time"
+                android:layout_weight="0.5"
+                android:text="@string/time"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/open_sans"
+                android:textSize="13sp"
+                android:gravity="right"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:id="@+id/race_against_time_results_table_seventh_number"
+                android:layout_weight="0.5"
+                android:text="@string/_7"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/open_sans_semibold"
+                android:textSize="13sp"/>
+
+            <LinearLayout
+                android:id="@+id/race_against_time_results_table_seventh_place_pilot_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginBottom="2dp"
+                android:paddingRight="4dp">
+
+                <ImageView
+                    android:id="@+id/race_against_time_results_table_seventh_place_pilot_flag"
+                    android:layout_width="20dp"
+                    android:layout_height="15dp"
+                    android:background="@drawable/flag" />
+
+                <TextView
+                    android:id="@+id/race_against_time_results_table_seventh_place_pilot_name"
+                    android:paddingLeft="2dp"
+                    android:layout_weight="0.5"
+                    android:text="@string/pilot_name"
+                    android:textColor="@color/white"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/open_sans"
+                    android:textSize="13sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/race_against_time_results_table_seventh_place_team_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingRight="4dp">
+
+                <ImageView
+                    android:id="@+id/race_against_time_results_table_seventh_place_team_flag"
+                    android:layout_width="20dp"
+                    android:layout_height="15dp"
+                    android:background="@drawable/flag" />
+
+                <TextView
+                    android:id="@+id/race_against_time_results_table_seventh_place_team_name"
+                    android:paddingLeft="2dp"
+                    android:layout_weight="0.5"
+                    android:text="@string/team_name"
+                    android:textColor="@color/white"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/open_sans"
+                    android:textSize="13sp"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/race_against_time_results_table_seventh_place_time"
+                android:layout_weight="0.5"
+                android:text="@string/time"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/open_sans"
+                android:textSize="13sp"
+                android:gravity="right"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:id="@+id/race_against_time_results_table_eighth_number"
+                android:layout_weight="0.5"
+                android:text="@string/_8"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/open_sans_semibold"
+                android:textSize="13sp"/>
+
+            <LinearLayout
+                android:id="@+id/race_against_time_results_table_eighth_place_pilot_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginBottom="2dp"
+                android:paddingRight="4dp">
+
+                <ImageView
+                    android:id="@+id/race_against_time_results_table_eighth_place_pilot_flag"
+                    android:layout_width="20dp"
+                    android:layout_height="15dp"
+                    android:background="@drawable/flag" />
+
+                <TextView
+                    android:id="@+id/race_against_time_results_table_eighth_place_pilot_name"
+                    android:paddingLeft="2dp"
+                    android:layout_weight="0.5"
+                    android:text="@string/pilot_name"
+                    android:textColor="@color/white"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/open_sans"
+                    android:textSize="13sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/race_against_time_results_table_eighth_place_team_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingRight="4dp">
+
+                <ImageView
+                    android:id="@+id/race_against_time_results_table_eighth_place_team_flag"
+                    android:layout_width="20dp"
+                    android:layout_height="15dp"
+                    android:background="@drawable/flag" />
+
+                <TextView
+                    android:id="@+id/race_against_time_results_table_eighth_place_team_name"
+                    android:paddingLeft="2dp"
+                    android:layout_weight="0.5"
+                    android:text="@string/team_name"
+                    android:textColor="@color/white"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/open_sans"
+                    android:textSize="13sp"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/race_against_time_results_table_eighth_place_time"
+                android:layout_weight="0.5"
+                android:text="@string/time"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/open_sans"
+                android:textSize="13sp"
+                android:gravity="right"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:id="@+id/race_against_time_results_table_ninth_number"
+                android:layout_weight="0.5"
+                android:text="@string/_9"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/open_sans_semibold"
+                android:textSize="13sp"/>
+
+            <LinearLayout
+                android:id="@+id/race_against_time_results_table_ninth_place_pilot_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginBottom="2dp"
+                android:paddingRight="4dp">
+
+                <ImageView
+                    android:id="@+id/race_against_time_results_table_ninth_place_pilot_flag"
+                    android:layout_width="20dp"
+                    android:layout_height="15dp"
+                    android:background="@drawable/flag" />
+
+                <TextView
+                    android:id="@+id/race_against_time_results_table_ninth_place_pilot_name"
+                    android:paddingLeft="2dp"
+                    android:layout_weight="0.5"
+                    android:text="@string/pilot_name"
+                    android:textColor="@color/white"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/open_sans"
+                    android:textSize="13sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/race_against_time_results_table_ninth_place_team_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingRight="4dp">
+
+                <ImageView
+                    android:id="@+id/race_against_time_results_table_ninth_place_team_flag"
+                    android:layout_width="20dp"
+                    android:layout_height="15dp"
+                    android:background="@drawable/flag" />
+
+                <TextView
+                    android:id="@+id/race_against_time_results_table_ninth_place_team_name"
+                    android:paddingLeft="2dp"
+                    android:layout_weight="0.5"
+                    android:text="@string/team_name"
+                    android:textColor="@color/white"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/open_sans"
+                    android:textSize="13sp"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/race_against_time_results_table_ninth_place_time"
+                android:layout_weight="0.5"
+                android:text="@string/time"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/open_sans"
+                android:textSize="13sp"
+                android:gravity="right"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:id="@+id/race_against_time_results_table_tenth_number"
+                android:layout_weight="0.5"
+                android:text="@string/_10"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/open_sans_semibold"
+                android:textSize="13sp"/>
+
+            <LinearLayout
+                android:id="@+id/race_against_time_results_table_tenth_place_pilot_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingEnd="4dp">
+
+                <ImageView
+                    android:id="@+id/race_against_time_results_table_tenth_place_pilot_flag"
+                    android:layout_width="20dp"
+                    android:layout_height="15dp"
+                    android:background="@drawable/flag" />
+
+                <TextView
+                    android:id="@+id/race_against_time_results_table_tenth_place_pilot_name"
+                    android:paddingLeft="2dp"
+                    android:layout_weight="0.5"
+                    android:text="@string/pilot_name"
+                    android:textColor="@color/white"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/open_sans"
+                    android:layout_marginBottom="2dp"
+                    android:textSize="13sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/race_against_time_results_table_tenth_place_team_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingEnd="4dp">
+
+                <ImageView
+                    android:id="@+id/race_against_time_results_table_tenth_place_team_flag"
+                    android:layout_width="20dp"
+                    android:layout_height="15dp"
+                    android:background="@drawable/flag" />
+
+                <TextView
+                    android:id="@+id/race_against_time_results_table_tenth_place_team_name"
+                    android:paddingLeft="2dp"
+                    android:layout_weight="0.5"
+                    android:text="@string/team_name"
+                    android:textColor="@color/white"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/open_sans"
+                    android:textSize="13sp"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/race_against_time_results_table_tenth_place_time"
+                android:layout_weight="0.5"
+                android:text="@string/time"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/open_sans"
+                android:textSize="13sp"
+                android:gravity="right"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:id="@+id/race_against_time_results_table_eleventh_number"
+                android:layout_weight="0.5"
+                android:text="@string/_11"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/open_sans_semibold"
+                android:textSize="13sp"/>
+
+            <LinearLayout
+                android:id="@+id/race_against_time_results_table_eleventh_place_pilot_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingEnd="4dp">
+
+                <ImageView
+                    android:id="@+id/race_against_time_results_table_eleventh_place_pilot_flag"
+                    android:layout_width="20dp"
+                    android:layout_height="15dp"
+                    android:background="@drawable/flag" />
+
+                <TextView
+                    android:id="@+id/race_against_time_results_table_eleventh_place_pilot_name"
+                    android:paddingLeft="2dp"
+                    android:layout_weight="0.5"
+                    android:text="@string/pilot_name"
+                    android:textColor="@color/white"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/open_sans"
+                    android:layout_marginBottom="2dp"
+                    android:textSize="13sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/race_against_time_results_table_eleventh_place_team_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingEnd="4dp">
+
+                <ImageView
+                    android:id="@+id/race_against_time_results_table_eleventh_place_team_flag"
+                    android:layout_width="20dp"
+                    android:layout_height="15dp"
+                    android:background="@drawable/flag" />
+
+                <TextView
+                    android:id="@+id/race_against_time_results_table_eleventh_place_team_name"
+                    android:paddingLeft="2dp"
+                    android:layout_weight="0.5"
+                    android:text="@string/team_name"
+                    android:textColor="@color/white"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/open_sans"
+                    android:textSize="13sp"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/race_against_time_results_table_eleventh_place_time"
+                android:layout_weight="0.5"
+                android:text="@string/time"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/open_sans"
+                android:textSize="13sp"
+                android:gravity="right"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:id="@+id/race_against_time_results_table_twelfth_number"
+                android:layout_weight="0.5"
+                android:text="@string/_12"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/open_sans_semibold"
+                android:textSize="13sp"/>
+
+            <LinearLayout
+                android:id="@+id/race_against_time_results_table_twelfth_place_pilot_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingEnd="4dp">
+
+                <ImageView
+                    android:id="@+id/race_against_time_results_table_twelfth_place_pilot_flag"
+                    android:layout_width="20dp"
+                    android:layout_height="15dp"
+                    android:background="@drawable/flag" />
+
+                <TextView
+                    android:id="@+id/race_against_time_results_table_twelfth_place_pilot_name"
+                    android:paddingLeft="2dp"
+                    android:layout_weight="0.5"
+                    android:text="@string/pilot_name"
+                    android:textColor="@color/white"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/open_sans"
+                    android:layout_marginBottom="2dp"
+                    android:textSize="13sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/race_against_time_results_table_twelfth_place_team_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingEnd="4dp">
+
+                <ImageView
+                    android:id="@+id/race_against_time_results_table_twelfth_place_team_flag"
+                    android:layout_width="20dp"
+                    android:layout_height="15dp"
+                    android:background="@drawable/flag" />
+
+                <TextView
+                    android:id="@+id/race_against_time_results_table_twelfth_place_team_name"
+                    android:paddingLeft="2dp"
+                    android:layout_weight="0.5"
+                    android:text="@string/team_name"
+                    android:textColor="@color/white"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/open_sans"
+                    android:textSize="13sp"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/race_against_time_results_table_twelfth_place_time"
+                android:layout_weight="0.5"
+                android:text="@string/time"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/open_sans"
+                android:textSize="13sp"
+                android:gravity="right"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:id="@+id/race_against_time_results_table_thirteenth_number"
+                android:layout_weight="0.5"
+                android:text="@string/_13"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/open_sans_semibold"
+                android:textSize="13sp"/>
+
+            <LinearLayout
+                android:id="@+id/race_against_time_results_table_thirteenth_place_pilot_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingEnd="4dp">
+
+                <ImageView
+                    android:id="@+id/race_against_time_results_table_thirteenth_place_pilot_flag"
+                    android:layout_width="20dp"
+                    android:layout_height="15dp"
+                    android:background="@drawable/flag" />
+
+                <TextView
+                    android:id="@+id/race_against_time_results_table_thirteenth_place_pilot_name"
+                    android:paddingLeft="2dp"
+                    android:layout_weight="0.5"
+                    android:text="@string/pilot_name"
+                    android:textColor="@color/white"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/open_sans"
+                    android:textSize="13sp"
+                    android:layout_marginBottom="2dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/race_against_time_results_table_thirteenth_place_team_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingEnd="4dp">
+
+                <ImageView
+                    android:id="@+id/race_against_time_results_table_thirteenth_place_team_flag"
+                    android:layout_width="20dp"
+                    android:layout_height="15dp"
+                    android:background="@drawable/flag" />
+
+                <TextView
+                    android:id="@+id/race_against_time_results_table_thirteenth_place_team_name"
+                    android:paddingLeft="2dp"
+                    android:layout_weight="0.5"
+                    android:text="@string/team_name"
+                    android:textColor="@color/white"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/open_sans"
+                    android:textSize="13sp"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/race_against_time_results_table_thirteenth_place_time"
+                android:layout_weight="0.5"
+                android:text="@string/time"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/open_sans"
+                android:textSize="13sp"
+                android:gravity="right"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:id="@+id/race_against_time_results_table_fourteenth_number"
+                android:layout_weight="0.5"
+                android:text="@string/_14"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/open_sans_semibold"
+                android:textSize="13sp"/>
+
+            <LinearLayout
+                android:id="@+id/race_against_time_results_table_fourteenth_place_pilot_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingEnd="4dp">
+
+                <ImageView
+                    android:id="@+id/race_against_time_results_table_fourteenth_place_pilot_flag"
+                    android:layout_width="20dp"
+                    android:layout_height="15dp"
+                    android:background="@drawable/flag" />
+
+                <TextView
+                    android:id="@+id/race_against_time_results_table_fourteenth_place_pilot_name"
+                    android:paddingLeft="2dp"
+                    android:layout_weight="0.5"
+                    android:text="@string/pilot_name"
+                    android:textColor="@color/white"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/open_sans"
+                    android:layout_marginBottom="2dp"
+                    android:textSize="13sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/race_against_time_results_table_fourteenth_place_team_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingEnd="4dp">
+
+                <ImageView
+                    android:id="@+id/race_against_time_results_table_fourteenth_place_team_flag"
+                    android:layout_width="20dp"
+                    android:layout_height="15dp"
+                    android:background="@drawable/flag" />
+
+                <TextView
+                    android:id="@+id/race_against_time_results_table_fourteenth_place_team_name"
+                    android:paddingLeft="2dp"
+                    android:layout_weight="0.5"
+                    android:text="@string/team_name"
+                    android:textColor="@color/white"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/open_sans"
+                    android:textSize="13sp"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/race_against_time_results_table_fourteenth_place_time"
+                android:layout_weight="0.5"
+                android:text="@string/time"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/open_sans"
+                android:textSize="13sp"
+                android:gravity="right"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:id="@+id/race_against_time_results_table_fifteenth_number"
+                android:layout_weight="0.5"
+                android:text="@string/_15"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/open_sans_semibold"
+                android:textSize="13sp"/>
+
+            <LinearLayout
+                android:id="@+id/race_against_time_results_table_fifteenth_place_pilot_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingEnd="4dp">
+
+                <ImageView
+                    android:id="@+id/race_against_time_results_table_fifteenth_place_pilot_flag"
+                    android:layout_width="20dp"
+                    android:layout_height="15dp"
+                    android:background="@drawable/flag" />
+
+                <TextView
+                    android:id="@+id/race_against_time_results_table_fifteenth_place_pilot_name"
+                    android:paddingLeft="2dp"
+                    android:layout_weight="0.5"
+                    android:text="@string/pilot_name"
+                    android:textColor="@color/white"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/open_sans"
+                    android:layout_marginBottom="2dp"
+                    android:textSize="13sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/race_against_time_results_table_fifteenth_place_team_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingEnd="4dp">
+
+                <ImageView
+                    android:id="@+id/race_against_time_results_table_fifteenth_place_team_flag"
+                    android:layout_width="20dp"
+                    android:layout_height="15dp"
+                    android:background="@drawable/flag" />
+
+                <TextView
+                    android:id="@+id/race_against_time_results_table_fifteenth_place_team_name"
+                    android:paddingLeft="2dp"
+                    android:layout_weight="0.5"
+                    android:text="@string/team_name"
+                    android:textColor="@color/white"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/open_sans"
+                    android:textSize="13sp"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/race_against_time_results_table_fifteenth_place_time"
+                android:layout_weight="0.5"
+                android:text="@string/time"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/open_sans"
+                android:textSize="13sp"
+                android:gravity="right"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:id="@+id/race_against_time_results_table_sixteenth_number"
+                android:layout_weight="0.5"
+                android:text="@string/_16"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/open_sans_semibold"
+                android:textSize="13sp"/>
+
+            <LinearLayout
+                android:id="@+id/race_against_time_results_table_sixteenth_place_pilot_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingEnd="4dp">
+
+                <ImageView
+                    android:id="@+id/race_against_time_results_table_sixteenth_place_pilot_flag"
+                    android:layout_width="20dp"
+                    android:layout_height="15dp"
+                    android:background="@drawable/flag" />
+
+                <TextView
+                    android:id="@+id/race_against_time_results_table_sixteenth_place_pilot_name"
+                    android:paddingLeft="2dp"
+                    android:layout_weight="0.5"
+                    android:text="@string/pilot_name"
+                    android:textColor="@color/white"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/open_sans"
+                    android:layout_marginBottom="2dp"
+                    android:textSize="13sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/race_against_time_results_table_sixteenth_place_team_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingEnd="4dp">
+
+                <ImageView
+                    android:id="@+id/race_against_time_results_table_sixteenth_place_team_flag"
+                    android:layout_width="20dp"
+                    android:layout_height="15dp"
+                    android:background="@drawable/flag" />
+
+                <TextView
+                    android:id="@+id/race_against_time_results_table_sixteenth_place_team_name"
+                    android:paddingLeft="2dp"
+                    android:layout_weight="0.5"
+                    android:text="@string/team_name"
+                    android:textColor="@color/white"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/open_sans"
+                    android:textSize="13sp"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/race_against_time_results_table_sixteenth_place_time"
+                android:layout_weight="0.5"
+                android:text="@string/time"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/open_sans"
+                android:textSize="13sp"
+                android:gravity="right"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:id="@+id/race_against_time_results_table_seventeenth_number"
+                android:layout_weight="0.5"
+                android:text="@string/_17"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/open_sans_semibold"
+                android:textSize="13sp"/>
+
+            <LinearLayout
+                android:id="@+id/race_against_time_results_table_seventeenth_place_pilot_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingEnd="4dp">
+
+                <ImageView
+                    android:id="@+id/race_against_time_results_table_seventeenth_place_pilot_flag"
+                    android:layout_width="20dp"
+                    android:layout_height="15dp"
+                    android:background="@drawable/flag" />
+
+                <TextView
+                    android:id="@+id/race_against_time_results_table_seventeenth_place_pilot_name"
+                    android:paddingLeft="2dp"
+                    android:layout_weight="0.5"
+                    android:text="@string/pilot_name"
+                    android:textColor="@color/white"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/open_sans"
+                    android:layout_marginBottom="2dp"
+                    android:textSize="13sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/race_against_time_results_table_seventeenth_place_team_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingEnd="4dp">
+
+                <ImageView
+                    android:id="@+id/race_against_time_results_table_seventeenth_place_team_flag"
+                    android:layout_width="20dp"
+                    android:layout_height="15dp"
+                    android:background="@drawable/flag" />
+
+                <TextView
+                    android:id="@+id/race_against_time_results_table_seventeenth_place_team_name"
+                    android:paddingLeft="2dp"
+                    android:layout_weight="0.5"
+                    android:text="@string/team_name"
+                    android:textColor="@color/white"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/open_sans"
+                    android:textSize="13sp"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/race_against_time_results_table_seventeenth_place_time"
+                android:layout_weight="0.5"
+                android:text="@string/time"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/open_sans"
+                android:textSize="13sp"
+                android:gravity="right"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:id="@+id/race_against_time_results_table_eighteenth_number"
+                android:layout_weight="0.5"
+                android:text="@string/_18"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/open_sans_semibold"
+                android:textSize="13sp"/>
+
+            <LinearLayout
+                android:id="@+id/race_against_time_results_table_eighteenth_place_pilot_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingEnd="4dp">
+
+                <ImageView
+                    android:id="@+id/race_against_time_results_table_eighteenth_place_pilot_flag"
+                    android:layout_width="20dp"
+                    android:layout_height="15dp"
+                    android:background="@drawable/flag" />
+
+                <TextView
+                    android:id="@+id/race_against_time_results_table_eighteenth_place_pilot_name"
+                    android:paddingLeft="2dp"
+                    android:layout_weight="0.5"
+                    android:text="@string/pilot_name"
+                    android:textColor="@color/white"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/open_sans"
+                    android:layout_marginBottom="2dp"
+                    android:textSize="13sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/race_against_time_results_table_eighteenth_place_team_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingEnd="4dp">
+
+                <ImageView
+                    android:id="@+id/race_against_time_results_table_eighteenth_place_team_flag"
+                    android:layout_width="20dp"
+                    android:layout_height="15dp"
+                    android:background="@drawable/flag" />
+
+                <TextView
+                    android:id="@+id/race_against_time_results_table_eighteenth_place_team_name"
+                    android:paddingLeft="2dp"
+                    android:layout_weight="0.5"
+                    android:text="@string/team_name"
+                    android:textColor="@color/white"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/open_sans"
+                    android:textSize="13sp"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/race_against_time_results_table_eighteenth_place_time"
+                android:layout_weight="0.5"
+                android:text="@string/time"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/open_sans"
+                android:textSize="13sp"
+                android:gravity="right"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:id="@+id/race_against_time_results_table_nineteenth_number"
+                android:layout_weight="0.5"
+                android:text="@string/_19"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/open_sans_semibold"
+                android:textSize="13sp"/>
+
+            <LinearLayout
+                android:id="@+id/race_against_time_results_table_nineteenth_place_pilot_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingEnd="4dp">
+
+                <ImageView
+                    android:id="@+id/race_against_time_results_table_nineteenth_place_pilot_flag"
+                    android:layout_width="20dp"
+                    android:layout_height="15dp"
+                    android:background="@drawable/flag" />
+
+                <TextView
+                    android:id="@+id/race_against_time_results_table_nineteenth_place_pilot_name"
+                    android:paddingLeft="2dp"
+                    android:layout_weight="0.5"
+                    android:text="@string/pilot_name"
+                    android:textColor="@color/white"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/open_sans"
+                    android:layout_marginBottom="2dp"
+                    android:textSize="13sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/race_against_time_results_table_nineteenth_place_team_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingEnd="4dp">
+
+                <ImageView
+                    android:id="@+id/race_against_time_results_table_nineteenth_place_team_flag"
+                    android:layout_width="20dp"
+                    android:layout_height="15dp"
+                    android:background="@drawable/flag" />
+
+                <TextView
+                    android:id="@+id/race_against_time_results_table_nineteenth_place_team_name"
+                    android:paddingLeft="2dp"
+                    android:layout_weight="0.5"
+                    android:text="@string/team_name"
+                    android:textColor="@color/white"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/open_sans"
+                    android:textSize="13sp"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/race_against_time_results_table_nineteenth_place_time"
+                android:layout_weight="0.5"
+                android:text="@string/time"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/open_sans"
+                android:textSize="13sp"
+                android:gravity="right"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:id="@+id/race_against_time_results_table_twentieth_number"
+                android:layout_weight="0.5"
+                android:text="@string/_20"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/open_sans_semibold"
+                android:textSize="13sp"/>
+
+            <LinearLayout
+                android:id="@+id/race_against_time_results_table_twentieth_place_pilot_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingEnd="4dp">
+
+                <ImageView
+                    android:id="@+id/race_against_time_results_table_twentieth_place_pilot_flag"
+                    android:layout_width="20dp"
+                    android:layout_height="15dp"
+                    android:background="@drawable/flag" />
+
+                <TextView
+                    android:id="@+id/race_against_time_results_table_twentieth_place_pilot_name"
+                    android:paddingLeft="2dp"
+                    android:layout_weight="0.5"
+                    android:text="@string/pilot_name"
+                    android:textColor="@color/white"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/open_sans"
+                    android:textSize="13sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/race_against_time_results_table_twentieth_place_team_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingEnd="4dp">
+
+                <ImageView
+                    android:id="@+id/race_against_time_results_table_twentieth_place_team_flag"
+                    android:layout_width="20dp"
+                    android:layout_height="15dp"
+                    android:background="@drawable/flag" />
+
+                <TextView
+                    android:id="@+id/race_against_time_results_table_twentieth_place_team_name"
+                    android:paddingLeft="2dp"
+                    android:layout_weight="0.5"
+                    android:text="@string/team_name"
+                    android:textColor="@color/white"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/open_sans"
+                    android:textSize="13sp"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/race_against_time_results_table_twentieth_place_time"
+                android:layout_weight="0.5"
+                android:text="@string/time"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/open_sans"
+                android:textSize="13sp"
+                android:gravity="right"/>
+        </TableRow>
+
+    </TableLayout>
+    </LinearLayout>
+
+</LinearLayout>

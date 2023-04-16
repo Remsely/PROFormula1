@@ -19,7 +19,7 @@ public class ChampionshipFragment extends Fragment {
     private FragmentChampionshipBinding binding;
     TabLayout tabLayout;
     ViewPager2 viewPager2;
-    ViewPagerAdapter viewPagerAdapter;
+    ViewPagerChampionshipAdapter viewPagerChampionshipAdapter;
     FrameLayout frameLayout;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -33,8 +33,8 @@ public class ChampionshipFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         tabLayout = binding.championshipTabLayout;
         viewPager2 = binding.championshipViewPager;
-        viewPagerAdapter = new ViewPagerAdapter(this);
-        viewPager2.setAdapter(viewPagerAdapter);
+        viewPagerChampionshipAdapter = new ViewPagerChampionshipAdapter(this);
+        viewPager2.setAdapter(viewPagerChampionshipAdapter);
         frameLayout = binding.championshipFrameLayout;
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
