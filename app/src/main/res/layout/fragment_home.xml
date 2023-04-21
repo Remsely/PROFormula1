@@ -104,7 +104,6 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:id="@+id/soon_stage_name"
-                            android:text="@string/stage_name"
                             android:textColor="@color/white"
                             android:textSize="20sp"
                             android:fontFamily="@font/open_sans_bold"/>
@@ -113,9 +112,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:id="@+id/soon_stage_place"
-                            android:text="@string/stage_place"
                             android:textColor="@color/white"
-                            android:textSize="16sp"
+                            android:textSize="14sp"
                             android:fontFamily="@font/open_sans_bold"/>
                     </LinearLayout>
 
@@ -123,8 +121,7 @@
                         android:id="@+id/soon_stage_flag"
                         android:layout_width="70dp"
                         android:layout_height="40dp"
-                        android:layout_alignParentEnd="true"
-                        android:background="@drawable/flag" />
+                        android:layout_alignParentEnd="true" />
 
                 </RelativeLayout>
 
@@ -398,7 +395,7 @@
                             android:layout_height="wrap_content"
                             android:text="@string/stage_place"
                             android:textColor="@color/white"
-                            android:textSize="16sp"
+                            android:textSize="14sp"
                             android:fontFamily="@font/open_sans_bold"/>
                     </LinearLayout>
 
