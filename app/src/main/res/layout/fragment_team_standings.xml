@@ -24,7 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/recently_stage_name"
-            android:text="@string/team_standings"
+            android:text="@string/constructors_cup"
             android:textColor="@color/white"
             android:textSize="20sp"
             android:fontFamily="@font/open_sans_bold"/>
