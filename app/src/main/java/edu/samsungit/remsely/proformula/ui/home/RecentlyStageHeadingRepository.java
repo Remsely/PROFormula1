@@ -10,25 +10,25 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class SoonStageHeadingRepository {
+public class RecentlyStageHeadingRepository {
     private DatabaseReference databaseReference;
 
-    public SoonStageHeadingRepository(){
+    public RecentlyStageHeadingRepository(){
         databaseReference = FirebaseDatabase.getInstance().getReference();
     }
 
-    public LiveData<StageHeadingDataModel> getSoonStageHeading(){
-        final MutableLiveData<StageHeadingDataModel> soonStageHeadingMutableLiveData = new MutableLiveData<>();
-        databaseReference.child("Main screen").child("Soon").child("Grand prix key").addValueEventListener(new ValueEventListener() {
+    public LiveData<StageHeadingDataModel> getRecentlyStageHeading() {
+        final MutableLiveData<StageHeadingDataModel> recentlyStageHeadingMutableLiveData = new MutableLiveData<>();
+        databaseReference.child("Main screen").child("Recently").child("Grand prix key").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 String grandPrixKey = snapshot.getValue(String.class);
-                if(grandPrixKey != null){
+                if (grandPrixKey != null) {
                     databaseReference.child("Grand prix").child(grandPrixKey).addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             StageHeadingDataModel soonStageHeading = snapshot.getValue(StageHeadingDataModel.class);
-                            soonStageHeadingMutableLiveData.setValue(soonStageHeading);
+                            recentlyStageHeadingMutableLiveData.setValue(soonStageHeading);
                         }
 
                         @Override
@@ -44,6 +44,6 @@ public class SoonStageHeadingRepository {
 
             }
         });
-        return soonStageHeadingMutableLiveData;
+        return recentlyStageHeadingMutableLiveData;
     }
 }

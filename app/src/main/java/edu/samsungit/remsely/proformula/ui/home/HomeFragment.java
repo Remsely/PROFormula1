@@ -2,7 +2,6 @@ package edu.samsungit.remsely.proformula.ui.home;
 
 import static android.content.ContentValues.TAG;
 
-import android.app.Activity;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,31 +11,30 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 
-import edu.samsungit.remsely.proformula.MainActivity;
 import edu.samsungit.remsely.proformula.R;
 import edu.samsungit.remsely.proformula.databinding.FragmentHomeBinding;
-import edu.samsungit.remsely.proformula.ui.notifications_settings_dialog.NotificationsSettingsFragment;
 
 public class HomeFragment extends Fragment {
     private FragmentHomeBinding binding;
     private LinearLayout mOpenNotificationSettingsFragment;
     private LinearLayout mOpenGrandPrixResultsFragment;
     private ImageView soonStageFlag;
+    private ImageView recentlyStageFlag;
     private TextView soonStageName;
+    private TextView recentlyStageName;
     private TextView soonStageLocation;
+    private TextView recentlyStageLocation;
     private HomeViewModel homeViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -52,25 +50,69 @@ public class HomeFragment extends Fragment {
     }
 
     public void init(){
-        mOpenNotificationSettingsFragment = binding.notificationsButton;
-        mOpenGrandPrixResultsFragment = binding.recentlyStageFrame;
+        mOpenNotificationSettingsFragment = binding.notificationsButton; // Навигация на уведомления
+        mOpenGrandPrixResultsFragment = binding.recentlyStageFrame; // Навигация на результаты недавнего Гран-при
+
         navigateToNotificationsSettings();
         navigateToGrandPrixResults();
+
+        // Поля, отвечающие за заголовок Гран-при в "Скоро"
         soonStageFlag = binding.soonStageFlag;
         soonStageName = binding.soonStageName;
         soonStageLocation = binding.soonStagePlace;
+
+        // Поля, отвечающие за заголовок Гран-при в "Недавно"
+        recentlyStageFlag = binding.recentlyStageFlag;
+        recentlyStageName = binding.recentlyStageName;
+        recentlyStageLocation = binding.recentlyStagePlace;
+
         homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
-        headingLiveDataObservation();
+
+        soonStageHeadingLiveDataObservation();
+        recentlyStageHeadingLiveDataObservation();
+        whereWatchLinksLiveDataObservation();
+        aboutRecentlyStageLinksLiveDataObservation();
     }
 
-    private void headingLiveDataObservation(){
-        homeViewModel.getHeadingLiveData().observe(this, heading -> {
+    private void soonStageHeadingLiveDataObservation(){
+        homeViewModel.getSoonStageHeadingLiveData().observe(this, heading -> {
             if(heading != null){
-                Glide.with(HomeFragment.this).load(heading.getFlag()).transform(new RoundedCornersToImageViewTransformation(dpToPx(14))).into(soonStageFlag);
+                Glide.with(HomeFragment.this).load(heading.getFlag())
+                        .transform(new RoundedCornersToImageViewTransformation(dpToPx(14))).into(soonStageFlag);
                 Log.i(TAG, heading.getFlag());
                 soonStageLocation.setText(heading.getLocation());
                 soonStageName.setText(heading.getName());
             }
+        });
+    }
+
+    private void recentlyStageHeadingLiveDataObservation(){
+        homeViewModel.getRecentlyStageHeadingLiveData().observe(this, heading -> {
+            if(heading != null){
+                Glide.with(HomeFragment.this).load(heading.getFlag())
+                        .transform(new RoundedCornersToImageViewTransformation(dpToPx(14))).into(recentlyStageFlag);
+                Log.i(TAG, heading.getFlag());
+                recentlyStageLocation.setText(heading.getLocation());
+                recentlyStageName.setText(heading.getName());
+            }
+        });
+    }
+
+    private void whereWatchLinksLiveDataObservation(){
+        homeViewModel.getWhereWatchLinksLiveData().observe(getViewLifecycleOwner(), linksList -> {
+            LinksRecyclerViewAdapter adapter = new LinksRecyclerViewAdapter(linksList);
+            RecyclerView recyclerView = binding.soonStageWhereWatchRecyclerView;
+            recyclerView.setAdapter(adapter);
+            recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        });
+    }
+
+    private void aboutRecentlyStageLinksLiveDataObservation(){
+        homeViewModel.getAboutRecentlyStageLiveData().observe(getViewLifecycleOwner(), linksList -> {
+            Log.d("FirebaseRepository", String.valueOf(linksList.size()));
+            RecyclerView recyclerView = binding.aboutRecentlyStageLinksRecyclerView;
+            recyclerView.setAdapter(new LinksRecyclerViewAdapter(linksList));
+            recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         });
     }
 

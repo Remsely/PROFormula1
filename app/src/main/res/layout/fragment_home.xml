@@ -53,7 +53,7 @@
 
     </RelativeLayout>
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:id="@+id/home_screen_scroll_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -81,7 +81,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/simple_frame"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:paddingBottom="3dp">
 
                 <RelativeLayout
                     android:id="@+id/soon_top_part_of_frame"
@@ -121,7 +122,8 @@
                         android:id="@+id/soon_stage_flag"
                         android:layout_width="70dp"
                         android:layout_height="40dp"
-                        android:layout_alignParentEnd="true" />
+                        android:layout_alignParentEnd="true"
+                        android:scaleType="fitStart"/>
 
                 </RelativeLayout>
 
@@ -133,7 +135,6 @@
                     android:orientation="horizontal" />
 
                 <LinearLayout
-                    android:id="@+id/soon_stage_first_event_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -141,7 +142,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingStart="7dp"
-                        android:id="@+id/soon_stage_first_event"
                         android:text="1 событие Гран-при"
                         android:textColor="@color/white"
                         android:textSize="16sp"
@@ -150,7 +150,6 @@
                     <TextView
                         android:paddingRight="3dp"
                         android:paddingLeft="3dp"
-                        android:id="@+id/soon_stage_first_till"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/till"
@@ -161,7 +160,6 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/soon_stage_first_event_time"
                         android:text="Время события"
                         android:textColor="#E70000"
                         android:textSize="16sp"
@@ -176,8 +174,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/soon_stage_second_event"
-                        android:paddingLeft="7dp"
+                        android:paddingStart="7dp"
                         android:text="2 событие Гран-при"
                         android:textColor="@color/white"
                         android:textSize="16sp"
@@ -188,7 +185,6 @@
                         android:paddingLeft="3dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/soon_stage_second_till"
                         android:text="@string/till"
                         android:textColor="@color/white"
                         android:textSize="16sp"
@@ -197,7 +193,6 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/soon_stage_second_event_time"
                         android:text="Время события"
                         android:textColor="#E70000"
                         android:textSize="16sp"
@@ -212,8 +207,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/soon_stage_third_event"
-                        android:paddingLeft="7dp"
+                        android:paddingStart="7dp"
                         android:text="3 событие Гран-при"
                         android:textColor="@color/white"
                         android:textSize="16sp"
@@ -224,7 +218,6 @@
                         android:paddingLeft="3dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/soon_stage_third_till"
                         android:text="@string/till"
                         android:textColor="@color/white"
                         android:textSize="16sp"
@@ -236,8 +229,7 @@
                         android:text="Время события"
                         android:textColor="#E70000"
                         android:textSize="16sp"
-                        android:fontFamily="@font/open_sans"
-                        android:id="@+id/soon_stage_third_event_time"/>
+                        android:fontFamily="@font/open_sans"/>
 
                 </LinearLayout>
 
@@ -248,17 +240,15 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:paddingLeft="7dp"
+                        android:paddingStart="7dp"
                         android:text="4 событие Гран-при"
                         android:textColor="@color/white"
                         android:textSize="16sp"
-                        android:fontFamily="@font/open_sans"
-                        android:id="@+id/soon_stage_fourth_event"/>
+                        android:fontFamily="@font/open_sans"/>
 
                     <TextView
                         android:paddingRight="3dp"
                         android:paddingLeft="3dp"
-                        android:id="@+id/soon_stage_fourth_till"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/till"
@@ -272,45 +262,7 @@
                         android:text="Время события"
                         android:textColor="#E70000"
                         android:textSize="16sp"
-                        android:fontFamily="@font/open_sans"
-                        android:id="@+id/soon_stage_fourth_event_time"/>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingLeft="7dp"
-                        android:id="@+id/soon_stage_fifth_event"
-                        android:text="5 событие Гран-при"
-                        android:textColor="@color/white"
-                        android:textSize="16sp"
                         android:fontFamily="@font/open_sans"/>
-
-                    <TextView
-                        android:paddingRight="3dp"
-                        android:paddingLeft="3dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/soon_stage_fifth_till"
-                        android:text="@string/till"
-                        android:textColor="@color/white"
-                        android:textSize="16sp"
-                        android:fontFamily="@font/open_sans"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Время события"
-                        android:textColor="#E70000"
-                        android:textSize="16sp"
-                        android:fontFamily="@font/open_sans"
-                        android:id="@+id/soon_stage_fifth_event_time"
-                        android:paddingBottom="3dp"/>
 
                 </LinearLayout>
 
@@ -332,16 +284,13 @@
                     android:textSize="16sp"
                     android:fontFamily="@font/open_sans_bold"/>
 
-                <TextView
-                    android:id="@+id/soon_stage_reference"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="7dp"
-                    android:paddingRight="7dp"
-                    android:text="@string/references"
-                    android:textColor="#E70000"
-                    android:textSize="16sp"
-                    android:fontFamily="@font/open_sans"/>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_marginStart="7dp"
+                    android:layout_marginEnd="7dp"
+                    android:id="@+id/soon_stage_where_watch_recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
             </LinearLayout>
 
             <TextView
@@ -384,7 +333,6 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:id="@+id/recently_stage_name"
-                            android:text="@string/stage_name"
                             android:textColor="@color/white"
                             android:textSize="20sp"
                             android:fontFamily="@font/open_sans_bold"/>
@@ -393,7 +341,6 @@
                             android:id="@+id/recently_stage_place"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/stage_place"
                             android:textColor="@color/white"
                             android:textSize="14sp"
                             android:fontFamily="@font/open_sans_bold"/>
@@ -404,8 +351,7 @@
                         android:layout_width="70dp"
                         android:layout_height="40dp"
                         android:layout_alignParentEnd="true"
-                        android:background="@drawable/flag"
-                        android:contentDescription="TODO" />
+                        android:scaleType="fitStart" />
 
                 </RelativeLayout>
 
@@ -1283,7 +1229,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/simple_frame"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:paddingBottom="3dp">
 
                 <TextView
                     android:id="@+id/about_stage_title"
@@ -1303,18 +1250,15 @@
                     android:layout_height="4dp"
                     android:background="@color/black" />
 
-                <TextView
-                    android:id="@+id/about_stage_references"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="7dp"
-                    android:paddingRight="7dp"
-                    android:paddingBottom="2dp"
-                    android:text="@string/references"
-                    android:textColor="@color/red"
-                    android:textSize="16sp"
-                    android:fontFamily="@font/open_sans" />
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/about_recently_stage_links_recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="7dp"
+                    android:layout_marginEnd="7dp"
+                    android:layout_marginBottom="1dp"
+                    android:nestedScrollingEnabled="false" />
             </LinearLayout>
         </LinearLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 </LinearLayout>

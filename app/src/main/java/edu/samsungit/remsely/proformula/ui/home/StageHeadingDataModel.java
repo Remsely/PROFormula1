@@ -1,13 +1,13 @@
 package edu.samsungit.remsely.proformula.ui.home;
 
-public class SoonStageHeadingDataModel {
+public class StageHeadingDataModel {
     private String flag;
     private String location;
     private String name;
 
-    public SoonStageHeadingDataModel() {}
+    public StageHeadingDataModel() {}
 
-    public SoonStageHeadingDataModel(String flag, String location, String name){
+    public StageHeadingDataModel(String flag, String location, String name){
         this.flag = flag;
         this.location = location;
         this.name = name;
