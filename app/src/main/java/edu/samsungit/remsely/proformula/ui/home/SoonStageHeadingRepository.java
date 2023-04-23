@@ -19,12 +19,14 @@ public class SoonStageHeadingRepository {
 
     public LiveData<StageHeadingDataModel> getSoonStageHeading(){
         final MutableLiveData<StageHeadingDataModel> soonStageHeadingMutableLiveData = new MutableLiveData<>();
-        databaseReference.child("Main screen").child("Soon").child("Grand prix key").addValueEventListener(new ValueEventListener() {
+        databaseReference.child("Main screen").child("Soon")
+                .child("Grand prix key").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 String grandPrixKey = snapshot.getValue(String.class);
                 if(grandPrixKey != null){
-                    databaseReference.child("Grand prix").child(grandPrixKey).addValueEventListener(new ValueEventListener() {
+                    databaseReference.child("Grand prix").child(grandPrixKey)
+                            .addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             StageHeadingDataModel soonStageHeading = snapshot.getValue(StageHeadingDataModel.class);

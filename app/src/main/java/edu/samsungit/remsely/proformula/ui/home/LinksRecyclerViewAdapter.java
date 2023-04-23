@@ -35,7 +35,6 @@ public class LinksRecyclerViewAdapter extends RecyclerView.Adapter<LinksRecycler
 
     @Override
     public int getItemCount() {
-        Log.d("FirebaseRepository", String.valueOf(linksList.size()));
         return linksList.size();
     }
 

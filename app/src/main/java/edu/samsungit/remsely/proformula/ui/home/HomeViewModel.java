@@ -14,6 +14,8 @@ public class HomeViewModel extends ViewModel {
     private LiveData<List<LinksDataModel>> whereWatchLinksLiveData;
     private AboutRecentlyStageLinksRepository aboutRecentlyStageLinksRepository;
     private LiveData<List<LinksDataModel>> aboutRecentlyStageLiveData;
+    private SoonStageScheduleRepository soonStageScheduleRepository;
+    private LiveData<List<StageScheduleDataModel>> soonStageScheduleLiveData;
 
     public HomeViewModel(){
         soonStageHeadingRepository = new SoonStageHeadingRepository();
@@ -27,6 +29,9 @@ public class HomeViewModel extends ViewModel {
 
         aboutRecentlyStageLinksRepository = new AboutRecentlyStageLinksRepository();
         aboutRecentlyStageLiveData = aboutRecentlyStageLinksRepository.getAboutStageLinksLiveData();
+
+        soonStageScheduleRepository = new SoonStageScheduleRepository();
+        soonStageScheduleLiveData = soonStageScheduleRepository.getSoonStageScheduleLiveData();
     }
 
     public LiveData<StageHeadingDataModel> getSoonStageHeadingLiveData(){
@@ -43,5 +48,9 @@ public class HomeViewModel extends ViewModel {
 
     public LiveData<List<LinksDataModel>> getAboutRecentlyStageLiveData(){
         return aboutRecentlyStageLiveData;
+    }
+
+    public LiveData<List<StageScheduleDataModel>> getSoonStageScheduleLiveData(){
+        return soonStageScheduleLiveData;
     }
 }

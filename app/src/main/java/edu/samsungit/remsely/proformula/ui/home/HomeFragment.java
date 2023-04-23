@@ -72,6 +72,7 @@ public class HomeFragment extends Fragment {
         recentlyStageHeadingLiveDataObservation();
         whereWatchLinksLiveDataObservation();
         aboutRecentlyStageLinksLiveDataObservation();
+        stageScheduleLiveDataObservation();
     }
 
     private void soonStageHeadingLiveDataObservation(){
@@ -109,9 +110,16 @@ public class HomeFragment extends Fragment {
 
     private void aboutRecentlyStageLinksLiveDataObservation(){
         homeViewModel.getAboutRecentlyStageLiveData().observe(getViewLifecycleOwner(), linksList -> {
-            Log.d("FirebaseRepository", String.valueOf(linksList.size()));
             RecyclerView recyclerView = binding.aboutRecentlyStageLinksRecyclerView;
             recyclerView.setAdapter(new LinksRecyclerViewAdapter(linksList));
+            recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        });
+    }
+
+    private void stageScheduleLiveDataObservation(){
+        homeViewModel.getSoonStageScheduleLiveData().observe(getViewLifecycleOwner(), scheduleList -> {
+            RecyclerView recyclerView = binding.soonStageScheduleRecyclerView;
+            recyclerView.setAdapter(new StageScheduleRecyclerViewAdapter(scheduleList));
             recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         });
     }
@@ -127,14 +135,12 @@ public class HomeFragment extends Fragment {
     }
 
     public void navigateToNotificationsSettings(){
-        mOpenNotificationSettingsFragment.setOnClickListener(v -> {
-            Navigation.findNavController(v).navigate(R.id.action_navigation_home_to_notificationsSettingsFragment);
-        });
+        mOpenNotificationSettingsFragment.setOnClickListener(v -> Navigation.findNavController(v)
+                .navigate(R.id.action_navigation_home_to_notificationsSettingsFragment));
     }
 
     public void navigateToGrandPrixResults(){
-        mOpenGrandPrixResultsFragment.setOnClickListener(v -> {
-            Navigation.findNavController(v).navigate(R.id.action_navigation_home_to_grandPrixResultsFragment);
-        });
+        mOpenGrandPrixResultsFragment.setOnClickListener(v -> Navigation.findNavController(v)
+                .navigate(R.id.action_navigation_home_to_grandPrixResultsFragment));
     }
 }

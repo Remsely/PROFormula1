@@ -24,14 +24,16 @@ public class AboutRecentlyStageLinksRepository {
 
     public LiveData<List<LinksDataModel>> getAboutStageLinksLiveData(){
         MutableLiveData<List<LinksDataModel>> aboutStageLinksLiveData = new MutableLiveData<>();
-        databaseReference.child("Main screen").child("Recently").addListenerForSingleValueEvent(new ValueEventListener() {
+        databaseReference.child("Main screen").child("Recently")
+                .addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 String seasonsKey = snapshot.child("Seasons key").getValue(String.class);
                 String stageNumber = snapshot.child("Stage number").getValue(String.class);
 
                 assert seasonsKey != null && stageNumber != null;
-                databaseReference.child("Seasons").child(seasonsKey).child("Stages").child(stageNumber).child("About stage")
+                databaseReference.child("Seasons").child(seasonsKey).child("Stages")
+                        .child(stageNumber).child("About stage")
                         .addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -39,7 +41,6 @@ public class AboutRecentlyStageLinksRepository {
                                 for (DataSnapshot dataSnapshot : snapshot.getChildren()){
                                     String link = dataSnapshot.getValue(String.class);
                                     linksDataModelList.add(new LinksDataModel(link));
-                                    Log.d("FirebaseRepository", String.valueOf(linksDataModelList.size()));
                                 }
                                 aboutStageLinksLiveData.setValue(linksDataModelList);
                             }
