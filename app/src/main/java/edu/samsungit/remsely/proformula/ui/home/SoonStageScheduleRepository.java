@@ -16,7 +16,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SoonStageScheduleRepository {
-
     private final DatabaseReference databaseReference;
 
     public SoonStageScheduleRepository(){

@@ -73,6 +73,7 @@ public class HomeFragment extends Fragment {
         whereWatchLinksLiveDataObservation();
         aboutRecentlyStageLinksLiveDataObservation();
         stageScheduleLiveDataObservation();
+        recentlyRaceResultsLiveDataObservation();
     }
 
     private void soonStageHeadingLiveDataObservation(){
@@ -120,6 +121,14 @@ public class HomeFragment extends Fragment {
         homeViewModel.getSoonStageScheduleLiveData().observe(getViewLifecycleOwner(), scheduleList -> {
             RecyclerView recyclerView = binding.soonStageScheduleRecyclerView;
             recyclerView.setAdapter(new StageScheduleRecyclerViewAdapter(scheduleList));
+            recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        });
+    }
+
+    private void recentlyRaceResultsLiveDataObservation(){
+        homeViewModel.getRecentlyStageResultsLivaData().observe(getViewLifecycleOwner(), raceResults -> {
+            RecyclerView recyclerView = binding.recentlyStageRaceResultsRecyclerView;
+            recyclerView.setAdapter(new RaceResultsRecyclerViewAdapter(raceResults));
             recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         });
     }
