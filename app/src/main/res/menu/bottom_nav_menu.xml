@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/navigation_home"
+        android:id="@+id/main_screen_nested_graph"
         android:icon="@drawable/home_button_selector"
         android:title="@string/title_home" />
 

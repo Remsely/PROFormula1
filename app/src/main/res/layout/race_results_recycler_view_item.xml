@@ -6,9 +6,8 @@
 
     <TextView
         android:id="@+id/stage_results_position"
-        android:text="22"
         android:textColor="@color/white"
-        android:textSize="13sp"
+        android:textSize="12sp"
         android:layout_width="22dp"
         android:layout_height="wrap_content"
         android:fontFamily="@font/open_sans_semibold"
@@ -24,18 +23,17 @@
         <ImageView
             android:id="@+id/stage_results_pilot_flag"
             android:layout_width="20dp"
-            android:layout_height="15dp"
+            android:layout_height="14dp"
             android:scaleType="centerInside"/>
 
         <TextView
             android:id="@+id/stage_results_pilot_name"
             android:paddingLeft="2sp"
             android:layout_weight="0.5"
-            android:text="@string/pilot_name"
             android:textColor="@color/white"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:textSize="13sp"
+            android:textSize="12sp"
             android:fontFamily="@font/open_sans"/>
     </LinearLayout>
 
@@ -50,39 +48,36 @@
         <ImageView
             android:id="@+id/stage_results_team_logo"
             android:layout_width="20dp"
-            android:layout_height="15dp"
+            android:layout_height="14dp"
             android:scaleType="centerInside"/>
 
         <TextView
             android:id="@+id/stage_results_team_name"
             android:paddingStart="2sp"
             android:layout_weight="0.5"
-            android:text="@string/team_name"
             android:textColor="@color/white"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:textSize="13sp"
+            android:textSize="12sp"
             android:fontFamily="@font/open_sans"/>
     </LinearLayout>
 
     <TextView
         android:id="@+id/stage_results_time"
-        android:text="@string/time"
         android:textColor="@color/white"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:fontFamily="@font/open_sans"
-        android:textSize="13sp"
+        android:textSize="12sp"
         android:layout_weight="1"
         android:gravity="center" />
 
     <TextView
         android:id="@+id/stage_results_points"
-        android:text="+25"
         android:textColor="@color/white"
         android:layout_width="28dp"
         android:layout_height="wrap_content"
         android:fontFamily="@font/open_sans"
         android:gravity="right"
-        android:textSize="13sp" />
+        android:textSize="12sp" />
 </LinearLayout>

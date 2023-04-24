@@ -18,7 +18,7 @@
         android:gravity="top"
         android:orientation="horizontal"
         android:layout_gravity="fill_horizontal"
-        android:layout_marginBottom="8dp">
+        android:layout_marginBottom="7dp">
 
         <LinearLayout
             android:id="@+id/grand_prix_results_back_button"
@@ -36,18 +36,67 @@
                 android:background="@drawable/back_button_to_left"
                 android:scaleType="centerInside" />
         </LinearLayout>
+
         <TextView
+            android:layout_marginTop="4dp"
             android:paddingLeft="4dp"
             android:id="@+id/grand_prix_results_screen_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/open_sans_bold"
-            android:gravity="right"
-            android:text="ГРАН-ПРИ АВСТРАЛИИ 2023"
+            android:gravity="center"
+            android:text="ГРАН-ПРИ АВСТРАЛИИ"
             android:textColor="@color/red"
             android:textSize="25sp" />
 
     </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/grand_prix_results_heading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="fill_horizontal"
+        android:orientation="horizontal"
+        android:paddingTop="7dp"
+        android:paddingBottom="3dp"
+        android:paddingLeft="7dp"
+        android:paddingRight="7dp"
+        android:background="@drawable/simple_frame"
+        android:layout_marginEnd="1dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginBottom="7dp">
+
+        <LinearLayout
+            android:id="@+id/grand_prix_results_name_and_place_of_event_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/grand_prix_results_stage_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:fontFamily="@font/open_sans_bold"/>
+
+            <TextView
+                android:id="@+id/grand_prix_results_stage_place"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:fontFamily="@font/open_sans_semibold"/>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/grand_prix_results_stage_flag"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:scaleType="fitStart"/>
+
+    </RelativeLayout>
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/grand_prix_results_tab_layout"

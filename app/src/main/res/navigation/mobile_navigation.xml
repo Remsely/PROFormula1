@@ -3,24 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
-
-    <fragment
-        android:id="@+id/navigation_home"
-        android:name="edu.samsungit.remsely.proformula.ui.home.HomeFragment"
-        android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" >
-        <action
-            android:id="@+id/action_navigation_home_to_notificationsSettingsFragment"
-            app:destination="@id/navigation_notifications_settings"
-            app:enterAnim="@android:anim/slide_in_left"
-            app:exitAnim="@android:anim/slide_out_right" />
-        <action
-            android:id="@+id/action_navigation_home_to_grandPrixResultsFragment"
-            app:destination="@id/grandPrixResultsFragment"
-            app:enterAnim="@android:anim/fade_in"
-            app:exitAnim="@android:anim/fade_out" />
-    </fragment>
+    app:startDestination="@+id/main_screen_nested_graph">
 
     <fragment
         android:id="@+id/navigation_championship"
@@ -46,20 +29,39 @@
         android:label="@string/title_seasons"
         tools:layout="@layout/fragment_seasons" />
 
-    <fragment
-        android:id="@+id/navigation_notifications_settings"
-        android:name="edu.samsungit.remsely.proformula.ui.notifications_settings_dialog.NotificationsSettingsFragment"
-        android:label="fragment_notifications_settings"
-        tools:layout="@layout/fragment_notifications_settings" >
-        <action
-            android:id="@+id/action_navigation_notifications_settings_to_navigation_home2"
-            app:destination="@id/navigation_home"
-            app:enterAnim="@android:anim/slide_in_left"
-            app:exitAnim="@android:anim/slide_out_right" />
-    </fragment>
-    <fragment
-        android:id="@+id/grandPrixResultsFragment"
-        android:name="edu.samsungit.remsely.proformula.ui.grand_prix_results.GrandPrixResultsFragment"
-        android:label="fragment_grand_prix_results"
-        tools:layout="@layout/fragment_grand_prix_results" />
+    <navigation android:id="@+id/main_screen_nested_graph"
+        app:startDestination="@id/navigation_home">
+        <fragment
+            android:id="@+id/grandPrixResultsFragment"
+            android:name="edu.samsungit.remsely.proformula.ui.grand_prix_results.GrandPrixResultsFragment"
+            android:label="fragment_grand_prix_results"
+            tools:layout="@layout/fragment_grand_prix_results" />
+        <fragment
+            android:id="@+id/navigation_home"
+            android:name="edu.samsungit.remsely.proformula.ui.home.HomeFragment"
+            android:label="@string/title_home"
+            tools:layout="@layout/fragment_home">
+            <action
+                android:id="@+id/action_navigation_home_to_notificationsSettingsFragment"
+                app:destination="@id/navigation_notifications_settings"
+                app:enterAnim="@anim/slide_in_left"
+                app:exitAnim="@anim/slide_out_left"
+                app:popEnterAnim="@anim/slide_in_right"
+                app:popExitAnim="@anim/slide_out_right" />
+            <action
+                android:id="@+id/action_navigation_home_to_grandPrixResultsFragment"
+                app:destination="@id/grandPrixResultsFragment"
+                app:enterAnim="@anim/slide_in_right"
+                app:exitAnim="@anim/slide_out_right"
+                app:popEnterAnim="@anim/slide_in_left"
+                app:popExitAnim="@anim/slide_out_left" />
+        </fragment>
+        <fragment
+            android:id="@+id/navigation_notifications_settings"
+            android:name="edu.samsungit.remsely.proformula.ui.notifications_settings_dialog.NotificationsSettingsFragment"
+            android:label="fragment_notifications_settings"
+            tools:layout="@layout/fragment_notifications_settings" />
+    </navigation>
+
+
 </navigation>

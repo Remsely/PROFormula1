@@ -41,7 +41,7 @@ public class NotificationsSettingsFragment extends Fragment {
 
     public void navigateToHome(){
         mOpenHomeFragment.setOnClickListener(v -> {
-            Navigation.findNavController(v).navigate(R.id.action_navigation_notifications_settings_to_navigation_home2);
+            Navigation.findNavController(v).popBackStack();
         });
     }
 }

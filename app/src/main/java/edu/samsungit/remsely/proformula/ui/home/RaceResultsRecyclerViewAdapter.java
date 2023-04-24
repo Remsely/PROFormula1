@@ -13,12 +13,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 
 import java.util.List;
+import java.util.Objects;
 
 import edu.samsungit.remsely.proformula.R;
 import edu.samsungit.remsely.proformula.databinding.RaceResultsRecyclerViewItemBinding;
 
 public class RaceResultsRecyclerViewAdapter extends RecyclerView.Adapter<RaceResultsRecyclerViewAdapter.ViewHolder> {
-    private List<RaceResultsDataModel> raceResults;
+    private final List<RaceResultsDataModel> raceResults;
 
     public RaceResultsRecyclerViewAdapter(List<RaceResultsDataModel> raceResults){
         this.raceResults = raceResults;
@@ -47,10 +48,21 @@ public class RaceResultsRecyclerViewAdapter extends RecyclerView.Adapter<RaceRes
                 holder.binding.stageResultsPosition.setTextColor(ContextCompat.getColor(holder.itemView.getContext(), R.color.bronze));
                 break;
         }
+
         holder.binding.stageResultsPilotName.setText(raceResultsDataModel.getPilot());
         holder.binding.stageResultsTeamName.setText(raceResultsDataModel.getTeam());
         holder.binding.stageResultsTime.setText(raceResultsDataModel.getTime());
-        holder.binding.stageResultsPoints.setText(raceResultsDataModel.getPoints());
+
+        String points = raceResultsDataModel.getPoints();
+        holder.binding.stageResultsPoints.setText(points);
+        if (Objects.equals(points, "+26") || Objects.equals(points, "+19") || Objects.equals(points, "+16")
+                || Objects.equals(points, "+13") || Objects.equals(points, "+11") || Objects.equals(points, "+9")
+                || (Objects.equals(points, "+7") && raceResultsDataModel.getP() == 7)
+                || (Objects.equals(points, "+5") && raceResultsDataModel.getP() == 8)
+                || (Objects.equals(points, "+3") && raceResultsDataModel.getP() == 9)
+                || (Objects.equals(points, "+2") && raceResultsDataModel.getP() == 10))
+            holder.binding.stageResultsPoints.setTextColor(ContextCompat.getColor(holder.itemView.getContext(), R.color.purple));
+
         Glide.with(holder.itemView.getContext()).load(raceResultsDataModel.getPilotFlag()).into(holder.binding.stageResultsPilotFlag);
         Glide.with(holder.itemView.getContext()).load(raceResultsDataModel.getTeamLogo()).into(holder.binding.stageResultsTeamLogo);
     }
@@ -62,7 +74,7 @@ public class RaceResultsRecyclerViewAdapter extends RecyclerView.Adapter<RaceRes
 
     static class ViewHolder extends RecyclerView.ViewHolder{
 
-        private RaceResultsRecyclerViewItemBinding binding;
+        private final RaceResultsRecyclerViewItemBinding binding;
 
         public ViewHolder(RaceResultsRecyclerViewItemBinding binding) {
             super(binding.getRoot());

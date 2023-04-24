@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="red">#E70000</color>
-    <color name="transparent_red">#01E70000</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFF</color>
     <color name="dark_grey">#1F1F1F</color>
     <color name="gold">#FFD700</color>
     <color name="bronze">#CD7F32</color>
     <color name="silver">#C5C9C7</color>
+    <color name="purple">#CD00CD</color>
 </resources>
