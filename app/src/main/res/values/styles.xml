@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="tab_text" parent="@android:style/TextAppearance.Widget.TabWidget">
-        <item name="android:fontFamily">@font/open_sans_semibold</item>
+        <item name="android:fontFamily">@font/open_sans_bold</item>
         <item name="android:textSize">14sp</item>
     </style>
 

@@ -16,7 +16,7 @@
             android:id="@+id/soon_stage_schedule_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#E70000"
+            android:textColor="@color/red"
             android:textSize="14sp"
             android:fontFamily="@font/open_sans_semibold"/>
 </LinearLayout>

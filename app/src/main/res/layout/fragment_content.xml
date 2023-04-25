@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/black"
     tools:context=".ui.content.ContentFragment"
     android:orientation="vertical">
@@ -23,13 +24,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <LinearLayout
-            android:id="@+id/content_screen_scroll_view_linear_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginStart="1dp"
-            android:layout_marginEnd="1dp">
 
         <LinearLayout
             android:id="@+id/content_author_layout"
@@ -40,63 +34,63 @@
             android:layout_marginBottom="8dp"
             android:paddingBottom="3dp">
 
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/content_author_top_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="fill_horizontal"
                 android:orientation="horizontal"
-                android:paddingTop="7dp"
-                android:paddingBottom="3dp"
                 android:paddingLeft="7dp"
-                android:paddingRight="7dp">
+                android:paddingTop="7dp"
+                android:paddingRight="7dp"
+                android:paddingBottom="7dp">
 
                 <ImageView
                     android:id="@+id/content_author_logo"
                     android:layout_width="70dp"
                     android:layout_height="70dp"
-                    android:background="@drawable/flag" />
+                    android:background="@drawable/flag"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                <LinearLayout
+                <TextView
+                    android:id="@+id/content_author_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:orientation="vertical">
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="@string/author_name"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:layout_marginStart="4dp"
+                    app:layout_constraintStart_toEndOf="@+id/content_author_logo"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/content_author_recomendation"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentEnd="true"
+                    android:background="@drawable/favourites"
+                    android:scaleType="centerInside"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/content_author_name"
-                            android:text="@string/author_name"
-                            android:textColor="@color/white"
-                            android:textSize="18sp"
-                            android:fontFamily="@font/open_sans_bold"/>
 
-                        <ImageView
-                            android:id="@+id/content_author_recomendation"
-                            android:layout_alignParentEnd="true"
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:background="@drawable/favourites"
-                            android:scaleType="centerInside"/>
+                <TextView
+                    android:id="@+id/content_author_information"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="@string/information_about_author"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/content_author_logo"
+                    app:layout_constraintTop_toBottomOf="@+id/content_author_name"
+                    android:layout_marginStart="4dp"/>
 
-                    </RelativeLayout>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/content_author_information"
-                        android:text="@string/information_about_author"
-                        android:textColor="@color/white"
-                        android:textSize="12sp"
-                        android:fontFamily="@font/open_sans_bold"/>
-                </LinearLayout>
-
-            </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <LinearLayout
                 android:id="@+id/content_author_top_line"
@@ -133,6 +127,5 @@
                     android:fontFamily="@font/open_sans"/>
             </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
     </ScrollView>
 </LinearLayout>

@@ -152,7 +152,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="7dp"
                     android:layout_marginEnd="7dp"
-                    android:nestedScrollingEnabled="false"/>
+                    android:nestedScrollingEnabled="false"
+                    android:layout_marginBottom="3dp"/>
 
                 <LinearLayout
                     android:id="@+id/soon_stage_bottom_line"
