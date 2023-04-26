@@ -1,8 +1,7 @@
-package edu.samsungit.remsely.proformula.ui.home;
+package edu.samsungit.remsely.proformula.ui.adapters;
 
 import android.content.Intent;
 import android.net.Uri;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
@@ -12,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import edu.samsungit.remsely.proformula.databinding.WhereWatchRecyclerViewItemBinding;
+import edu.samsungit.remsely.proformula.data.models.LinksDataModel;
 
 public class LinksRecyclerViewAdapter extends RecyclerView.Adapter<LinksRecyclerViewAdapter.LinkViewHolder> {
     private List<LinksDataModel> linksList;

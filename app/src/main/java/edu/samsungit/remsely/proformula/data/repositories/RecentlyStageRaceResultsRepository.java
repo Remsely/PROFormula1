@@ -1,4 +1,4 @@
-package edu.samsungit.remsely.proformula.ui.home;
+package edu.samsungit.remsely.proformula.data.repositories;
 
 import android.util.Log;
 
@@ -16,6 +16,8 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
+
+import edu.samsungit.remsely.proformula.data.models.RaceResultsDataModel;
 
 public class RecentlyStageRaceResultsRepository {
     private final DatabaseReference databaseReference;

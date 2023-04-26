@@ -1,4 +1,4 @@
-package edu.samsungit.remsely.proformula.ui.home;
+package edu.samsungit.remsely.proformula.util;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapShader;
@@ -17,7 +17,7 @@ public class RoundedCornersToImageViewTransformation extends BitmapTransformatio
     private static float radius = 0f;
 
     public RoundedCornersToImageViewTransformation(float radius) {
-        this.radius = radius;
+        RoundedCornersToImageViewTransformation.radius = radius;
     }
 
     @Override

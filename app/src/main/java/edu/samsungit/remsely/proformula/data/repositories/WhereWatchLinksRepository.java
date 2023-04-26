@@ -1,4 +1,4 @@
-package edu.samsungit.remsely.proformula.ui.home;
+package edu.samsungit.remsely.proformula.data.repositories;
 
 import android.util.Log;
 
@@ -14,6 +14,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import edu.samsungit.remsely.proformula.data.models.LinksDataModel;
 
 public class WhereWatchLinksRepository {
     private final DatabaseReference databaseReference;

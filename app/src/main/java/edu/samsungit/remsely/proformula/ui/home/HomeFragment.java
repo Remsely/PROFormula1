@@ -24,6 +24,10 @@ import com.bumptech.glide.Glide;
 
 import edu.samsungit.remsely.proformula.R;
 import edu.samsungit.remsely.proformula.databinding.FragmentHomeBinding;
+import edu.samsungit.remsely.proformula.ui.adapters.LinksRecyclerViewAdapter;
+import edu.samsungit.remsely.proformula.ui.adapters.RaceResultsRecyclerViewAdapter;
+import edu.samsungit.remsely.proformula.ui.adapters.StageScheduleRecyclerViewAdapter;
+import edu.samsungit.remsely.proformula.util.RoundedCornersToImageViewTransformation;
 
 public class HomeFragment extends Fragment {
     private FragmentHomeBinding binding;
@@ -69,11 +73,11 @@ public class HomeFragment extends Fragment {
         homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
 
         soonStageHeadingLiveDataObservation();
-        recentlyStageHeadingLiveDataObservation();
-        whereWatchLinksLiveDataObservation();
-        aboutRecentlyStageLinksLiveDataObservation();
         stageScheduleLiveDataObservation();
+        whereWatchLinksLiveDataObservation();
+        recentlyStageHeadingLiveDataObservation();
         recentlyRaceResultsLiveDataObservation();
+        aboutRecentlyStageLinksLiveDataObservation();
     }
 
     private void soonStageHeadingLiveDataObservation(){

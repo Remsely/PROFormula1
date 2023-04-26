@@ -1,7 +1,5 @@
 package edu.samsungit.remsely.proformula.ui.grand_prix_results;
 
-import androidx.lifecycle.ViewModelProvider;
-
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -18,10 +16,8 @@ import android.widget.LinearLayout;
 
 import com.google.android.material.tabs.TabLayout;
 
-import edu.samsungit.remsely.proformula.R;
 import edu.samsungit.remsely.proformula.databinding.FragmentGrandPrixResultsBinding;
-import edu.samsungit.remsely.proformula.databinding.FragmentHomeBinding;
-import edu.samsungit.remsely.proformula.ui.championship.ViewPagerChampionshipAdapter;
+import edu.samsungit.remsely.proformula.ui.adapters.ViewPagerGrandPrixResultsAdapter;
 
 public class GrandPrixResultsFragment extends Fragment {
     private FragmentGrandPrixResultsBinding binding;

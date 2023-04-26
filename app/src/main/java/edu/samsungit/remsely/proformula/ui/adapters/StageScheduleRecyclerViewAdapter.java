@@ -1,4 +1,4 @@
-package edu.samsungit.remsely.proformula.ui.home;
+package edu.samsungit.remsely.proformula.ui.adapters;
 
 import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
@@ -9,13 +9,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
+import edu.samsungit.remsely.proformula.data.models.StageScheduleDataModel;
 import edu.samsungit.remsely.proformula.databinding.StageScheduleRecyclerViewItemBinding;
 
 public class StageScheduleRecyclerViewAdapter extends RecyclerView.Adapter<StageScheduleRecyclerViewAdapter.ViewHolder> {
 
     private List<StageScheduleDataModel> events;
 
-    StageScheduleRecyclerViewAdapter(List<StageScheduleDataModel> scheduleDataModels){
+    public StageScheduleRecyclerViewAdapter(List<StageScheduleDataModel> scheduleDataModels){
         this.events = scheduleDataModels;
     }
 

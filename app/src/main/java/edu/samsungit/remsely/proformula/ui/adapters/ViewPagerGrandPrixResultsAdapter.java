@@ -1,9 +1,10 @@
-package edu.samsungit.remsely.proformula.ui.grand_prix_results;
+package edu.samsungit.remsely.proformula.ui.adapters;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
+import edu.samsungit.remsely.proformula.ui.grand_prix_results.GrandPrixResultsFragment;
 import edu.samsungit.remsely.proformula.ui.race_against_time.RaceAgainstTimeResultsFragment;
 import edu.samsungit.remsely.proformula.ui.race_with_points.RaceWithPointsFragment;
 

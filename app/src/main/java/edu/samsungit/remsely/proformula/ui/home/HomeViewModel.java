@@ -5,6 +5,17 @@ import androidx.lifecycle.ViewModel;
 
 import java.util.List;
 
+import edu.samsungit.remsely.proformula.data.models.LinksDataModel;
+import edu.samsungit.remsely.proformula.data.models.RaceResultsDataModel;
+import edu.samsungit.remsely.proformula.data.models.StageHeadingDataModel;
+import edu.samsungit.remsely.proformula.data.models.StageScheduleDataModel;
+import edu.samsungit.remsely.proformula.data.repositories.AboutRecentlyStageLinksRepository;
+import edu.samsungit.remsely.proformula.data.repositories.RecentlyStageHeadingRepository;
+import edu.samsungit.remsely.proformula.data.repositories.RecentlyStageRaceResultsRepository;
+import edu.samsungit.remsely.proformula.data.repositories.SoonStageHeadingRepository;
+import edu.samsungit.remsely.proformula.data.repositories.SoonStageScheduleRepository;
+import edu.samsungit.remsely.proformula.data.repositories.WhereWatchLinksRepository;
+
 public class HomeViewModel extends ViewModel {
     private SoonStageHeadingRepository soonStageHeadingRepository;
     private RecentlyStageHeadingRepository recentlyStageHeadingRepository;

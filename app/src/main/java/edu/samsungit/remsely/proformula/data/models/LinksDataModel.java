@@ -1,4 +1,4 @@
-package edu.samsungit.remsely.proformula.ui.home;
+package edu.samsungit.remsely.proformula.data.models;
 
 public class LinksDataModel {
     private String link;

@@ -1,10 +1,7 @@
-package edu.samsungit.remsely.proformula.ui.home;
+package edu.samsungit.remsely.proformula.ui.adapters;
 
-import android.graphics.Color;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Switch;
 
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
@@ -16,6 +13,7 @@ import java.util.List;
 import java.util.Objects;
 
 import edu.samsungit.remsely.proformula.R;
+import edu.samsungit.remsely.proformula.data.models.RaceResultsDataModel;
 import edu.samsungit.remsely.proformula.databinding.RaceResultsRecyclerViewItemBinding;
 
 public class RaceResultsRecyclerViewAdapter extends RecyclerView.Adapter<RaceResultsRecyclerViewAdapter.ViewHolder> {

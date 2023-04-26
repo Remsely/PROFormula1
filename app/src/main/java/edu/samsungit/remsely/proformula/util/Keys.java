@@ -1,6 +1,6 @@
-package edu.samsungit.remsely.proformula.ui.home;
+package edu.samsungit.remsely.proformula.util;
 
-public abstract class Keys {
+public class Keys {
     public static final String MAIN_SCREEN = "Main screen";
     public static final String RECENTLY = "Recently";
     public static final String SEASONS_KEY = "Seasons key";

@@ -1,6 +1,4 @@
-package edu.samsungit.remsely.proformula.ui.home;
-
-import android.util.Log;
+package edu.samsungit.remsely.proformula.data.repositories;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
@@ -14,6 +12,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import edu.samsungit.remsely.proformula.data.models.StageScheduleDataModel;
 
 public class SoonStageScheduleRepository {
     private final DatabaseReference databaseReference;
