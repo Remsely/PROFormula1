@@ -63,4 +63,5 @@
     <string name="race">Гонка</string>
     <string name="constructors_cup">Кубок конструкторов</string>
     <string name="schedule">Расписание:</string>
+    <string name="about_recently_stage">Видео о прошедшем Гран-при</string>
 </resources>

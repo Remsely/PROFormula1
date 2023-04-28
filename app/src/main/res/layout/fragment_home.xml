@@ -201,7 +201,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/animated_frame"
                 android:orientation="vertical"
-                android:layout_marginBottom="8dp">
+                android:layout_marginBottom="7dp">
 
                 <RelativeLayout
                     android:id="@+id/recently_top_part_of_frame"
@@ -263,6 +263,16 @@
 
             </LinearLayout>
 
+            <TextView
+                android:id="@+id/about_stage_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="2dp"
+                android:text="@string/about_stage"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:fontFamily="@font/open_sans_bold"/>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -271,22 +281,23 @@
                 android:paddingBottom="3dp">
 
                 <TextView
-                    android:id="@+id/about_stage_title"
-                    android:layout_width="match_parent"
+                    android:id="@+id/recently_stage_links_title"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingLeft="7dp"
                     android:paddingRight="7dp"
-                    android:paddingBottom="2dp"
-                    android:text="@string/about_stage"
-                    android:gravity="center"
+                    android:text="@string/about_recently_stage"
                     android:textColor="@color/white"
-                    android:textSize="20sp"
-                    android:fontFamily="@font/open_sans_bold"/>
+                    android:textSize="17sp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:paddingBottom="3dp"
+                    android:layout_gravity="center"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="4dp"
-                    android:background="@color/black" />
+                    android:background="@color/black"
+                    android:orientation="horizontal" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/about_recently_stage_links_recycler_view"
