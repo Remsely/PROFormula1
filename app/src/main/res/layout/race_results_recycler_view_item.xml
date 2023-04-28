@@ -22,9 +22,9 @@
 
         <ImageView
             android:id="@+id/stage_results_pilot_flag"
-            android:layout_width="20dp"
-            android:layout_height="14dp"
-            android:scaleType="centerInside"/>
+            android:layout_width="18dp"
+            android:layout_height="10dp"
+            android:scaleType="center" />
 
         <TextView
             android:id="@+id/stage_results_pilot_name"
@@ -47,8 +47,8 @@
 
         <ImageView
             android:id="@+id/stage_results_team_logo"
-            android:layout_width="20dp"
-            android:layout_height="14dp"
+            android:layout_width="18dp"
+            android:layout_height="12dp"
             android:scaleType="centerInside"/>
 
         <TextView

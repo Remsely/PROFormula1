@@ -1,4 +1,4 @@
-package edu.samsungit.remsely.proformula;
+package edu.samsungit.remsely.proformula.ui;
 
 import android.os.Bundle;
 import android.view.View;
@@ -13,6 +13,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import edu.samsungit.remsely.proformula.R;
 import edu.samsungit.remsely.proformula.databinding.ActivityMainBinding;
 import edu.samsungit.remsely.proformula.databinding.FragmentHomeBinding;
 import edu.samsungit.remsely.proformula.databinding.FragmentNotificationsSettingsBinding;

@@ -29,7 +29,7 @@ public class RecentlyStageRaceResultsRepository {
     public LiveData<List<RaceResultsDataModel>> getRecentlyRaceResultsLiveData(){
         MutableLiveData<List<RaceResultsDataModel>> recentlyRaceResultsLiveData = new MutableLiveData<>();
         databaseReference.child("Main screen").child("Recently")
-                .addListenerForSingleValueEvent(new ValueEventListener() {
+                .addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 String seasonsKey = snapshot.child("Seasons key").getValue(String.class);
@@ -37,7 +37,7 @@ public class RecentlyStageRaceResultsRepository {
 
                 databaseReference.child("Seasons").child(seasonsKey).child("Stages")
                         .child(stageNumber).child("events").child("5").child("Results")
-                        .addListenerForSingleValueEvent(new ValueEventListener() {
+                        .addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot2) {
                                 List<RaceResultsDataModel> mData = new ArrayList<>();
@@ -60,7 +60,7 @@ public class RecentlyStageRaceResultsRepository {
 
                                             assert teamKey != null;
                                             databaseReference.child("Teams").child(teamKey)
-                                                    .addListenerForSingleValueEvent(new ValueEventListener() {
+                                                    .addValueEventListener(new ValueEventListener() {
                                                         @Override
                                                         public void onDataChange(@NonNull DataSnapshot snapshot4) {
                                                             String teamName = snapshot4.child("Short name").getValue(String.class);

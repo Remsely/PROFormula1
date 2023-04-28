@@ -12,8 +12,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
-import edu.samsungit.remsely.proformula.MainActivity;
-import edu.samsungit.remsely.proformula.R;
 import edu.samsungit.remsely.proformula.databinding.FragmentNotificationsSettingsBinding;
 
 public class NotificationsSettingsFragment extends Fragment {
