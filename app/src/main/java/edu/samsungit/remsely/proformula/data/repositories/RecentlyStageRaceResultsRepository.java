@@ -48,7 +48,6 @@ public class RecentlyStageRaceResultsRepository {
                                     int position = Integer.parseInt(Objects.requireNonNull(data.getKey()));
                                     String time = data.child("Time").getValue(String.class);
                                     String points = data.child("Points").getValue(String.class);
-                                    Log.d("Stupid", String.valueOf(position));
 
                                     assert pilotKey != null;
                                     databaseReference.child("Pilots").child(pilotKey)
@@ -70,8 +69,6 @@ public class RecentlyStageRaceResultsRepository {
                                                             mData.add(raceResultsDataModel);
 
                                                             mData.sort(Comparator.comparingInt(RaceResultsDataModel::getP));
-
-                                                            Log.d("Stupid", String.valueOf(position));
                                                             recentlyRaceResultsLiveData.setValue(mData);
                                                         }
 

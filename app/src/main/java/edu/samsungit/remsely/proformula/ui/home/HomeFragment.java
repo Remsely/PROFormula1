@@ -28,6 +28,7 @@ import edu.samsungit.remsely.proformula.databinding.FragmentHomeBinding;
 import edu.samsungit.remsely.proformula.ui.adapters.LinksRecyclerViewAdapter;
 import edu.samsungit.remsely.proformula.ui.adapters.RaceResultsRecyclerViewAdapter;
 import edu.samsungit.remsely.proformula.ui.adapters.StageScheduleRecyclerViewAdapter;
+import edu.samsungit.remsely.proformula.util.DpToPx;
 import edu.samsungit.remsely.proformula.util.RoundedCornersToImageViewTransformation;
 
 public class HomeFragment extends Fragment {
@@ -54,7 +55,7 @@ public class HomeFragment extends Fragment {
         init();
     }
 
-    public void init(){
+    private void init(){
         mOpenNotificationSettingsFragment = binding.notificationsButton; // Навигация на уведомления
         mOpenGrandPrixResultsFragment = binding.recentlyStageFrame; // Навигация на результаты недавнего Гран-при
 
@@ -85,7 +86,7 @@ public class HomeFragment extends Fragment {
         homeViewModel.getSoonStageHeadingLiveData().observe(this, heading -> {
             if(heading != null){
                 Glide.with(HomeFragment.this).load(heading.getFlag())
-                        .transform(new RoundedCornersToImageViewTransformation(dpToPx(14))).into(soonStageFlag);
+                        .transform(new RoundedCornersToImageViewTransformation(DpToPx.dpToPx(14))).into(soonStageFlag);
                 Log.i(TAG, heading.getFlag());
                 soonStageLocation.setText(heading.getLocation());
                 soonStageName.setText(heading.getName());
@@ -97,8 +98,7 @@ public class HomeFragment extends Fragment {
         homeViewModel.getRecentlyStageHeadingLiveData().observe(this, heading -> {
             if(heading != null){
                 Glide.with(HomeFragment.this).load(heading.getFlag())
-                        .transform(new RoundedCornersToImageViewTransformation(dpToPx(14))).into(recentlyStageFlag);
-                Log.i(TAG, heading.getFlag());
+                        .transform(new RoundedCornersToImageViewTransformation(DpToPx.dpToPx(14))).into(recentlyStageFlag);
                 recentlyStageLocation.setText(heading.getLocation());
                 recentlyStageName.setText(heading.getName());
             }
@@ -136,10 +136,6 @@ public class HomeFragment extends Fragment {
             recyclerView.setAdapter(new RaceResultsRecyclerViewAdapter(raceResults));
             recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         });
-    }
-
-    private int dpToPx(int dp) {
-        return (int) (dp * Resources.getSystem().getDisplayMetrics().density);
     }
 
     @Override
