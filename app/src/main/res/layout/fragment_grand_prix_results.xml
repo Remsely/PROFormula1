@@ -24,7 +24,7 @@
             android:id="@+id/grand_prix_results_back_button"
             android:layout_width="45dp"
             android:layout_height="45dp"
-            android:background="@drawable/simple_frame"
+            android:background="@drawable/animated_frame"
             android:gravity="center"
             android:padding="5dp">
 
