@@ -50,7 +50,6 @@ public class ContentMakersRepository {
                                 SocialNetworkReferencesDataModel socialNetworkReferencesDataModel =
                                         new SocialNetworkReferencesDataModel(reference, image);
                                 referencesList.add(socialNetworkReferencesDataModel);
-                                Log.d("Stupid", String.valueOf(image));
                             }
 
 
@@ -65,13 +64,9 @@ public class ContentMakersRepository {
                     contentMakers.add(contentAuthorDataModel);
                 }
                 contentMakers.sort((o1, o2) -> {
-                    if (o1.getRecommendation() == o2.getRecommendation()) {
-                        return 0;
-                    } else if (!o1.getRecommendation()) {
-                        return 1;
-                    } else {
-                        return -1;
-                    }
+                    if (o1.getRecommendation() == o2.getRecommendation()) return 0;
+                    else if (!o1.getRecommendation()) return 1;
+                    else return -1;
                 });
                 liveData.setValue(contentMakers);
             }

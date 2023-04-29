@@ -25,7 +25,7 @@ public class SoonStageScheduleRepository {
     public LiveData<List<StageScheduleDataModel>> getSoonStageScheduleLiveData(){
         MutableLiveData<List<StageScheduleDataModel>> soonStageScheduleLiveData = new MutableLiveData<>();
         databaseReference.child("Main screen").child("Soon")
-                .addListenerForSingleValueEvent(new ValueEventListener() {
+                .addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         String seasonsKey = snapshot.child("Seasons key").getValue(String.class);

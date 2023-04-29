@@ -2,6 +2,7 @@ package edu.samsungit.remsely.proformula.ui.content;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -19,7 +20,6 @@ import edu.samsungit.remsely.proformula.databinding.SocialNetworksLinksRecyclerV
 
 public class SocialNetworksLinksRecyclerViewAdapter extends RecyclerView.Adapter<SocialNetworksLinksRecyclerViewAdapter.ViewHolder> {
     private final List<SocialNetworkReferencesDataModel> socialNetworkReferencesDataModels;
-    public boolean dataIsLoaded;
 
     public SocialNetworksLinksRecyclerViewAdapter(List<SocialNetworkReferencesDataModel> socialNetworkReferencesDataModels){
         this.socialNetworkReferencesDataModels = socialNetworkReferencesDataModels;
@@ -45,6 +45,8 @@ public class SocialNetworksLinksRecyclerViewAdapter extends RecyclerView.Adapter
             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(socialNetworkReferencesDataModel.getReference()));
             holder.contentAuthorReference.getContext().startActivity(intent);
         });
+
+        Log.d("Nested RecyclerView", "Data - " + socialNetworkReferencesDataModel.getReference());
     }
 
     @Override

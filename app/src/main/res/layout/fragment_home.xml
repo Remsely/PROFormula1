@@ -85,7 +85,7 @@
                 android:orientation="vertical"
                 android:paddingBottom="3dp">
 
-                <RelativeLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/soon_top_part_of_frame"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -96,37 +96,40 @@
                     android:paddingLeft="7dp"
                     android:paddingRight="7dp">
 
-                    <LinearLayout
-                        android:id="@+id/soon_stage_name_and_place_of_event_layout"
-                        android:layout_width="wrap_content"
+
+                    <TextView
+                        android:id="@+id/soon_stage_name"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        android:fontFamily="@font/open_sans_bold"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        app:layout_constraintEnd_toStartOf="@+id/soon_stage_flag"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/soon_stage_name"
-                            android:textColor="@color/white"
-                            android:textSize="20sp"
-                            android:fontFamily="@font/open_sans_bold"/>
+                    <TextView
+                        android:id="@+id/soon_stage_place"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        app:layout_constraintEnd_toEndOf="@+id/soon_stage_name"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/soon_stage_name" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/soon_stage_place"
-                            android:textColor="@color/white"
-                            android:textSize="14sp"
-                            android:fontFamily="@font/open_sans_semibold"/>
-                    </LinearLayout>
 
                     <ImageView
                         android:id="@+id/soon_stage_flag"
                         android:layout_width="70dp"
                         android:layout_height="40dp"
                         android:layout_alignParentEnd="true"
-                        android:scaleType="fitEnd"/>
+                        android:scaleType="fitCenter"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-                </RelativeLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <LinearLayout
                     android:id="@+id/soon_stage_top_line"
@@ -203,48 +206,51 @@
                 android:orientation="vertical"
                 android:layout_marginBottom="7dp">
 
-                <RelativeLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/recently_top_part_of_frame"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="fill_horizontal"
                     android:orientation="horizontal"
-                    android:paddingLeft="7dp"
-                    android:paddingRight="7dp"
                     android:paddingTop="7dp"
-                    android:paddingBottom="3dp">
+                    android:paddingBottom="3dp"
+                    android:paddingLeft="7dp"
+                    android:paddingRight="7dp">
 
-                    <LinearLayout
-                        android:id="@+id/recently_stage_name_and_place_of_event_layout"
-                        android:layout_width="wrap_content"
+
+                    <TextView
+                        android:id="@+id/recently_stage_name"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        android:fontFamily="@font/open_sans_bold"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        app:layout_constraintEnd_toStartOf="@+id/recently_stage_flag"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/recently_stage_name"
-                            android:textColor="@color/white"
-                            android:textSize="20sp"
-                            android:fontFamily="@font/open_sans_bold"/>
+                    <TextView
+                        android:id="@+id/recently_stage_place"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/open_sans_semibold"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        app:layout_constraintEnd_toEndOf="@+id/recently_stage_name"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/recently_stage_name" />
 
-                        <TextView
-                            android:id="@+id/recently_stage_place"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textColor="@color/white"
-                            android:textSize="14sp"
-                            android:fontFamily="@font/open_sans_semibold"/>
-                    </LinearLayout>
 
                     <ImageView
                         android:id="@+id/recently_stage_flag"
                         android:layout_width="70dp"
                         android:layout_height="40dp"
                         android:layout_alignParentEnd="true"
-                        android:scaleType="fitStart" />
+                        android:scaleType="fitCenter"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-                </RelativeLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <LinearLayout
                     android:id="@+id/recently_stage_top_line"

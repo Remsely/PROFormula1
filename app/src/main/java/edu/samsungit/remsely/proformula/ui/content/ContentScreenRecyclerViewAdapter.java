@@ -40,14 +40,15 @@ public class ContentScreenRecyclerViewAdapter extends RecyclerView.Adapter<Conte
 
         holder.socialNetworksRecyclerView.setAdapter(new SocialNetworksLinksRecyclerViewAdapter(contentAuthorDataModel.getSocialNetworks()));
 
-        ImageView imageView = holder.contentAuthorRecommendation;
-
         holder.contentAuthorName.setText(contentAuthorDataModel.getName());
         holder.contentAuthorInformation.setText(contentAuthorDataModel.getDescription());
+
         Glide.with(holder.contentAuthorLogo.getContext())
                 .load(contentAuthorDataModel.getLogo())
                 .transform(new RoundedCornersToImageViewTransformation(DpToPx.dpToPx(14)))
                 .into(holder.contentAuthorLogo);
+
+        ImageView imageView = holder.contentAuthorRecommendation;
 
         if (contentAuthorDataModel.getRecommendation()){
             imageView.setBackgroundResource(R.drawable.favourites);
