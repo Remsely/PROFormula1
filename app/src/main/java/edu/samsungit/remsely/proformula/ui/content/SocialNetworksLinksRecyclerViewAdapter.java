@@ -45,8 +45,6 @@ public class SocialNetworksLinksRecyclerViewAdapter extends RecyclerView.Adapter
             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(socialNetworkReferencesDataModel.getReference()));
             holder.contentAuthorReference.getContext().startActivity(intent);
         });
-
-        Log.d("Nested RecyclerView", "Data - " + socialNetworkReferencesDataModel.getReference());
     }
 
     @Override

@@ -1,5 +1,7 @@
 package edu.samsungit.remsely.proformula.ui.content;
 
+import android.annotation.SuppressLint;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -34,11 +36,16 @@ public class ContentScreenRecyclerViewAdapter extends RecyclerView.Adapter<Conte
         return new ViewHolder(binding);
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     @Override
     public void onBindViewHolder(@NonNull ContentScreenRecyclerViewAdapter.ViewHolder holder, int position) {
         ContentAuthorDataModel contentAuthorDataModel = contentAuthorDataModels.get(position);
 
-        holder.socialNetworksRecyclerView.setAdapter(new SocialNetworksLinksRecyclerViewAdapter(contentAuthorDataModel.getSocialNetworks()));
+        RecyclerView nestedRecyclerView = holder.socialNetworksRecyclerView;
+        SocialNetworksLinksRecyclerViewAdapter nestedRecyclerViewAdapter = new SocialNetworksLinksRecyclerViewAdapter(contentAuthorDataModel.getSocialNetworks());
+        nestedRecyclerView.setAdapter(nestedRecyclerViewAdapter);
+        nestedRecyclerViewAdapter.notifyDataSetChanged();
+        nestedRecyclerView.setLayoutManager(new LinearLayoutManager(nestedRecyclerView.getContext()));
 
         holder.contentAuthorName.setText(contentAuthorDataModel.getName());
         holder.contentAuthorInformation.setText(contentAuthorDataModel.getDescription());
@@ -54,6 +61,7 @@ public class ContentScreenRecyclerViewAdapter extends RecyclerView.Adapter<Conte
             imageView.setBackgroundResource(R.drawable.favourites);
             TooltipCompat.setTooltipText(imageView, "Рекомендуем этого автора!");
         }
+        Log.d("Recommendation", String.valueOf(contentAuthorDataModel.getRecommendation()));
     }
 
     @Override
@@ -74,7 +82,6 @@ public class ContentScreenRecyclerViewAdapter extends RecyclerView.Adapter<Conte
             contentAuthorRecommendation = binding.contentAuthorRecomendation;
             contentAuthorInformation = binding.contentAuthorInformation;
             socialNetworksRecyclerView = binding.socialNetworksRecyclerView;
-            socialNetworksRecyclerView.setLayoutManager(new LinearLayoutManager(socialNetworksRecyclerView.getContext()));
         }
     }
 }

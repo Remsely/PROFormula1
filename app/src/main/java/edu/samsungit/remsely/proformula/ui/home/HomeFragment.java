@@ -87,7 +87,6 @@ public class HomeFragment extends Fragment {
             if(heading != null){
                 Glide.with(HomeFragment.this).load(heading.getFlag())
                         .transform(new RoundedCornersToImageViewTransformation(DpToPx.dpToPx(14))).into(soonStageFlag);
-                Log.i(TAG, heading.getFlag());
                 soonStageLocation.setText(heading.getLocation());
                 soonStageName.setText(heading.getName());
             }
