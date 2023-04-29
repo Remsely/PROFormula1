@@ -26,11 +26,10 @@ public class ContentMakersRepository {
 
     public LiveData<List<ContentAuthorDataModel>> getContentAuthorsLiveData(){
         MutableLiveData<List<ContentAuthorDataModel>> liveData = new MutableLiveData<>();
-        List<ContentAuthorDataModel> contentMakers = new ArrayList<>();
-
         databaseReference.child("Content").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                List<ContentAuthorDataModel> contentMakers = new ArrayList<>();
                 for (DataSnapshot contentSnapshot : snapshot.getChildren()){
                     String description = contentSnapshot.child("Description").getValue(String.class);
                     boolean recommendation = Boolean.TRUE.equals(contentSnapshot.child("Recommendation").getValue(Boolean.class));
