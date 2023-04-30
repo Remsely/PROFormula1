@@ -54,8 +54,9 @@ public class ContentFragment extends Fragment {
         contentViewModel.getContentAuthorsLiveData().observe(getViewLifecycleOwner(), contentAuthorDataModels -> {
             RecyclerView recyclerView = binding.contentScreenRecyclerView;
             ContentScreenRecyclerViewAdapter adapter = new ContentScreenRecyclerViewAdapter(contentAuthorDataModels);
-            recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
             recyclerView.setAdapter(adapter);
+            recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+            adapter.notifyDataSetChanged();
         });
     }
 

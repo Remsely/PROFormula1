@@ -7,6 +7,7 @@
     <color name="transparent_gray">#0BFFFFFF</color>
     <color name="transparent_red">#40FF0033</color>
     <color name="dark_grey">#202020</color>
+    <color name="light_grey">#404040</color>
     <color name="gold">#FFD700</color>
     <color name="bronze">#d99454</color>
     <color name="silver">#C0C0C0</color>

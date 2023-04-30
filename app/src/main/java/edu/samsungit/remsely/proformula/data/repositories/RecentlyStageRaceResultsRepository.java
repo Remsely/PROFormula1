@@ -59,7 +59,7 @@ public class RecentlyStageRaceResultsRepository {
 
                                             assert teamKey != null;
                                             databaseReference.child("Teams").child(teamKey)
-                                                    .addValueEventListener(new ValueEventListener() {
+                                                    .addListenerForSingleValueEvent(new ValueEventListener() {
                                                         @Override
                                                         public void onDataChange(@NonNull DataSnapshot snapshot4) {
                                                             String teamName = snapshot4.child("Short name").getValue(String.class);

@@ -25,7 +25,7 @@ public class AboutRecentlyStageLinksRepository {
     public LiveData<List<LinksDataModel>> getAboutStageLinksLiveData(){
         MutableLiveData<List<LinksDataModel>> aboutStageLinksLiveData = new MutableLiveData<>();
         databaseReference.child("Main screen").child("Recently")
-                .addListenerForSingleValueEvent(new ValueEventListener() {
+                .addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 String seasonsKey = snapshot.child("Seasons key").getValue(String.class);
