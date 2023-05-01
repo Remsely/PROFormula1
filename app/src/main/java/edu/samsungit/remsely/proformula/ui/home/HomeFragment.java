@@ -22,6 +22,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 
 import edu.samsungit.remsely.proformula.R;
 import edu.samsungit.remsely.proformula.databinding.FragmentHomeBinding;
@@ -86,7 +87,7 @@ public class HomeFragment extends Fragment {
         homeViewModel.getSoonStageHeadingLiveData().observe(this, heading -> {
             if(heading != null){
                 Glide.with(HomeFragment.this).load(heading.getFlag())
-                        .transform(new RoundedCornersToImageViewTransformation(DpToPx.dpToPx(14))).into(soonStageFlag);
+                        .transform(new CenterCrop(), new RoundedCornersToImageViewTransformation(DpToPx.dpToPx(14))).into(soonStageFlag);
                 soonStageLocation.setText(heading.getLocation());
                 soonStageName.setText(heading.getName());
             }
@@ -97,7 +98,7 @@ public class HomeFragment extends Fragment {
         homeViewModel.getRecentlyStageHeadingLiveData().observe(this, heading -> {
             if(heading != null){
                 Glide.with(HomeFragment.this).load(heading.getFlag())
-                        .transform(new RoundedCornersToImageViewTransformation(DpToPx.dpToPx(14))).into(recentlyStageFlag);
+                        .transform(new CenterCrop(), new RoundedCornersToImageViewTransformation(DpToPx.dpToPx(14))).into(recentlyStageFlag);
                 recentlyStageLocation.setText(heading.getLocation());
                 recentlyStageName.setText(heading.getName());
             }

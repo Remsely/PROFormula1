@@ -8,7 +8,7 @@ import java.util.List;
 
 public class CalendarViewModel extends ViewModel {
     private CalendarRepository calendarRepository;
-    private LiveData<List<CalendarItemDataModel>> calendarItemsLiveData;
+    private MutableLiveData<List<CalendarItemDataModel>> calendarItemsLiveData;
     private NextRaceNumberRepository nextRaceNumberRepository;
     private LiveData<Integer> nextRaceNumberLiveData;
 
@@ -20,7 +20,7 @@ public class CalendarViewModel extends ViewModel {
         nextRaceNumberLiveData = nextRaceNumberRepository.getNextRaceNumberLiveData();
     }
 
-    public LiveData<List<CalendarItemDataModel>> getCalendarItemsLiveData(){
+    public MutableLiveData<List<CalendarItemDataModel>> getCalendarItemsLiveData(){
         return calendarItemsLiveData;
     }
 

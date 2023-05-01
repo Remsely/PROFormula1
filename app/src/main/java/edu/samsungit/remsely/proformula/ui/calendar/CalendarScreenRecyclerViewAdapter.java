@@ -1,7 +1,6 @@
 package edu.samsungit.remsely.proformula.ui.calendar;
 
 import android.annotation.SuppressLint;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -9,11 +8,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 
 import java.util.List;
 
@@ -58,12 +57,31 @@ public class CalendarScreenRecyclerViewAdapter extends RecyclerView.Adapter<Cale
 
         Glide.with(holder.stageFlag.getContext())
                 .load(calendarItemDataModel.getStageHeading().getFlag())
-                .transform(new RoundedCornersToImageViewTransformation(DpToPx.dpToPx(14)))
+                .transform(new CenterCrop(), new RoundedCornersToImageViewTransformation(DpToPx.dpToPx(14)))
                 .into(holder.stageFlag);
 
-//        if (calendarItemDataModel.getNumber() - 1 == nextStageNumber){
-//            holder.itemLayout.setBackgroundColor(ContextCompat.getColor(holder.itemLayout.getContext(), R.color.light_grey));
-//        }
+        if (calendarItemDataModel.getNumber() - 1 == nextStageNumber){
+            holder.itemLayout.setBackgroundResource(R.drawable.simple_frame_with_stroke);
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT
+            );
+            params.setMargins(DpToPx.dpToPx(2), 0, DpToPx.dpToPx(2), 0);
+            holder.line.setLayoutParams(params);
+            holder.line.setMinimumHeight(DpToPx.dpToPx(4));
+        }
+
+        else {
+            holder.itemLayout.setBackgroundResource(R.drawable.simple_frame);
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT
+            );
+            params.setMargins(0, 0,0, 0);
+            holder.line.setLayoutParams(params);
+            holder.line.setMinimumHeight(DpToPx.dpToPx(4));
+        }
+
     }
 
     @Override
@@ -77,6 +95,7 @@ public class CalendarScreenRecyclerViewAdapter extends RecyclerView.Adapter<Cale
         private final ImageView stageFlag;
         private final RecyclerView stageScheduleRecyclerView;
         private final LinearLayout itemLayout;
+        private final LinearLayout line;
 
         public ViewHolder(CalendarRecyclerViewItemBinding binding) {
             super(binding.getRoot());
@@ -85,6 +104,7 @@ public class CalendarScreenRecyclerViewAdapter extends RecyclerView.Adapter<Cale
             stageFlag = binding.calendarStageFlag;
             stageScheduleRecyclerView = binding.calendarScreenStageScheduleRecyclerView;
             itemLayout = binding.calendarScreenRecyclerViewItemLayout;
+            line = binding.calendarStageTopLine;
         }
     }
 }

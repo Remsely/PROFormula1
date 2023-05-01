@@ -61,7 +61,10 @@ public class ContentScreenRecyclerViewAdapter extends RecyclerView.Adapter<Conte
             imageView.setBackgroundResource(R.drawable.favourites);
             TooltipCompat.setTooltipText(imageView, "Рекомендуем этого автора!");
         }
-        Log.d("Recommendation", String.valueOf(contentAuthorDataModel.getRecommendation()));
+        else {
+            imageView.setBackground(null);
+            TooltipCompat.setTooltipText(imageView, null);
+        }
     }
 
     @Override

@@ -14,6 +14,8 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.List;
+
 import edu.samsungit.remsely.proformula.databinding.FragmentCalendarBinding;
 
 
@@ -36,17 +38,17 @@ public class CalendarFragment extends Fragment {
     private void init(){
         calendarViewModel = new ViewModelProvider(this).get(CalendarViewModel.class);
 
-        int nextRaceNumber;
-        if (calendarViewModel.getNextRaceNumberLiveData().getValue() != null){
-            nextRaceNumber = calendarViewModel.getNextRaceNumberLiveData().getValue() - 1;
-        }
-        else {
-            nextRaceNumber = 0;
-        }
+        int nextRaceNumber = getNextRaceNumber();
+
         calendarItemsLiveDataObservation(nextRaceNumber);
     }
 
-
+    private int getNextRaceNumber(){
+        if (calendarViewModel.getNextRaceNumberLiveData().getValue() != null){
+            return calendarViewModel.getNextRaceNumberLiveData().getValue() - 1;
+        }
+        return 0;
+    }
 
     @SuppressLint("NotifyDataSetChanged")
     private void calendarItemsLiveDataObservation(int num){

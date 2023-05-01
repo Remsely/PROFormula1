@@ -25,7 +25,7 @@ public class CalendarRepository {
         databaseReference = FirebaseDatabase.getInstance().getReference();
     }
 
-    public LiveData<List<CalendarItemDataModel>> getCalendarLiveData(){
+    public MutableLiveData<List<CalendarItemDataModel>> getCalendarLiveData(){
         MutableLiveData<List<CalendarItemDataModel>> liveData = new MutableLiveData<>();
         databaseReference.child("Main screen").child("Soon").child("Seasons key")
                 .addValueEventListener(new ValueEventListener() {
