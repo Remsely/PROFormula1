@@ -41,27 +41,28 @@ public class SoonStageScheduleRepository {
                         String seasonsKey = snapshot.child(SEASONS_KEY).getValue(String.class);
                         String stageNumber = snapshot.child(STAGE_NUMBER).getValue(String.class);
 
-                        assert seasonsKey != null && stageNumber != null;
-                        databaseReference.child(SEASONS).child(seasonsKey)
-                                .child(STAGES).child(stageNumber).child(EVENTS)
-                                .addValueEventListener(new ValueEventListener() {
-                                    @Override
-                                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                        List<StageScheduleDataModel> list = new ArrayList<>();
-                                        for(DataSnapshot data : dataSnapshot.getChildren()){
-                                            String date = data.child(DATE).getValue(String.class);
-                                            String event = data.child(NAME_LOWER).getValue(String.class);
-                                            StageScheduleDataModel dataModel = new StageScheduleDataModel(date, event);
-                                            list.add(dataModel);
+                        if (seasonsKey != null && stageNumber != null) {
+                            databaseReference.child(SEASONS).child(seasonsKey)
+                                    .child(STAGES).child(stageNumber).child(EVENTS)
+                                    .addValueEventListener(new ValueEventListener() {
+                                        @Override
+                                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                            List<StageScheduleDataModel> list = new ArrayList<>();
+                                            for(DataSnapshot data : dataSnapshot.getChildren()){
+                                                String date = data.child(DATE).getValue(String.class);
+                                                String event = data.child(NAME_LOWER).getValue(String.class);
+                                                StageScheduleDataModel dataModel = new StageScheduleDataModel(date, event);
+                                                list.add(dataModel);
+                                            }
+                                            soonStageScheduleLiveData.postValue(list);
                                         }
-                                        soonStageScheduleLiveData.postValue(list);
-                                    }
 
-                                    @Override
-                                    public void onCancelled(@NonNull DatabaseError error) {
+                                        @Override
+                                        public void onCancelled(@NonNull DatabaseError error) {
 
-                                    }
-                                });
+                                        }
+                                    });
+                        }
                     }
 
                     @Override

@@ -107,6 +107,7 @@ public class ContentScreenRecyclerViewAdapter extends RecyclerView.Adapter<Conte
                     new SocialNetworksLinksRecyclerViewAdapter();
             socialNetworksRecyclerView.setLayoutManager(new LinearLayoutManager(socialNetworksRecyclerView.getContext()));
             socialNetworksRecyclerView.setAdapter(socialNetworksLinksRecyclerViewAdapter);
+            socialNetworksRecyclerView.setItemAnimator(null);
         }
     }
 }

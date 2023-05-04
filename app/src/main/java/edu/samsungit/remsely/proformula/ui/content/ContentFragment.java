@@ -47,6 +47,7 @@ public class ContentFragment extends Fragment {
         ContentScreenRecyclerViewAdapter adapter = new ContentScreenRecyclerViewAdapter();
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);
+        recyclerView.setItemAnimator(null);
 
         contentAuthorsLiveDataLiveDataObservation();
     }

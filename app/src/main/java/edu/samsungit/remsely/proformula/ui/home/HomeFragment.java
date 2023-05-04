@@ -83,21 +83,25 @@ public class HomeFragment extends Fragment {
         StageScheduleRecyclerViewAdapter scheduleAdapter = new StageScheduleRecyclerViewAdapter();
         stageScheduleRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         stageScheduleRecyclerView.setAdapter(scheduleAdapter);
+        stageScheduleRecyclerView.setItemAnimator(null);
 
         whereWatchRecyclerView = binding.soonStageWhereWatchRecyclerView;
         LinksRecyclerViewAdapter whereWatchLinksAdapter = new LinksRecyclerViewAdapter();
         whereWatchRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         whereWatchRecyclerView.setAdapter(whereWatchLinksAdapter);
+        whereWatchRecyclerView.setItemAnimator(null);
 
         recentlyRaceResultsRecyclerView = binding.recentlyStageRaceResultsRecyclerView;
         RaceResultsRecyclerViewAdapter recentlyRaceResultsRecyclerViewAdapter = new RaceResultsRecyclerViewAdapter();
         recentlyRaceResultsRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recentlyRaceResultsRecyclerView.setAdapter(recentlyRaceResultsRecyclerViewAdapter);
+        recentlyRaceResultsRecyclerView.setItemAnimator(null);
 
         aboutRecentlyStageRecyclerView = binding.aboutRecentlyStageLinksRecyclerView;
         LinksRecyclerViewAdapter aboutRecentlyStageAdapter = new LinksRecyclerViewAdapter();
         aboutRecentlyStageRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         aboutRecentlyStageRecyclerView.setAdapter(aboutRecentlyStageAdapter);
+        aboutRecentlyStageRecyclerView.setItemAnimator(null);
 
         soonStageHeadingLiveDataObservation();
         stageScheduleLiveDataObservation();

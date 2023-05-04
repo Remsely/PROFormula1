@@ -68,40 +68,42 @@ public class RecentlyStageRaceResultsRepository {
                                         String time = data.child(TIME).getValue(String.class);
                                         String points = data.child(POINTS).getValue(String.class);
 
-                                        assert pilotKey != null;
-                                        databaseReference.child(PILOTS).child(pilotKey)
-                                                .addListenerForSingleValueEvent(new ValueEventListener() {
-                                            @Override
-                                            public void onDataChange(@NonNull DataSnapshot snapshot3) {
-                                                String pilotName = snapshot3.child(NAME_LOWER).getValue(String.class);
-                                                String pilotFlag = snapshot3.child(FLAG).getValue(String.class);
+                                        if (pilotKey != null) {
+                                            databaseReference.child(PILOTS).child(pilotKey)
+                                                    .addListenerForSingleValueEvent(new ValueEventListener() {
+                                                @Override
+                                                public void onDataChange(@NonNull DataSnapshot snapshot3) {
+                                                    String pilotName = snapshot3.child(NAME_LOWER).getValue(String.class);
+                                                    String pilotFlag = snapshot3.child(FLAG).getValue(String.class);
 
-                                                assert teamKey != null;
-                                                databaseReference.child(TEAMS).child(teamKey)
-                                                        .addListenerForSingleValueEvent(new ValueEventListener() {
-                                                            @Override
-                                                            public void onDataChange(@NonNull DataSnapshot snapshot4) {
-                                                                String teamName = snapshot4.child(SHORT_NAME).getValue(String.class);
-                                                                String teamLogo = snapshot4.child(LOGO_UPPER).getValue(String.class);
-                                                                RaceResultsDataModel raceResultsDataModel = new RaceResultsDataModel(
-                                                                        position, pilotFlag, pilotName, teamLogo, teamName, time, points);
-                                                                mData.add(raceResultsDataModel);
-                                                                mData.sort(Comparator.comparingInt(RaceResultsDataModel::getP));
-                                                                recentlyRaceResultsLiveData.postValue(mData);
-                                                            }
+                                                    if (teamKey != null) {
+                                                        databaseReference.child(TEAMS).child(teamKey)
+                                                                .addListenerForSingleValueEvent(new ValueEventListener() {
+                                                                    @Override
+                                                                    public void onDataChange(@NonNull DataSnapshot snapshot4) {
+                                                                        String teamName = snapshot4.child(SHORT_NAME).getValue(String.class);
+                                                                        String teamLogo = snapshot4.child(LOGO_UPPER).getValue(String.class);
+                                                                        RaceResultsDataModel raceResultsDataModel = new RaceResultsDataModel(
+                                                                                position, pilotFlag, pilotName, teamLogo, teamName, time, points);
+                                                                        mData.add(raceResultsDataModel);
+                                                                        mData.sort(Comparator.comparingInt(RaceResultsDataModel::getP));
+                                                                        recentlyRaceResultsLiveData.postValue(mData);
+                                                                    }
 
-                                                            @Override
-                                                            public void onCancelled(@NonNull DatabaseError error) {
+                                                                    @Override
+                                                                    public void onCancelled(@NonNull DatabaseError error) {
 
-                                                            }
-                                                        });
-                                            }
+                                                                    }
+                                                                });
+                                                    }
+                                                }
 
-                                            @Override
-                                            public void onCancelled(@NonNull DatabaseError error) {
+                                                @Override
+                                                public void onCancelled(@NonNull DatabaseError error) {
 
-                                            }
-                                        });
+                                                }
+                                            });
+                                        }
                                         if(position == 10){
                                             break;
                                         }

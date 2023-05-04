@@ -46,65 +46,67 @@ public class CalendarRepository {
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         String seasonKey = snapshot.getValue(String.class);
 
-                        assert seasonKey != null;
-                        databaseReference.child(SEASONS).child(seasonKey).child(STAGES)
-                                .addValueEventListener(new ValueEventListener() {
-                                    @Override
-                                    public void onDataChange(@NonNull DataSnapshot seasonSnapshot) {
-                                        Comparator<CalendarItemDataModel> calendarItemComparator =
-                                                Comparator.comparingInt(CalendarItemDataModel::getNumber);
-                                        List<CalendarItemDataModel> calendarItems = new ArrayList<>();
-                                        for (DataSnapshot stageSnapshot : seasonSnapshot.getChildren()){
+                        if (seasonKey != null) {
+                            databaseReference.child(SEASONS).child(seasonKey).child(STAGES)
+                                    .addValueEventListener(new ValueEventListener() {
+                                        @Override
+                                        public void onDataChange(@NonNull DataSnapshot seasonSnapshot) {
+                                            Comparator<CalendarItemDataModel> calendarItemComparator =
+                                                    Comparator.comparingInt(CalendarItemDataModel::getNumber);
+                                            List<CalendarItemDataModel> calendarItems = new ArrayList<>();
+                                            for (DataSnapshot stageSnapshot : seasonSnapshot.getChildren()){
 
-                                            List<StageScheduleDataModel> stageSchedule = new ArrayList<>();
+                                                List<StageScheduleDataModel> stageSchedule = new ArrayList<>();
 
-                                            int number = Integer.parseInt(Objects.requireNonNull(stageSnapshot.getKey()));
+                                                int number = Integer.parseInt(Objects.requireNonNull(stageSnapshot.getKey()));
 
-                                            for (DataSnapshot eventSnapshot : stageSnapshot.child(EVENTS).getChildren()){
-                                                String date = eventSnapshot.child(DATE).getValue(String.class);
-                                                String name = eventSnapshot.child(NAME_LOWER).getValue(String.class);
+                                                for (DataSnapshot eventSnapshot : stageSnapshot.child(EVENTS).getChildren()){
+                                                    String date = eventSnapshot.child(DATE).getValue(String.class);
+                                                    String name = eventSnapshot.child(NAME_LOWER).getValue(String.class);
 
-                                                StageScheduleDataModel stageScheduleDataModel =
-                                                        new StageScheduleDataModel(date, name);
+                                                    StageScheduleDataModel stageScheduleDataModel =
+                                                            new StageScheduleDataModel(date, name);
 
-                                                stageSchedule.add(stageScheduleDataModel);
+                                                    stageSchedule.add(stageScheduleDataModel);
+                                                }
+
+                                                String grandPrixKey = stageSnapshot.child(GRAND_PRIX_KEY)
+                                                        .getValue(String.class);
+
+                                                if (grandPrixKey != null) {
+                                                    databaseReference.child(GRAND_PRIX).child(grandPrixKey)
+                                                            .addValueEventListener(new ValueEventListener() {
+                                                        @Override
+                                                        public void onDataChange(@NonNull DataSnapshot gradPrixSnapshot) {
+                                                            StageHeadingDataModel stageHeading = gradPrixSnapshot
+                                                                    .getValue(StageHeadingDataModel.class);
+
+                                                            CalendarItemDataModel calendarItemDataModel =
+                                                                    new CalendarItemDataModel(stageHeading,
+                                                                            stageSchedule, number);
+
+                                                            calendarItems.add(calendarItemDataModel);
+                                                            if (calendarItems.size() >= seasonSnapshot.getChildrenCount()) {
+                                                                calendarItems.sort(calendarItemComparator);
+                                                                liveData.postValue(calendarItems);
+                                                            }
+                                                        }
+
+                                                        @Override
+                                                        public void onCancelled(@NonNull DatabaseError error) {
+                                                            Log.d("CalendarRepository", "Error in Grand prix\\grandPrixKey");
+                                                        }
+                                                    });
+                                                }
                                             }
-
-                                            String grandPrixKey = stageSnapshot.child(GRAND_PRIX_KEY)
-                                                    .getValue(String.class);
-
-                                            assert grandPrixKey != null;
-                                            databaseReference.child(GRAND_PRIX).child(grandPrixKey)
-                                                    .addValueEventListener(new ValueEventListener() {
-                                                @Override
-                                                public void onDataChange(@NonNull DataSnapshot gradPrixSnapshot) {
-                                                    StageHeadingDataModel stageHeading = gradPrixSnapshot
-                                                            .getValue(StageHeadingDataModel.class);
-
-                                                    CalendarItemDataModel calendarItemDataModel =
-                                                            new CalendarItemDataModel(stageHeading,
-                                                                    stageSchedule, number);
-
-                                                    calendarItems.add(calendarItemDataModel);
-                                                    if (calendarItems.size() >= seasonSnapshot.getChildrenCount()) {
-                                                        calendarItems.sort(calendarItemComparator);
-                                                        liveData.postValue(calendarItems);
-                                                    }
-                                                }
-
-                                                @Override
-                                                public void onCancelled(@NonNull DatabaseError error) {
-                                                    Log.d("CalendarRepository", "Error in Grand prix\\grandPrixKey");
-                                                }
-                                            });
                                         }
-                                    }
 
-                                    @Override
-                                    public void onCancelled(@NonNull DatabaseError error) {
-                                        Log.d("CalendarRepository", "Error in Seasons\\seasonKey\\Stages");
-                                    }
-                                });
+                                        @Override
+                                        public void onCancelled(@NonNull DatabaseError error) {
+                                            Log.d("CalendarRepository", "Error in Seasons\\seasonKey\\Stages");
+                                        }
+                                    });
+                        }
                     }
 
                     @Override

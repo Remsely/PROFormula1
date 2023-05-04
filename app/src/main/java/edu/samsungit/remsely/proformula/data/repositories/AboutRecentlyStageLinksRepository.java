@@ -39,25 +39,26 @@ public class AboutRecentlyStageLinksRepository {
                 String seasonsKey = snapshot.child(SEASONS_KEY).getValue(String.class);
                 String stageNumber = snapshot.child(STAGE_NUMBER).getValue(String.class);
 
-                assert seasonsKey != null && stageNumber != null;
-                databaseReference.child(SEASONS).child(seasonsKey).child(STAGES)
-                        .child(stageNumber).child(ABOUT_STAGE)
-                        .addValueEventListener(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                List<LinksDataModel> linksDataModelList = new ArrayList<>();
-                                for (DataSnapshot dataSnapshot : snapshot.getChildren()){
-                                    String link = dataSnapshot.getValue(String.class);
-                                    linksDataModelList.add(new LinksDataModel(link));
+                if (seasonsKey != null && stageNumber != null) {
+                    databaseReference.child(SEASONS).child(seasonsKey).child(STAGES)
+                            .child(stageNumber).child(ABOUT_STAGE)
+                            .addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                    List<LinksDataModel> linksDataModelList = new ArrayList<>();
+                                    for (DataSnapshot dataSnapshot : snapshot.getChildren()){
+                                        String link = dataSnapshot.getValue(String.class);
+                                        linksDataModelList.add(new LinksDataModel(link));
+                                    }
+                                    aboutStageLinksLiveData.postValue(linksDataModelList);
                                 }
-                                aboutStageLinksLiveData.postValue(linksDataModelList);
-                            }
 
-                            @Override
-                            public void onCancelled(@NonNull DatabaseError error) {
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError error) {
 
-                            }
-                        });
+                                }
+                            });
+                }
             }
 
             @Override

@@ -116,6 +116,7 @@ public class CalendarScreenRecyclerViewAdapter extends RecyclerView.Adapter<Cale
             StageScheduleRecyclerViewAdapter stageScheduleRecyclerViewAdapter = new StageScheduleRecyclerViewAdapter();
             stageScheduleRecyclerView.setLayoutManager(new LinearLayoutManager(stageScheduleRecyclerView.getContext()));
             stageScheduleRecyclerView.setAdapter(stageScheduleRecyclerViewAdapter);
+            stageScheduleRecyclerView.setItemAnimator(null);
         }
     }
 }

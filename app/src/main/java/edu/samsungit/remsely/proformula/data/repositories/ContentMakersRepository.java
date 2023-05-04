@@ -51,23 +51,23 @@ public class ContentMakersRepository {
                         String reference = referenceSnapshot.child(REFERENCE).getValue(String.class);
                         String key = referenceSnapshot.child(KEY).getValue(String.class);
 
-                        assert key != null;
-                        databaseReference.child(SOCIAL_NETWORKS).child(key).addListenerForSingleValueEvent(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(@NonNull DataSnapshot snapshot2) {
-                                String image = snapshot2.child(LOGO_LOWER).getValue(String.class);
-                                SocialNetworkReferencesDataModel socialNetworkReferencesDataModel =
-                                        new SocialNetworkReferencesDataModel(reference, image);
-                                referencesList.add(socialNetworkReferencesDataModel);
-                                referencesLiveData.postValue(referencesList);
-                            }
+                        if (key != null) {
+                            databaseReference.child(SOCIAL_NETWORKS).child(key).addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot snapshot2) {
+                                    String image = snapshot2.child(LOGO_LOWER).getValue(String.class);
+                                    SocialNetworkReferencesDataModel socialNetworkReferencesDataModel =
+                                            new SocialNetworkReferencesDataModel(reference, image);
+                                    referencesList.add(socialNetworkReferencesDataModel);
+                                    referencesLiveData.postValue(referencesList);
+                                }
 
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError error) {
 
-                            @Override
-                            public void onCancelled(@NonNull DatabaseError error) {
-
-                            }
-                        });
+                                }
+                            });
+                        }
                     }
                     ContentAuthorDataModel contentAuthorDataModel =
                             new ContentAuthorDataModel(name, logo, description, recommendation, referencesLiveData);

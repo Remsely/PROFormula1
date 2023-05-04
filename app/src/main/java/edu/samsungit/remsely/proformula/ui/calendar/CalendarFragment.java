@@ -41,6 +41,7 @@ public class CalendarFragment extends Fragment {
         CalendarScreenRecyclerViewAdapter adapter = new CalendarScreenRecyclerViewAdapter();
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);
+        recyclerView.setItemAnimator(null);
 
         calendarItemsLiveDataObservation();
     }

@@ -48,6 +48,9 @@ public class RaceResultsRecyclerViewAdapter extends RecyclerView.Adapter<RaceRes
             case 3:
                 holder.binding.stageResultsPosition.setTextColor(ContextCompat.getColor(holder.itemView.getContext(), R.color.bronze));
                 break;
+            default:
+                holder.binding.stageResultsPosition.setTextColor(ContextCompat.getColor(holder.itemView.getContext(), R.color.white));
+                break;
         }
 
         holder.binding.stageResultsPilotName.setText(raceResultsDataModel.getPilot());
@@ -63,6 +66,8 @@ public class RaceResultsRecyclerViewAdapter extends RecyclerView.Adapter<RaceRes
                 || (Objects.equals(points, "+3") && raceResultsDataModel.getP() == 9)
                 || (Objects.equals(points, "+2") && raceResultsDataModel.getP() == 10))
             holder.binding.stageResultsPoints.setTextColor(ContextCompat.getColor(holder.itemView.getContext(), R.color.purple));
+        else
+            holder.binding.stageResultsPoints.setTextColor(ContextCompat.getColor(holder.itemView.getContext(), R.color.white));
 
         Glide.with(holder.itemView.getContext()).load(raceResultsDataModel.getPilotFlag()).into(holder.binding.stageResultsPilotFlag);
         Glide.with(holder.itemView.getContext()).load(raceResultsDataModel.getTeamLogo()).into(holder.binding.stageResultsTeamLogo);
