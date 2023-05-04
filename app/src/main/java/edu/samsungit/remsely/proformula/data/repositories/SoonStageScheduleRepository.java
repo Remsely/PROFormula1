@@ -44,7 +44,7 @@ public class SoonStageScheduleRepository {
                                             StageScheduleDataModel dataModel = new StageScheduleDataModel(date, event);
                                             list.add(dataModel);
                                         }
-                                        soonStageScheduleLiveData.setValue(list);
+                                        soonStageScheduleLiveData.postValue(list);
                                     }
 
                                     @Override

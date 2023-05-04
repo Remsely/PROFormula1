@@ -1,5 +1,7 @@
 package edu.samsungit.remsely.proformula.ui.calendar;
 
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -38,6 +40,7 @@ public class CalendarRepository {
                                 .addValueEventListener(new ValueEventListener() {
                                     @Override
                                     public void onDataChange(@NonNull DataSnapshot seasonSnapshot) {
+                                        Comparator<CalendarItemDataModel> calendarItemComparator = Comparator.comparingInt(CalendarItemDataModel::getNumber);
                                         List<CalendarItemDataModel> calendarItems = new ArrayList<>();
                                         for (DataSnapshot stageSnapshot : seasonSnapshot.getChildren()){
 
@@ -71,6 +74,10 @@ public class CalendarRepository {
                                                                     stageSchedule, number);
 
                                                     calendarItems.add(calendarItemDataModel);
+                                                    if (calendarItems.size() == seasonSnapshot.getChildrenCount()) {
+                                                        calendarItems.sort(calendarItemComparator);
+                                                        liveData.postValue(calendarItems);
+                                                    }
                                                 }
 
                                                 @Override
@@ -79,14 +86,10 @@ public class CalendarRepository {
                                                 }
                                             });
                                         }
-                                        Comparator<CalendarItemDataModel> calendarItemComparator = Comparator.comparingInt(CalendarItemDataModel::getNumber);
-                                        calendarItems.sort(calendarItemComparator);
-                                        liveData.setValue(calendarItems);
                                     }
 
                                     @Override
                                     public void onCancelled(@NonNull DatabaseError error) {
-
                                     }
                                 });
                     }

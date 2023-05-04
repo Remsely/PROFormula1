@@ -16,4 +16,12 @@ public class StageScheduleDataModel {
     public String getEvent(){
         return event;
     }
+
+    @Override
+    public String toString() {
+        return "StageScheduleDataModel{" +
+                "date='" + date + '\'' +
+                ", event='" + event + '\'' +
+                '}';
+    }
 }

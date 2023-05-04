@@ -14,17 +14,17 @@ public class CalendarViewModel extends ViewModel {
 
     public CalendarViewModel(){
         calendarRepository = new CalendarRepository();
-        calendarItemsLiveData = calendarRepository.getCalendarLiveData();
+//        calendarItemsLiveData = ;
 
         nextRaceNumberRepository = new NextRaceNumberRepository();
-        nextRaceNumberLiveData = nextRaceNumberRepository.getNextRaceNumberLiveData();
+//        nextRaceNumberLiveData = nextRaceNumberRepository.getNextRaceNumberLiveData();
     }
 
     public MutableLiveData<List<CalendarItemDataModel>> getCalendarItemsLiveData(){
-        return calendarItemsLiveData;
+        return calendarRepository.getCalendarLiveData();
     }
 
     public LiveData<Integer> getNextRaceNumberLiveData(){
-        return nextRaceNumberLiveData;
+        return nextRaceNumberRepository.getNextRaceNumberLiveData();
     }
 }

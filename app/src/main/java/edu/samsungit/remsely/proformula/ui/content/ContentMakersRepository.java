@@ -36,6 +36,7 @@ public class ContentMakersRepository {
                     String logo = contentSnapshot.child("logo").getValue(String.class);
                     String name = contentSnapshot.child("name").getValue(String.class);
 
+                    MutableLiveData<List<SocialNetworkReferencesDataModel>> referencesLiveData = new MutableLiveData<>();
                     List<SocialNetworkReferencesDataModel> referencesList = new ArrayList<>();
                     DataSnapshot socialNetworkSnapshot = contentSnapshot.child("Social networks");
                     for (DataSnapshot referenceSnapshot : socialNetworkSnapshot.getChildren()){
@@ -50,6 +51,7 @@ public class ContentMakersRepository {
                                 SocialNetworkReferencesDataModel socialNetworkReferencesDataModel =
                                         new SocialNetworkReferencesDataModel(reference, image);
                                 referencesList.add(socialNetworkReferencesDataModel);
+                                referencesLiveData.postValue(referencesList);
                             }
 
 
@@ -60,7 +62,7 @@ public class ContentMakersRepository {
                         });
                     }
                     ContentAuthorDataModel contentAuthorDataModel =
-                            new ContentAuthorDataModel(name, logo, description, recommendation, referencesList);
+                            new ContentAuthorDataModel(name, logo, description, recommendation, referencesLiveData);
                     contentMakers.add(contentAuthorDataModel);
                 }
                 contentMakers.sort((o1, o2) -> {
@@ -68,7 +70,7 @@ public class ContentMakersRepository {
                     else if (!o1.getRecommendation()) return 1;
                     else return -1;
                 });
-                liveData.setValue(contentMakers);
+                liveData.postValue(contentMakers);
             }
 
             @Override

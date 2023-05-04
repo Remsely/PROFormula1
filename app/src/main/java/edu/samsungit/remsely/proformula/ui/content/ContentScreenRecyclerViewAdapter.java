@@ -42,9 +42,11 @@ public class ContentScreenRecyclerViewAdapter extends RecyclerView.Adapter<Conte
         ContentAuthorDataModel contentAuthorDataModel = contentAuthorDataModels.get(position);
 
         RecyclerView nestedRecyclerView = holder.socialNetworksRecyclerView;
-        SocialNetworksLinksRecyclerViewAdapter nestedRecyclerViewAdapter = new SocialNetworksLinksRecyclerViewAdapter(contentAuthorDataModel.getSocialNetworks());
-        nestedRecyclerView.setAdapter(nestedRecyclerViewAdapter);
-        nestedRecyclerViewAdapter.notifyDataSetChanged();
+        contentAuthorDataModel.getSocialNetworks().observeForever(socialNetworkReferencesDataModels -> { // todo: replace with observe
+            SocialNetworksLinksRecyclerViewAdapter nestedRecyclerViewAdapter = new SocialNetworksLinksRecyclerViewAdapter(socialNetworkReferencesDataModels);
+            nestedRecyclerView.setAdapter(nestedRecyclerViewAdapter);
+            nestedRecyclerViewAdapter.notifyDataSetChanged();
+        });
         nestedRecyclerView.setLayoutManager(new LinearLayoutManager(nestedRecyclerView.getContext()));
 
         holder.contentAuthorName.setText(contentAuthorDataModel.getName());

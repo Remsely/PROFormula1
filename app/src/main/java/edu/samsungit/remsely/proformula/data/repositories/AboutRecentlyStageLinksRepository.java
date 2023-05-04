@@ -42,7 +42,7 @@ public class AboutRecentlyStageLinksRepository {
                                     String link = dataSnapshot.getValue(String.class);
                                     linksDataModelList.add(new LinksDataModel(link));
                                 }
-                                aboutStageLinksLiveData.setValue(linksDataModelList);
+                                aboutStageLinksLiveData.postValue(linksDataModelList);
                             }
 
                             @Override

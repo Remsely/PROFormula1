@@ -35,7 +35,7 @@ public class WhereWatchLinksRepository {
                             String link = linkSnapshot.getValue(String.class);
                             linksDataModels.add(new LinksDataModel(link));
                         }
-                        whereWatchLinksLiveData.setValue(linksDataModels);
+                        whereWatchLinksLiveData.postValue(linksDataModels);
                     }
 
                     @Override

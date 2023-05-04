@@ -28,4 +28,13 @@ public class CalendarItemDataModel {
     public StageHeadingDataModel getStageHeading(){
         return stageHeading;
     }
+
+    @Override
+    public String toString() {
+        return "CalendarItemDataModel{" +
+                "stageHeading=" + stageHeading +
+                ", stageScheduleList=" + stageScheduleList +
+                ", number=" + number +
+                '}';
+    }
 }

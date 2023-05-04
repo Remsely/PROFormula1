@@ -69,7 +69,7 @@ public class RecentlyStageRaceResultsRepository {
                                                             mData.add(raceResultsDataModel);
 
                                                             mData.sort(Comparator.comparingInt(RaceResultsDataModel::getP));
-                                                            recentlyRaceResultsLiveData.setValue(mData);
+                                                            recentlyRaceResultsLiveData.postValue(mData);
                                                         }
 
                                                         @Override

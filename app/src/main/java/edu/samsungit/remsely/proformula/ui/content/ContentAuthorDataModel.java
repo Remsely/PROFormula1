@@ -1,5 +1,7 @@
 package edu.samsungit.remsely.proformula.ui.content;
 
+import androidx.lifecycle.LiveData;
+
 import java.util.List;
 
 public class ContentAuthorDataModel {
@@ -7,9 +9,9 @@ public class ContentAuthorDataModel {
     private boolean recommendation;
     private String logo;
     private String name;
-    private List<SocialNetworkReferencesDataModel> socialNetworks;
+    private LiveData<List<SocialNetworkReferencesDataModel>> socialNetworks;
 
-    ContentAuthorDataModel(String name, String logo, String description,  boolean recommendation, List<SocialNetworkReferencesDataModel> socialNetworks){
+    ContentAuthorDataModel(String name, String logo, String description, boolean recommendation, LiveData<List<SocialNetworkReferencesDataModel>> socialNetworks){
         this.description = description;
         this.logo = logo;
         this.recommendation = recommendation;
@@ -33,7 +35,7 @@ public class ContentAuthorDataModel {
         return recommendation;
     }
 
-    public List<SocialNetworkReferencesDataModel> getSocialNetworks(){
+    public LiveData<List<SocialNetworkReferencesDataModel>> getSocialNetworks(){
         return socialNetworks;
     }
 }

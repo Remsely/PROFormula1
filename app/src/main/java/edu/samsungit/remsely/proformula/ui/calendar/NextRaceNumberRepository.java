@@ -26,7 +26,7 @@ public class NextRaceNumberRepository {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         int stageNumber = Integer.parseInt(Objects.requireNonNull(snapshot.getValue(String.class)));
-                        liveData.setValue(stageNumber);
+                        liveData.postValue(stageNumber);
                     }
 
                     @Override

@@ -32,7 +32,7 @@ public class SoonStageHeadingRepository {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             StageHeadingDataModel soonStageHeading = snapshot.getValue(StageHeadingDataModel.class);
-                            soonStageHeadingMutableLiveData.setValue(soonStageHeading);
+                            soonStageHeadingMutableLiveData.postValue(soonStageHeading);
                         }
 
                         @Override

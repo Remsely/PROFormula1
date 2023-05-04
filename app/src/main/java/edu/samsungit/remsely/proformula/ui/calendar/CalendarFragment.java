@@ -2,6 +2,7 @@ package edu.samsungit.remsely.proformula.ui.calendar;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,9 +39,11 @@ public class CalendarFragment extends Fragment {
     private void init(){
         calendarViewModel = new ViewModelProvider(this).get(CalendarViewModel.class);
 
-        int nextRaceNumber = getNextRaceNumber();
-
-        calendarItemsLiveDataObservation(nextRaceNumber);
+        RecyclerView recyclerView = binding.calendarScreenRecyclerView;
+        CalendarScreenRecyclerViewAdapter adapter = new CalendarScreenRecyclerViewAdapter();
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setAdapter(adapter);
+        calendarItemsLiveDataObservation();
     }
 
     private int getNextRaceNumber(){
@@ -51,14 +54,16 @@ public class CalendarFragment extends Fragment {
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    private void calendarItemsLiveDataObservation(int num){
-        calendarViewModel.getCalendarItemsLiveData().observe(getViewLifecycleOwner(), calendarItemDataModels -> {
-            RecyclerView recyclerView = binding.calendarScreenRecyclerView;
-            CalendarScreenRecyclerViewAdapter adapter = new CalendarScreenRecyclerViewAdapter(calendarItemDataModels, num);
-            recyclerView.setAdapter(adapter);
-            recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-            recyclerView.scrollToPosition(num);
-            adapter.notifyDataSetChanged();
+    private void calendarItemsLiveDataObservation(){
+        calendarViewModel.getNextRaceNumberLiveData().observe(getViewLifecycleOwner(), num -> {
+            calendarViewModel.getCalendarItemsLiveData().observe(getViewLifecycleOwner(), calendarItemDataModels -> {
+                Log.d("ASDASD", calendarItemDataModels.toString());
+                RecyclerView recyclerView = binding.calendarScreenRecyclerView;
+                CalendarScreenRecyclerViewAdapter adapter = (CalendarScreenRecyclerViewAdapter) recyclerView.getAdapter();
+                adapter.setCalendarItems(calendarItemDataModels);
+                adapter.setNextStageNumber(num - 1);
+                recyclerView.scrollToPosition(num - 1);
+            });
         });
     }
 

@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 
+import java.util.Collections;
 import java.util.List;
 
 import edu.samsungit.remsely.proformula.R;
@@ -23,12 +24,20 @@ import edu.samsungit.remsely.proformula.util.DpToPx;
 import edu.samsungit.remsely.proformula.util.RoundedCornersToImageViewTransformation;
 
 public class CalendarScreenRecyclerViewAdapter extends RecyclerView.Adapter<CalendarScreenRecyclerViewAdapter.ViewHolder> {
-    private final List<CalendarItemDataModel> calendarItems;
-    private final int nextStageNumber;
+    private List<CalendarItemDataModel> calendarItems = Collections.emptyList();
+    private int nextStageNumber = -1;
 
-    public CalendarScreenRecyclerViewAdapter(List<CalendarItemDataModel> calendarItems, int nextStageNumber){
+    public CalendarScreenRecyclerViewAdapter(){
+    }
+
+    public void setCalendarItems(List<CalendarItemDataModel> calendarItems) {
         this.calendarItems = calendarItems;
+        notifyItemRangeChanged(0, calendarItems.size());
+    }
+
+    public void setNextStageNumber(int nextStageNumber) {
         this.nextStageNumber = nextStageNumber;
+        notifyItemChanged(nextStageNumber - 1);
     }
 
     @NonNull

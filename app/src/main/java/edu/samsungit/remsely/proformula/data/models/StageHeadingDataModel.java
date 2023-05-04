@@ -24,4 +24,13 @@ public class StageHeadingDataModel {
     public String getName() {
         return name;
     }
+
+    @Override
+    public String toString() {
+        return "StageHeadingDataModel{" +
+                "flag='" + flag + '\'' +
+                ", location='" + location + '\'' +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }
