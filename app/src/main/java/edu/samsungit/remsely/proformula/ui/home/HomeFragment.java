@@ -43,6 +43,10 @@ public class HomeFragment extends Fragment {
     private TextView soonStageLocation;
     private TextView recentlyStageLocation;
     private HomeViewModel homeViewModel;
+    RecyclerView stageScheduleRecyclerView;
+    RecyclerView aboutRecentlyStageRecyclerView;
+    RecyclerView recentlyRaceResultsRecyclerView;
+    RecyclerView whereWatchRecyclerView;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -75,6 +79,26 @@ public class HomeFragment extends Fragment {
 
         homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
 
+        stageScheduleRecyclerView = binding.soonStageScheduleRecyclerView;
+        StageScheduleRecyclerViewAdapter scheduleAdapter = new StageScheduleRecyclerViewAdapter();
+        stageScheduleRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        stageScheduleRecyclerView.setAdapter(scheduleAdapter);
+
+        whereWatchRecyclerView = binding.soonStageWhereWatchRecyclerView;
+        LinksRecyclerViewAdapter whereWatchLinksAdapter = new LinksRecyclerViewAdapter();
+        whereWatchRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        whereWatchRecyclerView.setAdapter(whereWatchLinksAdapter);
+
+        recentlyRaceResultsRecyclerView = binding.recentlyStageRaceResultsRecyclerView;
+        RaceResultsRecyclerViewAdapter recentlyRaceResultsRecyclerViewAdapter = new RaceResultsRecyclerViewAdapter();
+        recentlyRaceResultsRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recentlyRaceResultsRecyclerView.setAdapter(recentlyRaceResultsRecyclerViewAdapter);
+
+        aboutRecentlyStageRecyclerView = binding.aboutRecentlyStageLinksRecyclerView;
+        LinksRecyclerViewAdapter aboutRecentlyStageAdapter = new LinksRecyclerViewAdapter();
+        aboutRecentlyStageRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        aboutRecentlyStageRecyclerView.setAdapter(aboutRecentlyStageAdapter);
+
         soonStageHeadingLiveDataObservation();
         stageScheduleLiveDataObservation();
         whereWatchLinksLiveDataObservation();
@@ -87,7 +111,8 @@ public class HomeFragment extends Fragment {
         homeViewModel.getSoonStageHeadingLiveData().observe(this, heading -> {
             if(heading != null){
                 Glide.with(HomeFragment.this).load(heading.getFlag())
-                        .transform(new CenterCrop(), new RoundedCornersToImageViewTransformation(DpToPx.dpToPx(14))).into(soonStageFlag);
+                        .transform(new CenterCrop(), new RoundedCornersToImageViewTransformation(DpToPx.dpToPx(14)))
+                        .into(soonStageFlag);
                 soonStageLocation.setText(heading.getLocation());
                 soonStageName.setText(heading.getName());
             }
@@ -98,7 +123,8 @@ public class HomeFragment extends Fragment {
         homeViewModel.getRecentlyStageHeadingLiveData().observe(this, heading -> {
             if(heading != null){
                 Glide.with(HomeFragment.this).load(heading.getFlag())
-                        .transform(new CenterCrop(), new RoundedCornersToImageViewTransformation(DpToPx.dpToPx(14))).into(recentlyStageFlag);
+                        .transform(new CenterCrop(), new RoundedCornersToImageViewTransformation(DpToPx.dpToPx(14)))
+                        .into(recentlyStageFlag);
                 recentlyStageLocation.setText(heading.getLocation());
                 recentlyStageName.setText(heading.getName());
             }
@@ -107,34 +133,37 @@ public class HomeFragment extends Fragment {
 
     private void whereWatchLinksLiveDataObservation(){
         homeViewModel.getWhereWatchLinksLiveData().observe(getViewLifecycleOwner(), linksList -> {
-            LinksRecyclerViewAdapter adapter = new LinksRecyclerViewAdapter(linksList);
-            RecyclerView recyclerView = binding.soonStageWhereWatchRecyclerView;
-            recyclerView.setAdapter(adapter);
-            recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+            LinksRecyclerViewAdapter adapter = (LinksRecyclerViewAdapter) whereWatchRecyclerView.getAdapter();
+            if (adapter != null) {
+                adapter.setLinksList(linksList);
+            }
         });
     }
 
     private void aboutRecentlyStageLinksLiveDataObservation(){
         homeViewModel.getAboutRecentlyStageLiveData().observe(getViewLifecycleOwner(), linksList -> {
-            RecyclerView recyclerView = binding.aboutRecentlyStageLinksRecyclerView;
-            recyclerView.setAdapter(new LinksRecyclerViewAdapter(linksList));
-            recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+            LinksRecyclerViewAdapter adapter = (LinksRecyclerViewAdapter) aboutRecentlyStageRecyclerView.getAdapter();
+            if (adapter != null) {
+                adapter.setLinksList(linksList);
+            }
         });
     }
 
     private void stageScheduleLiveDataObservation(){
         homeViewModel.getSoonStageScheduleLiveData().observe(getViewLifecycleOwner(), scheduleList -> {
-            RecyclerView recyclerView = binding.soonStageScheduleRecyclerView;
-            recyclerView.setAdapter(new StageScheduleRecyclerViewAdapter(scheduleList));
-            recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+            StageScheduleRecyclerViewAdapter adapter = (StageScheduleRecyclerViewAdapter) stageScheduleRecyclerView.getAdapter();
+            if (adapter != null) {
+                adapter.setEvents(scheduleList);
+            }
         });
     }
 
     private void recentlyRaceResultsLiveDataObservation(){
         homeViewModel.getRecentlyStageResultsLivaData().observe(getViewLifecycleOwner(), raceResults -> {
-            RecyclerView recyclerView = binding.recentlyStageRaceResultsRecyclerView;
-            recyclerView.setAdapter(new RaceResultsRecyclerViewAdapter(raceResults));
-            recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+            RaceResultsRecyclerViewAdapter adapter = (RaceResultsRecyclerViewAdapter) recentlyRaceResultsRecyclerView.getAdapter();
+            if (adapter != null) {
+                adapter.setRaceResults(raceResults);
+            }
         });
     }
 

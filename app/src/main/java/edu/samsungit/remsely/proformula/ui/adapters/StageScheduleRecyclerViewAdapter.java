@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.Collections;
 import java.util.List;
 
 import edu.samsungit.remsely.proformula.data.models.StageScheduleDataModel;
@@ -14,10 +15,13 @@ import edu.samsungit.remsely.proformula.databinding.StageScheduleRecyclerViewIte
 
 public class StageScheduleRecyclerViewAdapter extends RecyclerView.Adapter<StageScheduleRecyclerViewAdapter.ViewHolder> {
 
-    private List<StageScheduleDataModel> events;
+    private List<StageScheduleDataModel> events = Collections.emptyList();
 
-    public StageScheduleRecyclerViewAdapter(List<StageScheduleDataModel> scheduleDataModels){
-        this.events = scheduleDataModels;
+    public StageScheduleRecyclerViewAdapter(){ }
+
+    public void setEvents(List<StageScheduleDataModel> events){
+        this.events = events;
+        notifyItemRangeChanged(0, events.size());
     }
 
     @NonNull

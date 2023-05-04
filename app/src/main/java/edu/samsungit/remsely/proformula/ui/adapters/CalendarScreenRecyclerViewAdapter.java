@@ -1,4 +1,4 @@
-package edu.samsungit.remsely.proformula.ui.calendar;
+package edu.samsungit.remsely.proformula.ui.adapters;
 
 import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
@@ -19,7 +19,7 @@ import java.util.List;
 
 import edu.samsungit.remsely.proformula.R;
 import edu.samsungit.remsely.proformula.databinding.CalendarRecyclerViewItemBinding;
-import edu.samsungit.remsely.proformula.ui.adapters.StageScheduleRecyclerViewAdapter;
+import edu.samsungit.remsely.proformula.data.models.CalendarItemDataModel;
 import edu.samsungit.remsely.proformula.util.DpToPx;
 import edu.samsungit.remsely.proformula.util.RoundedCornersToImageViewTransformation;
 
@@ -53,12 +53,10 @@ public class CalendarScreenRecyclerViewAdapter extends RecyclerView.Adapter<Cale
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         CalendarItemDataModel calendarItemDataModel = calendarItems.get(position);
 
-        RecyclerView nestedRecyclerView = holder.stageScheduleRecyclerView;
-        StageScheduleRecyclerViewAdapter nestedRecyclerViewAdapter =
-                new StageScheduleRecyclerViewAdapter(calendarItemDataModel.getStageScheduleList());
-        nestedRecyclerView.setAdapter(nestedRecyclerViewAdapter);
-        nestedRecyclerView.setLayoutManager(new LinearLayoutManager(nestedRecyclerView.getContext()));
-        nestedRecyclerViewAdapter.notifyDataSetChanged();
+        StageScheduleRecyclerViewAdapter adapter = (StageScheduleRecyclerViewAdapter) holder.stageScheduleRecyclerView.getAdapter();
+        if (adapter != null) {
+            adapter.setEvents(calendarItemDataModel.getStageScheduleList());
+        }
 
         holder.stagePlace.setText(calendarItemDataModel.getStageHeading().getLocation());
         holder.stageName.setText(calendarItemDataModel.getNumber() + ". " +
@@ -111,9 +109,13 @@ public class CalendarScreenRecyclerViewAdapter extends RecyclerView.Adapter<Cale
             stageName = binding.calendarStageName;
             stagePlace = binding.calendarStagePlace;
             stageFlag = binding.calendarStageFlag;
-            stageScheduleRecyclerView = binding.calendarScreenStageScheduleRecyclerView;
             itemLayout = binding.calendarScreenRecyclerViewItemLayout;
             line = binding.calendarStageTopLine;
+
+            stageScheduleRecyclerView = binding.calendarScreenStageScheduleRecyclerView;
+            StageScheduleRecyclerViewAdapter stageScheduleRecyclerViewAdapter = new StageScheduleRecyclerViewAdapter();
+            stageScheduleRecyclerView.setLayoutManager(new LinearLayoutManager(stageScheduleRecyclerView.getContext()));
+            stageScheduleRecyclerView.setAdapter(stageScheduleRecyclerViewAdapter);
         }
     }
 }

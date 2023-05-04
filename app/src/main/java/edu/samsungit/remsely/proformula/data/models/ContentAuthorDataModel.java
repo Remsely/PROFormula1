@@ -1,4 +1,4 @@
-package edu.samsungit.remsely.proformula.ui.content;
+package edu.samsungit.remsely.proformula.data.models;
 
 import androidx.lifecycle.LiveData;
 
@@ -11,7 +11,7 @@ public class ContentAuthorDataModel {
     private String name;
     private LiveData<List<SocialNetworkReferencesDataModel>> socialNetworks;
 
-    ContentAuthorDataModel(String name, String logo, String description, boolean recommendation, LiveData<List<SocialNetworkReferencesDataModel>> socialNetworks){
+    public ContentAuthorDataModel(String name, String logo, String description, boolean recommendation, LiveData<List<SocialNetworkReferencesDataModel>> socialNetworks){
         this.description = description;
         this.logo = logo;
         this.recommendation = recommendation;

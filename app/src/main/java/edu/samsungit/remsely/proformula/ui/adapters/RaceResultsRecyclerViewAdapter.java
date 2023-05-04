@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
@@ -17,10 +18,12 @@ import edu.samsungit.remsely.proformula.data.models.RaceResultsDataModel;
 import edu.samsungit.remsely.proformula.databinding.RaceResultsRecyclerViewItemBinding;
 
 public class RaceResultsRecyclerViewAdapter extends RecyclerView.Adapter<RaceResultsRecyclerViewAdapter.ViewHolder> {
-    private final List<RaceResultsDataModel> raceResults;
+    private List<RaceResultsDataModel> raceResults = Collections.emptyList();
 
-    public RaceResultsRecyclerViewAdapter(List<RaceResultsDataModel> raceResults){
+    public RaceResultsRecyclerViewAdapter(){ }
+    public void setRaceResults(List<RaceResultsDataModel> raceResults) {
         this.raceResults = raceResults;
+        notifyItemRangeChanged(0, raceResults.size());
     }
 
     @NonNull

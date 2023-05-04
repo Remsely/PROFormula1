@@ -1,7 +1,6 @@
-package edu.samsungit.remsely.proformula.ui.content;
+package edu.samsungit.remsely.proformula.ui.adapters;
 
 import android.annotation.SuppressLint;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -9,28 +8,35 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.TooltipCompat;
+import androidx.lifecycle.LifecycleOwner;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 
+import java.util.Collections;
 import java.util.List;
 
 import edu.samsungit.remsely.proformula.R;
+import edu.samsungit.remsely.proformula.data.models.ContentAuthorDataModel;
 import edu.samsungit.remsely.proformula.databinding.ContentScreenRecyclerViewItemBinding;
 import edu.samsungit.remsely.proformula.util.DpToPx;
 import edu.samsungit.remsely.proformula.util.RoundedCornersToImageViewTransformation;
 
 public class ContentScreenRecyclerViewAdapter extends RecyclerView.Adapter<ContentScreenRecyclerViewAdapter.ViewHolder> {
-    private final List<ContentAuthorDataModel> contentAuthorDataModels;
+    private List<ContentAuthorDataModel> contentAuthors = Collections.emptyList();
+    private LifecycleOwner viewLifecycleOwner;
 
-    public ContentScreenRecyclerViewAdapter(List<ContentAuthorDataModel> contentAuthorDataModels){
-        this.contentAuthorDataModels = contentAuthorDataModels;
+    public ContentScreenRecyclerViewAdapter(){ }
+
+    public void setContentAuthors(List<ContentAuthorDataModel> contentAuthors){
+        this.contentAuthors = contentAuthors;
+        notifyItemRangeChanged(0, contentAuthors.size());
     }
 
     @NonNull
     @Override
-    public ContentScreenRecyclerViewAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         ContentScreenRecyclerViewItemBinding binding = ContentScreenRecyclerViewItemBinding
                 .inflate(LayoutInflater.from(parent.getContext()), parent, false);
         return new ViewHolder(binding);
@@ -38,15 +44,19 @@ public class ContentScreenRecyclerViewAdapter extends RecyclerView.Adapter<Conte
 
     @SuppressLint("NotifyDataSetChanged")
     @Override
-    public void onBindViewHolder(@NonNull ContentScreenRecyclerViewAdapter.ViewHolder holder, int position) {
-        ContentAuthorDataModel contentAuthorDataModel = contentAuthorDataModels.get(position);
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        ContentAuthorDataModel contentAuthorDataModel = contentAuthors.get(position);
 
         RecyclerView nestedRecyclerView = holder.socialNetworksRecyclerView;
-        contentAuthorDataModel.getSocialNetworks().observeForever(socialNetworkReferencesDataModels -> { // todo: replace with observe
-            SocialNetworksLinksRecyclerViewAdapter nestedRecyclerViewAdapter = new SocialNetworksLinksRecyclerViewAdapter(socialNetworkReferencesDataModels);
-            nestedRecyclerView.setAdapter(nestedRecyclerViewAdapter);
-            nestedRecyclerViewAdapter.notifyDataSetChanged();
+
+        contentAuthorDataModel.getSocialNetworks().observe(viewLifecycleOwner, socialNetworkReferencesDataModels -> {
+            SocialNetworksLinksRecyclerViewAdapter adapter = (SocialNetworksLinksRecyclerViewAdapter)
+                    holder.socialNetworksRecyclerView.getAdapter();
+            if (adapter != null) {
+                adapter.setNetworksReferences(socialNetworkReferencesDataModels);
+            }
         });
+
         nestedRecyclerView.setLayoutManager(new LinearLayoutManager(nestedRecyclerView.getContext()));
 
         holder.contentAuthorName.setText(contentAuthorDataModel.getName());
@@ -71,7 +81,11 @@ public class ContentScreenRecyclerViewAdapter extends RecyclerView.Adapter<Conte
 
     @Override
     public int getItemCount() {
-        return contentAuthorDataModels.size();
+        return contentAuthors.size();
+    }
+
+    public void setViewLifecycleOwner(LifecycleOwner viewLifecycleOwner) {
+        this.viewLifecycleOwner = viewLifecycleOwner;
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
@@ -82,11 +96,17 @@ public class ContentScreenRecyclerViewAdapter extends RecyclerView.Adapter<Conte
         private final RecyclerView socialNetworksRecyclerView;
         public ViewHolder(@NonNull ContentScreenRecyclerViewItemBinding binding) {
             super(binding.getRoot());
+
             contentAuthorName = binding.contentAuthorName;
             contentAuthorLogo = binding.contentAuthorLogo;
             contentAuthorRecommendation = binding.contentAuthorRecomendation;
             contentAuthorInformation = binding.contentAuthorInformation;
+
             socialNetworksRecyclerView = binding.socialNetworksRecyclerView;
+            SocialNetworksLinksRecyclerViewAdapter socialNetworksLinksRecyclerViewAdapter =
+                    new SocialNetworksLinksRecyclerViewAdapter();
+            socialNetworksRecyclerView.setLayoutManager(new LinearLayoutManager(socialNetworksRecyclerView.getContext()));
+            socialNetworksRecyclerView.setAdapter(socialNetworksLinksRecyclerViewAdapter);
         }
     }
 }

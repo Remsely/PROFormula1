@@ -1,6 +1,24 @@
 package edu.samsungit.remsely.proformula.data.repositories;
 
-import android.util.Log;
+import static edu.samsungit.remsely.proformula.util.Keys.EVENTS;
+import static edu.samsungit.remsely.proformula.util.Keys.FIVE;
+import static edu.samsungit.remsely.proformula.util.Keys.FLAG;
+import static edu.samsungit.remsely.proformula.util.Keys.LOGO_UPPER;
+import static edu.samsungit.remsely.proformula.util.Keys.MAIN_SCREEN;
+import static edu.samsungit.remsely.proformula.util.Keys.NAME_LOWER;
+import static edu.samsungit.remsely.proformula.util.Keys.PILOT;
+import static edu.samsungit.remsely.proformula.util.Keys.PILOTS;
+import static edu.samsungit.remsely.proformula.util.Keys.POINTS;
+import static edu.samsungit.remsely.proformula.util.Keys.RECENTLY;
+import static edu.samsungit.remsely.proformula.util.Keys.RESULTS;
+import static edu.samsungit.remsely.proformula.util.Keys.SEASONS;
+import static edu.samsungit.remsely.proformula.util.Keys.SEASONS_KEY;
+import static edu.samsungit.remsely.proformula.util.Keys.SHORT_NAME;
+import static edu.samsungit.remsely.proformula.util.Keys.STAGES;
+import static edu.samsungit.remsely.proformula.util.Keys.STAGE_NUMBER;
+import static edu.samsungit.remsely.proformula.util.Keys.TEAM;
+import static edu.samsungit.remsely.proformula.util.Keys.TEAMS;
+import static edu.samsungit.remsely.proformula.util.Keys.TIME;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
@@ -28,73 +46,74 @@ public class RecentlyStageRaceResultsRepository {
 
     public LiveData<List<RaceResultsDataModel>> getRecentlyRaceResultsLiveData(){
         MutableLiveData<List<RaceResultsDataModel>> recentlyRaceResultsLiveData = new MutableLiveData<>();
-        databaseReference.child("Main screen").child("Recently")
+        databaseReference.child(MAIN_SCREEN).child(RECENTLY)
                 .addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                String seasonsKey = snapshot.child("Seasons key").getValue(String.class);
-                String stageNumber = snapshot.child("Stage number").getValue(String.class);
+                String seasonsKey = snapshot.child(SEASONS_KEY).getValue(String.class);
+                String stageNumber = snapshot.child(STAGE_NUMBER).getValue(String.class);
 
-                databaseReference.child("Seasons").child(seasonsKey).child("Stages")
-                        .child(stageNumber).child("events").child("5").child("Results")
-                        .addValueEventListener(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(@NonNull DataSnapshot snapshot2) {
-                                List<RaceResultsDataModel> mData = new ArrayList<>();
-                                for (DataSnapshot data : snapshot2.getChildren()){
-                                    String pilotKey = data.child("Pilot").getValue(String.class);
-                                    String teamKey = data.child("Team").getValue(String.class);
+                if (seasonsKey != null && stageNumber != null) {
+                    databaseReference.child(SEASONS).child(seasonsKey).child(STAGES)
+                            .child(stageNumber).child(EVENTS).child(FIVE).child(RESULTS)
+                            .addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot snapshot2) {
+                                    List<RaceResultsDataModel> mData = new ArrayList<>();
+                                    for (DataSnapshot data : snapshot2.getChildren()){
+                                        String pilotKey = data.child(PILOT).getValue(String.class);
+                                        String teamKey = data.child(TEAM).getValue(String.class);
 
-                                    int position = Integer.parseInt(Objects.requireNonNull(data.getKey()));
-                                    String time = data.child("Time").getValue(String.class);
-                                    String points = data.child("Points").getValue(String.class);
+                                        int position = Integer.parseInt(Objects.requireNonNull(data.getKey()));
+                                        String time = data.child(TIME).getValue(String.class);
+                                        String points = data.child(POINTS).getValue(String.class);
 
-                                    assert pilotKey != null;
-                                    databaseReference.child("Pilots").child(pilotKey)
-                                            .addListenerForSingleValueEvent(new ValueEventListener() {
-                                        @Override
-                                        public void onDataChange(@NonNull DataSnapshot snapshot3) {
-                                            String pilotName = snapshot3.child("name").getValue(String.class);
-                                            String pilotFlag = snapshot3.child("flag").getValue(String.class);
+                                        assert pilotKey != null;
+                                        databaseReference.child(PILOTS).child(pilotKey)
+                                                .addListenerForSingleValueEvent(new ValueEventListener() {
+                                            @Override
+                                            public void onDataChange(@NonNull DataSnapshot snapshot3) {
+                                                String pilotName = snapshot3.child(NAME_LOWER).getValue(String.class);
+                                                String pilotFlag = snapshot3.child(FLAG).getValue(String.class);
 
-                                            assert teamKey != null;
-                                            databaseReference.child("Teams").child(teamKey)
-                                                    .addListenerForSingleValueEvent(new ValueEventListener() {
-                                                        @Override
-                                                        public void onDataChange(@NonNull DataSnapshot snapshot4) {
-                                                            String teamName = snapshot4.child("Short name").getValue(String.class);
-                                                            String teamLogo = snapshot4.child("Logo").getValue(String.class);
-                                                            RaceResultsDataModel raceResultsDataModel = new RaceResultsDataModel(
-                                                                    position, pilotFlag, pilotName, teamLogo, teamName, time, points);
-                                                            mData.add(raceResultsDataModel);
+                                                assert teamKey != null;
+                                                databaseReference.child(TEAMS).child(teamKey)
+                                                        .addListenerForSingleValueEvent(new ValueEventListener() {
+                                                            @Override
+                                                            public void onDataChange(@NonNull DataSnapshot snapshot4) {
+                                                                String teamName = snapshot4.child(SHORT_NAME).getValue(String.class);
+                                                                String teamLogo = snapshot4.child(LOGO_UPPER).getValue(String.class);
+                                                                RaceResultsDataModel raceResultsDataModel = new RaceResultsDataModel(
+                                                                        position, pilotFlag, pilotName, teamLogo, teamName, time, points);
+                                                                mData.add(raceResultsDataModel);
+                                                                mData.sort(Comparator.comparingInt(RaceResultsDataModel::getP));
+                                                                recentlyRaceResultsLiveData.postValue(mData);
+                                                            }
 
-                                                            mData.sort(Comparator.comparingInt(RaceResultsDataModel::getP));
-                                                            recentlyRaceResultsLiveData.postValue(mData);
-                                                        }
+                                                            @Override
+                                                            public void onCancelled(@NonNull DatabaseError error) {
 
-                                                        @Override
-                                                        public void onCancelled(@NonNull DatabaseError error) {
+                                                            }
+                                                        });
+                                            }
 
-                                                        }
-                                                    });
+                                            @Override
+                                            public void onCancelled(@NonNull DatabaseError error) {
+
+                                            }
+                                        });
+                                        if(position == 10){
+                                            break;
                                         }
-
-                                        @Override
-                                        public void onCancelled(@NonNull DatabaseError error) {
-
-                                        }
-                                    });
-                                    if(position == 10){
-                                        break;
                                     }
                                 }
-                            }
 
-                            @Override
-                            public void onCancelled(@NonNull DatabaseError error) {
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError error) {
 
-                            }
-                        });
+                                }
+                            });
+                }
             }
 
             @Override

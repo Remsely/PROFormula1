@@ -1,8 +1,7 @@
-package edu.samsungit.remsely.proformula.ui.content;
+package edu.samsungit.remsely.proformula.ui.adapters;
 
 import android.content.Intent;
 import android.net.Uri;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -14,15 +13,20 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 
+import java.util.Collections;
 import java.util.List;
 
+import edu.samsungit.remsely.proformula.data.models.SocialNetworkReferencesDataModel;
 import edu.samsungit.remsely.proformula.databinding.SocialNetworksLinksRecyclerViewItemBinding;
 
 public class SocialNetworksLinksRecyclerViewAdapter extends RecyclerView.Adapter<SocialNetworksLinksRecyclerViewAdapter.ViewHolder> {
-    private final List<SocialNetworkReferencesDataModel> socialNetworkReferencesDataModels;
+    private List<SocialNetworkReferencesDataModel> networksReferences = Collections.emptyList();
 
-    public SocialNetworksLinksRecyclerViewAdapter(List<SocialNetworkReferencesDataModel> socialNetworkReferencesDataModels){
-        this.socialNetworkReferencesDataModels = socialNetworkReferencesDataModels;
+    public SocialNetworksLinksRecyclerViewAdapter(){ }
+
+    public void setNetworksReferences(List<SocialNetworkReferencesDataModel> networksReferences){
+        this.networksReferences = networksReferences;
+        notifyItemRangeChanged(0, networksReferences.size());
     }
 
     @NonNull
@@ -34,7 +38,7 @@ public class SocialNetworksLinksRecyclerViewAdapter extends RecyclerView.Adapter
 
     @Override
     public void onBindViewHolder(@NonNull SocialNetworksLinksRecyclerViewAdapter.ViewHolder holder, int position) {
-        SocialNetworkReferencesDataModel socialNetworkReferencesDataModel = socialNetworkReferencesDataModels.get(position);
+        SocialNetworkReferencesDataModel socialNetworkReferencesDataModel = networksReferences.get(position);
         holder.contentAuthorReference.setText(socialNetworkReferencesDataModel.getReference());
 
         Glide.with(holder.contentAuthorSocialNetworkLogo.getContext())
@@ -49,7 +53,7 @@ public class SocialNetworksLinksRecyclerViewAdapter extends RecyclerView.Adapter
 
     @Override
     public int getItemCount() {
-        return socialNetworkReferencesDataModels.size();
+        return networksReferences.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder{

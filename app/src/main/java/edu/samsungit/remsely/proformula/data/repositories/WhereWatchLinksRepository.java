@@ -1,5 +1,9 @@
 package edu.samsungit.remsely.proformula.data.repositories;
 
+import static edu.samsungit.remsely.proformula.util.Keys.MAIN_SCREEN;
+import static edu.samsungit.remsely.proformula.util.Keys.SOON;
+import static edu.samsungit.remsely.proformula.util.Keys.WHERE_WATCH;
+
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -26,7 +30,7 @@ public class WhereWatchLinksRepository {
 
     public LiveData<List<LinksDataModel>> getWhereWatchLinksLiveData(){
         MutableLiveData<List<LinksDataModel>> whereWatchLinksLiveData = new MutableLiveData<>();
-        databaseReference.child("Main screen").child("Soon").child("Where watch")
+        databaseReference.child(MAIN_SCREEN).child(SOON).child(WHERE_WATCH)
                 .addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {

@@ -1,9 +1,19 @@
-package edu.samsungit.remsely.proformula.ui.calendar;
+package edu.samsungit.remsely.proformula.data.repositories;
+
+import static edu.samsungit.remsely.proformula.util.Keys.DATE;
+import static edu.samsungit.remsely.proformula.util.Keys.EVENTS;
+import static edu.samsungit.remsely.proformula.util.Keys.GRAND_PRIX;
+import static edu.samsungit.remsely.proformula.util.Keys.GRAND_PRIX_KEY;
+import static edu.samsungit.remsely.proformula.util.Keys.MAIN_SCREEN;
+import static edu.samsungit.remsely.proformula.util.Keys.NAME_LOWER;
+import static edu.samsungit.remsely.proformula.util.Keys.SEASONS;
+import static edu.samsungit.remsely.proformula.util.Keys.SEASONS_KEY;
+import static edu.samsungit.remsely.proformula.util.Keys.SOON;
+import static edu.samsungit.remsely.proformula.util.Keys.STAGES;
 
 import android.util.Log;
 
 import androidx.annotation.NonNull;
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.google.firebase.database.DataSnapshot;
@@ -19,6 +29,7 @@ import java.util.Objects;
 
 import edu.samsungit.remsely.proformula.data.models.StageHeadingDataModel;
 import edu.samsungit.remsely.proformula.data.models.StageScheduleDataModel;
+import edu.samsungit.remsely.proformula.data.models.CalendarItemDataModel;
 
 public class CalendarRepository {
     private final DatabaseReference databaseReference;
@@ -29,18 +40,19 @@ public class CalendarRepository {
 
     public MutableLiveData<List<CalendarItemDataModel>> getCalendarLiveData(){
         MutableLiveData<List<CalendarItemDataModel>> liveData = new MutableLiveData<>();
-        databaseReference.child("Main screen").child("Soon").child("Seasons key")
+        databaseReference.child(MAIN_SCREEN).child(SOON).child(SEASONS_KEY)
                 .addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         String seasonKey = snapshot.getValue(String.class);
 
                         assert seasonKey != null;
-                        databaseReference.child("Seasons").child(seasonKey).child("Stages")
+                        databaseReference.child(SEASONS).child(seasonKey).child(STAGES)
                                 .addValueEventListener(new ValueEventListener() {
                                     @Override
                                     public void onDataChange(@NonNull DataSnapshot seasonSnapshot) {
-                                        Comparator<CalendarItemDataModel> calendarItemComparator = Comparator.comparingInt(CalendarItemDataModel::getNumber);
+                                        Comparator<CalendarItemDataModel> calendarItemComparator =
+                                                Comparator.comparingInt(CalendarItemDataModel::getNumber);
                                         List<CalendarItemDataModel> calendarItems = new ArrayList<>();
                                         for (DataSnapshot stageSnapshot : seasonSnapshot.getChildren()){
 
@@ -48,9 +60,9 @@ public class CalendarRepository {
 
                                             int number = Integer.parseInt(Objects.requireNonNull(stageSnapshot.getKey()));
 
-                                            for (DataSnapshot eventSnapshot : stageSnapshot.child("events").getChildren()){
-                                                String date = eventSnapshot.child("date").getValue(String.class);
-                                                String name = eventSnapshot.child("name").getValue(String.class);
+                                            for (DataSnapshot eventSnapshot : stageSnapshot.child(EVENTS).getChildren()){
+                                                String date = eventSnapshot.child(DATE).getValue(String.class);
+                                                String name = eventSnapshot.child(NAME_LOWER).getValue(String.class);
 
                                                 StageScheduleDataModel stageScheduleDataModel =
                                                         new StageScheduleDataModel(date, name);
@@ -58,11 +70,11 @@ public class CalendarRepository {
                                                 stageSchedule.add(stageScheduleDataModel);
                                             }
 
-                                            String grandPrixKey = stageSnapshot.child("Grand prix key")
+                                            String grandPrixKey = stageSnapshot.child(GRAND_PRIX_KEY)
                                                     .getValue(String.class);
 
                                             assert grandPrixKey != null;
-                                            databaseReference.child("Grand prix").child(grandPrixKey)
+                                            databaseReference.child(GRAND_PRIX).child(grandPrixKey)
                                                     .addValueEventListener(new ValueEventListener() {
                                                 @Override
                                                 public void onDataChange(@NonNull DataSnapshot gradPrixSnapshot) {
@@ -74,7 +86,7 @@ public class CalendarRepository {
                                                                     stageSchedule, number);
 
                                                     calendarItems.add(calendarItemDataModel);
-                                                    if (calendarItems.size() == seasonSnapshot.getChildrenCount()) {
+                                                    if (calendarItems.size() >= seasonSnapshot.getChildrenCount()) {
                                                         calendarItems.sort(calendarItemComparator);
                                                         liveData.postValue(calendarItems);
                                                     }
@@ -82,7 +94,7 @@ public class CalendarRepository {
 
                                                 @Override
                                                 public void onCancelled(@NonNull DatabaseError error) {
-
+                                                    Log.d("CalendarRepository", "Error in Grand prix\\grandPrixKey");
                                                 }
                                             });
                                         }
@@ -90,13 +102,14 @@ public class CalendarRepository {
 
                                     @Override
                                     public void onCancelled(@NonNull DatabaseError error) {
+                                        Log.d("CalendarRepository", "Error in Seasons\\seasonKey\\Stages");
                                     }
                                 });
                     }
 
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
-
+                        Log.d("CalendarRepository", "Error in Main screen\\Soon\\Seasons key");
                     }
                 });
         return liveData;

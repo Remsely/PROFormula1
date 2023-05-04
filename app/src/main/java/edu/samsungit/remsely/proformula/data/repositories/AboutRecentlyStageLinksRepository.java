@@ -1,5 +1,13 @@
 package edu.samsungit.remsely.proformula.data.repositories;
 
+import static edu.samsungit.remsely.proformula.util.Keys.ABOUT_STAGE;
+import static edu.samsungit.remsely.proformula.util.Keys.MAIN_SCREEN;
+import static edu.samsungit.remsely.proformula.util.Keys.RECENTLY;
+import static edu.samsungit.remsely.proformula.util.Keys.SEASONS;
+import static edu.samsungit.remsely.proformula.util.Keys.SEASONS_KEY;
+import static edu.samsungit.remsely.proformula.util.Keys.STAGES;
+import static edu.samsungit.remsely.proformula.util.Keys.STAGE_NUMBER;
+
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -16,7 +24,7 @@ import java.util.List;
 import edu.samsungit.remsely.proformula.data.models.LinksDataModel;
 
 public class AboutRecentlyStageLinksRepository {
-    private DatabaseReference databaseReference;
+    private final DatabaseReference databaseReference;
 
     public AboutRecentlyStageLinksRepository(){
         databaseReference = FirebaseDatabase.getInstance().getReference();
@@ -24,16 +32,16 @@ public class AboutRecentlyStageLinksRepository {
 
     public LiveData<List<LinksDataModel>> getAboutStageLinksLiveData(){
         MutableLiveData<List<LinksDataModel>> aboutStageLinksLiveData = new MutableLiveData<>();
-        databaseReference.child("Main screen").child("Recently")
+        databaseReference.child(MAIN_SCREEN).child(RECENTLY)
                 .addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                String seasonsKey = snapshot.child("Seasons key").getValue(String.class);
-                String stageNumber = snapshot.child("Stage number").getValue(String.class);
+                String seasonsKey = snapshot.child(SEASONS_KEY).getValue(String.class);
+                String stageNumber = snapshot.child(STAGE_NUMBER).getValue(String.class);
 
                 assert seasonsKey != null && stageNumber != null;
-                databaseReference.child("Seasons").child(seasonsKey).child("Stages")
-                        .child(stageNumber).child("About stage")
+                databaseReference.child(SEASONS).child(seasonsKey).child(STAGES)
+                        .child(stageNumber).child(ABOUT_STAGE)
                         .addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {

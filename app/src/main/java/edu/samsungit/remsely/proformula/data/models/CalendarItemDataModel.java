@@ -1,4 +1,4 @@
-package edu.samsungit.remsely.proformula.ui.calendar;
+package edu.samsungit.remsely.proformula.data.models;
 
 import java.util.List;
 
@@ -10,8 +10,8 @@ public class CalendarItemDataModel {
     private List<StageScheduleDataModel> stageScheduleList;
     private int number;
 
-    CalendarItemDataModel(StageHeadingDataModel stageHeading,
-                          List<StageScheduleDataModel> stageScheduleList, int number){
+    public CalendarItemDataModel(StageHeadingDataModel stageHeading,
+                                 List<StageScheduleDataModel> stageScheduleList, int number){
         this.number = number;
         this.stageHeading = stageHeading;
         this.stageScheduleList = stageScheduleList;

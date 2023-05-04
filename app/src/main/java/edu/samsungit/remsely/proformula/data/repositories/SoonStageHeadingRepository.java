@@ -1,5 +1,10 @@
 package edu.samsungit.remsely.proformula.data.repositories;
 
+import static edu.samsungit.remsely.proformula.util.Keys.GRAND_PRIX;
+import static edu.samsungit.remsely.proformula.util.Keys.GRAND_PRIX_KEY;
+import static edu.samsungit.remsely.proformula.util.Keys.MAIN_SCREEN;
+import static edu.samsungit.remsely.proformula.util.Keys.SOON;
+
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -13,7 +18,7 @@ import com.google.firebase.database.ValueEventListener;
 import edu.samsungit.remsely.proformula.data.models.StageHeadingDataModel;
 
 public class SoonStageHeadingRepository {
-    private DatabaseReference databaseReference;
+    private final DatabaseReference databaseReference;
 
     public SoonStageHeadingRepository(){
         databaseReference = FirebaseDatabase.getInstance().getReference();
@@ -21,13 +26,13 @@ public class SoonStageHeadingRepository {
 
     public LiveData<StageHeadingDataModel> getSoonStageHeading(){
         final MutableLiveData<StageHeadingDataModel> soonStageHeadingMutableLiveData = new MutableLiveData<>();
-        databaseReference.child("Main screen").child("Soon")
-                .child("Grand prix key").addValueEventListener(new ValueEventListener() {
+        databaseReference.child(MAIN_SCREEN).child(SOON)
+                .child(GRAND_PRIX_KEY).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 String grandPrixKey = snapshot.getValue(String.class);
                 if(grandPrixKey != null){
-                    databaseReference.child("Grand prix").child(grandPrixKey)
+                    databaseReference.child(GRAND_PRIX).child(grandPrixKey)
                             .addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {

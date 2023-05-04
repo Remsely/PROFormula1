@@ -6,18 +6,17 @@ import androidx.lifecycle.ViewModel;
 
 import java.util.List;
 
+import edu.samsungit.remsely.proformula.data.models.CalendarItemDataModel;
+import edu.samsungit.remsely.proformula.data.repositories.CalendarRepository;
+import edu.samsungit.remsely.proformula.data.repositories.NextRaceNumberRepository;
+
 public class CalendarViewModel extends ViewModel {
-    private CalendarRepository calendarRepository;
-    private MutableLiveData<List<CalendarItemDataModel>> calendarItemsLiveData;
-    private NextRaceNumberRepository nextRaceNumberRepository;
-    private LiveData<Integer> nextRaceNumberLiveData;
+    private final CalendarRepository calendarRepository;
+    private final NextRaceNumberRepository nextRaceNumberRepository;
 
     public CalendarViewModel(){
         calendarRepository = new CalendarRepository();
-//        calendarItemsLiveData = ;
-
         nextRaceNumberRepository = new NextRaceNumberRepository();
-//        nextRaceNumberLiveData = nextRaceNumberRepository.getNextRaceNumberLiveData();
     }
 
     public MutableLiveData<List<CalendarItemDataModel>> getCalendarItemsLiveData(){

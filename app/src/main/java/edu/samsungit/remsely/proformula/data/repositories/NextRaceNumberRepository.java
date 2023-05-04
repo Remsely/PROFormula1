@@ -1,4 +1,8 @@
-package edu.samsungit.remsely.proformula.ui.calendar;
+package edu.samsungit.remsely.proformula.data.repositories;
+
+import static edu.samsungit.remsely.proformula.util.Keys.MAIN_SCREEN;
+import static edu.samsungit.remsely.proformula.util.Keys.SOON;
+import static edu.samsungit.remsely.proformula.util.Keys.STAGE_NUMBER;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
@@ -21,7 +25,7 @@ public class NextRaceNumberRepository {
 
     public LiveData<Integer> getNextRaceNumberLiveData(){
         MutableLiveData<Integer> liveData = new MutableLiveData<>();
-        databaseReference.child("Main screen").child("Soon").child("Stage number")
+        databaseReference.child(MAIN_SCREEN).child(SOON).child(STAGE_NUMBER)
                 .addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {

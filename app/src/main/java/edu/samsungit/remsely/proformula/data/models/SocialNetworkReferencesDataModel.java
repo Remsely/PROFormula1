@@ -1,10 +1,10 @@
-package edu.samsungit.remsely.proformula.ui.content;
+package edu.samsungit.remsely.proformula.data.models;
 
 public class SocialNetworkReferencesDataModel {
     private String reference;
     private String image;
 
-    SocialNetworkReferencesDataModel(String reference, String image){
+    public SocialNetworkReferencesDataModel(String reference, String image){
         this.image = image;
         this.reference = reference;
     }

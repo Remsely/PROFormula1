@@ -8,16 +8,20 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.Collections;
 import java.util.List;
 
 import edu.samsungit.remsely.proformula.databinding.WhereWatchRecyclerViewItemBinding;
 import edu.samsungit.remsely.proformula.data.models.LinksDataModel;
 
 public class LinksRecyclerViewAdapter extends RecyclerView.Adapter<LinksRecyclerViewAdapter.LinkViewHolder> {
-    private List<LinksDataModel> linksList;
+    private List<LinksDataModel> linksList = Collections.emptyList();
 
-    public LinksRecyclerViewAdapter(List<LinksDataModel> linksList){
+    public LinksRecyclerViewAdapter(){ }
+
+    public void setLinksList(List<LinksDataModel> linksList){
         this.linksList = linksList;
+        notifyItemRangeChanged(0, linksList.size());
     }
 
     @NonNull
