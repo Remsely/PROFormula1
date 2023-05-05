@@ -9,11 +9,10 @@ import edu.samsungit.remsely.proformula.data.models.ContentAuthorDataModel;
 import edu.samsungit.remsely.proformula.data.repositories.ContentMakersRepository;
 
 public class ContentViewModel extends ViewModel {
-    private ContentMakersRepository contentMakersRepository;
-    private LiveData<List<ContentAuthorDataModel>> contentAuthorsLiveData;
+    private final LiveData<List<ContentAuthorDataModel>> contentAuthorsLiveData;
 
     public ContentViewModel(){
-        contentMakersRepository = new ContentMakersRepository();
+        ContentMakersRepository contentMakersRepository = new ContentMakersRepository();
         contentAuthorsLiveData = contentMakersRepository.getContentAuthorsLiveData();
     }
 

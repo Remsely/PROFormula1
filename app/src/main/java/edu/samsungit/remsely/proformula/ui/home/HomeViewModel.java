@@ -17,36 +17,30 @@ import edu.samsungit.remsely.proformula.data.repositories.SoonStageScheduleRepos
 import edu.samsungit.remsely.proformula.data.repositories.WhereWatchLinksRepository;
 
 public class HomeViewModel extends ViewModel {
-    private SoonStageHeadingRepository soonStageHeadingRepository;
-    private RecentlyStageHeadingRepository recentlyStageHeadingRepository;
-    private LiveData<StageHeadingDataModel> soonStageHeadingLiveData;
-    private LiveData<StageHeadingDataModel> recentlyStageHeadingLiveData;
-    private WhereWatchLinksRepository whereWatchLinksRepository;
-    private LiveData<List<LinksDataModel>> whereWatchLinksLiveData;
-    private AboutRecentlyStageLinksRepository aboutRecentlyStageLinksRepository;
-    private LiveData<List<LinksDataModel>> aboutRecentlyStageLiveData;
-    private SoonStageScheduleRepository soonStageScheduleRepository;
-    private LiveData<List<StageScheduleDataModel>> soonStageScheduleLiveData;
-    private RecentlyStageRaceResultsRepository recentlyStageRaceResultsRepository;
-    private LiveData<List<RaceResultsDataModel>> recentlyStageResultsLivaData;
+    private final LiveData<StageHeadingDataModel> soonStageHeadingLiveData;
+    private final LiveData<StageHeadingDataModel> recentlyStageHeadingLiveData;
+    private final LiveData<List<LinksDataModel>> whereWatchLinksLiveData;
+    private final LiveData<List<LinksDataModel>> aboutRecentlyStageLiveData;
+    private final LiveData<List<StageScheduleDataModel>> soonStageScheduleLiveData;
+    private final LiveData<List<RaceResultsDataModel>> recentlyStageResultsLivaData;
 
     public HomeViewModel(){
-        soonStageHeadingRepository = new SoonStageHeadingRepository();
+        SoonStageHeadingRepository soonStageHeadingRepository = new SoonStageHeadingRepository();
         soonStageHeadingLiveData = soonStageHeadingRepository.getSoonStageHeading();
 
-        recentlyStageHeadingRepository = new RecentlyStageHeadingRepository();
+        RecentlyStageHeadingRepository recentlyStageHeadingRepository = new RecentlyStageHeadingRepository();
         recentlyStageHeadingLiveData = recentlyStageHeadingRepository.getRecentlyStageHeading();
 
-        whereWatchLinksRepository = new WhereWatchLinksRepository();
+        WhereWatchLinksRepository whereWatchLinksRepository = new WhereWatchLinksRepository();
         whereWatchLinksLiveData = whereWatchLinksRepository.getWhereWatchLinksLiveData();
 
-        aboutRecentlyStageLinksRepository = new AboutRecentlyStageLinksRepository();
+        AboutRecentlyStageLinksRepository aboutRecentlyStageLinksRepository = new AboutRecentlyStageLinksRepository();
         aboutRecentlyStageLiveData = aboutRecentlyStageLinksRepository.getAboutStageLinksLiveData();
 
-        soonStageScheduleRepository = new SoonStageScheduleRepository();
+        SoonStageScheduleRepository soonStageScheduleRepository = new SoonStageScheduleRepository();
         soonStageScheduleLiveData = soonStageScheduleRepository.getSoonStageScheduleLiveData();
 
-        recentlyStageRaceResultsRepository = new RecentlyStageRaceResultsRepository();
+        RecentlyStageRaceResultsRepository recentlyStageRaceResultsRepository = new RecentlyStageRaceResultsRepository();
         recentlyStageResultsLivaData = recentlyStageRaceResultsRepository.getRecentlyRaceResultsLiveData();
     }
 

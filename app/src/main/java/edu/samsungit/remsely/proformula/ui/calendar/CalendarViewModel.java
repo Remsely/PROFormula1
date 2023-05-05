@@ -11,19 +11,22 @@ import edu.samsungit.remsely.proformula.data.repositories.CalendarRepository;
 import edu.samsungit.remsely.proformula.data.repositories.NextRaceNumberRepository;
 
 public class CalendarViewModel extends ViewModel {
-    private final CalendarRepository calendarRepository;
-    private final NextRaceNumberRepository nextRaceNumberRepository;
+    private final MutableLiveData<List<CalendarItemDataModel>> calendarLiveData;
+    private final LiveData<Integer> nextRaceNumberLiveData;
 
     public CalendarViewModel(){
-        calendarRepository = new CalendarRepository();
-        nextRaceNumberRepository = new NextRaceNumberRepository();
+        CalendarRepository calendarRepository = new CalendarRepository();
+        calendarLiveData = calendarRepository.getCalendarLiveData();
+
+        NextRaceNumberRepository nextRaceNumberRepository = new NextRaceNumberRepository();
+        nextRaceNumberLiveData = nextRaceNumberRepository.getNextRaceNumberLiveData();
     }
 
     public MutableLiveData<List<CalendarItemDataModel>> getCalendarItemsLiveData(){
-        return calendarRepository.getCalendarLiveData();
+        return calendarLiveData;
     }
 
     public LiveData<Integer> getNextRaceNumberLiveData(){
-        return nextRaceNumberRepository.getNextRaceNumberLiveData();
+        return nextRaceNumberLiveData;
     }
 }

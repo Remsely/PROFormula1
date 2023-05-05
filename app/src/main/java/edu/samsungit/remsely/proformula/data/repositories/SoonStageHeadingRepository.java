@@ -3,7 +3,11 @@ package edu.samsungit.remsely.proformula.data.repositories;
 import static edu.samsungit.remsely.proformula.util.Keys.GRAND_PRIX;
 import static edu.samsungit.remsely.proformula.util.Keys.GRAND_PRIX_KEY;
 import static edu.samsungit.remsely.proformula.util.Keys.MAIN_SCREEN;
+import static edu.samsungit.remsely.proformula.util.Keys.SEASONS;
+import static edu.samsungit.remsely.proformula.util.Keys.SEASONS_KEY;
 import static edu.samsungit.remsely.proformula.util.Keys.SOON;
+import static edu.samsungit.remsely.proformula.util.Keys.STAGES;
+import static edu.samsungit.remsely.proformula.util.Keys.STAGE_NUMBER;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
@@ -26,25 +30,42 @@ public class SoonStageHeadingRepository {
 
     public LiveData<StageHeadingDataModel> getSoonStageHeading(){
         final MutableLiveData<StageHeadingDataModel> soonStageHeadingMutableLiveData = new MutableLiveData<>();
-        databaseReference.child(MAIN_SCREEN).child(SOON)
-                .child(GRAND_PRIX_KEY).addValueEventListener(new ValueEventListener() {
+        databaseReference.child(MAIN_SCREEN).child(SOON).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                String grandPrixKey = snapshot.getValue(String.class);
-                if(grandPrixKey != null){
-                    databaseReference.child(GRAND_PRIX).child(grandPrixKey)
-                            .addValueEventListener(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            StageHeadingDataModel soonStageHeading = snapshot.getValue(StageHeadingDataModel.class);
-                            soonStageHeadingMutableLiveData.postValue(soonStageHeading);
-                        }
+                String seasonKey = snapshot.child(SEASONS_KEY).getValue(String.class);
+                String stageNumber = snapshot.child(STAGE_NUMBER).getValue(String.class);
 
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError error) {
+                if (seasonKey != null && stageNumber != null) {
+                    databaseReference.child(SEASONS).child(seasonKey).child(STAGES).child(stageNumber)
+                            .child(GRAND_PRIX_KEY).addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                    String gradPrixKey = snapshot.getValue(String.class);
 
-                        }
-                    });
+                                    if (gradPrixKey != null) {
+                                        databaseReference.child(GRAND_PRIX).child(gradPrixKey)
+                                                .addValueEventListener(new ValueEventListener() {
+                                            @Override
+                                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                                StageHeadingDataModel stageHeadingDataModel = snapshot
+                                                        .getValue(StageHeadingDataModel.class);
+                                                soonStageHeadingMutableLiveData.postValue(stageHeadingDataModel);
+                                            }
+
+                                            @Override
+                                            public void onCancelled(@NonNull DatabaseError error) {
+
+                                            }
+                                        });
+                                    }
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError error) {
+
+                                }
+                            });
                 }
             }
 
