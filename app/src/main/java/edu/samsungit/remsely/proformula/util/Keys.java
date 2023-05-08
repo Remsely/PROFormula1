@@ -34,4 +34,6 @@ public class Keys {
     public static final String SOCIAL_NETWORKS = "Social networks";
     public static final String REFERENCE = "Reference";
     public static final String KEY = "Key";
+    public static final String INDIVIDUAL_STANDINGS = "Individual standings";
+    public static final String TEAM_STANDINGS = "Team standings";
 }

@@ -32,10 +32,17 @@ public class ChampionshipFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        init();
+    }
+
+    private void init(){
         tabLayout = binding.championshipTabLayout;
+
         viewPager2 = binding.championshipViewPager;
         viewPagerChampionshipAdapter = new ViewPagerChampionshipAdapter(this);
         viewPager2.setAdapter(viewPagerChampionshipAdapter);
+        viewPager2.setPageTransformer((page, position) -> page.setTranslationX(position * 20));
+
         frameLayout = binding.championshipFrameLayout;
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
@@ -54,6 +61,7 @@ public class ChampionshipFragment extends Fragment {
                 frameLayout.setVisibility(View.GONE);
             }
         });
+
         viewPager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
             @Override
             public void onPageSelected(int position) {
