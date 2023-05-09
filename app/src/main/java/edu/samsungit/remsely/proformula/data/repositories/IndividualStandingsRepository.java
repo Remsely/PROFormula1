@@ -1,4 +1,4 @@
-package edu.samsungit.remsely.proformula.ui.individual_standings;
+package edu.samsungit.remsely.proformula.data.repositories;
 
 import static edu.samsungit.remsely.proformula.util.Keys.FLAG;
 import static edu.samsungit.remsely.proformula.util.Keys.INDIVIDUAL_STANDINGS;
@@ -16,7 +16,6 @@ import static edu.samsungit.remsely.proformula.util.Keys.TEAM;
 import static edu.samsungit.remsely.proformula.util.Keys.TEAMS;
 
 import androidx.annotation.NonNull;
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.google.firebase.database.DataSnapshot;
@@ -29,6 +28,8 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
+
+import edu.samsungit.remsely.proformula.data.models.IndividualStandingsPositionDataModel;
 
 public class IndividualStandingsRepository {
     private final DatabaseReference databaseReference;

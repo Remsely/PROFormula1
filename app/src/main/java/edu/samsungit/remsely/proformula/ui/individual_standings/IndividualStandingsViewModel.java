@@ -5,6 +5,9 @@ import androidx.lifecycle.ViewModel;
 
 import java.util.List;
 
+import edu.samsungit.remsely.proformula.data.models.IndividualStandingsPositionDataModel;
+import edu.samsungit.remsely.proformula.data.repositories.IndividualStandingsRepository;
+
 public class IndividualStandingsViewModel extends ViewModel {
     private final MutableLiveData<List<IndividualStandingsPositionDataModel>> individualStandingsLiveData;
 

@@ -1,4 +1,4 @@
-package edu.samsungit.remsely.proformula.ui.individual_standings;
+package edu.samsungit.remsely.proformula.data.models;
 
 public class IndividualStandingsPositionDataModel {
     private String pilot;

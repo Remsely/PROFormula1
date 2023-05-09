@@ -14,11 +14,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import edu.samsungit.remsely.proformula.R;
 import edu.samsungit.remsely.proformula.databinding.FragmentIndividualStandingsBinding;
+import edu.samsungit.remsely.proformula.ui.adapters.IndividualStandingsRecyclerViewAdapter;
 
 public class IndividualStandingsFragment extends Fragment {
-
     private FragmentIndividualStandingsBinding binding;
     private IndividualStandingsViewModel individualStandingsViewModel;
     private RecyclerView standingsRecyclerView;
@@ -34,12 +33,9 @@ public class IndividualStandingsFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         init();
-
-        individualStandingsLiveDataObservation();
     }
 
     private void init(){
-
         individualStandingsViewModel = new ViewModelProvider(this).get(IndividualStandingsViewModel.class);
 
         standingsRecyclerView = binding.currentSeasonIndividualStandingsRecyclerView;
@@ -47,10 +43,12 @@ public class IndividualStandingsFragment extends Fragment {
         standingsRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         standingsRecyclerView.setAdapter(standingsAdapter);
         standingsRecyclerView.setItemAnimator(null);
+
+        individualStandingsLiveDataObservation();
     }
 
     private void individualStandingsLiveDataObservation(){
-        individualStandingsViewModel.getIndividualStandingsLiveData().observe(getViewLifecycleOwner(), standings ->{
+        individualStandingsViewModel.getIndividualStandingsLiveData().observe(getViewLifecycleOwner(), standings -> {
             IndividualStandingsRecyclerViewAdapter adapter = (IndividualStandingsRecyclerViewAdapter)
                     standingsRecyclerView.getAdapter();
             if(adapter != null){

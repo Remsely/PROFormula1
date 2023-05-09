@@ -1,4 +1,4 @@
-package edu.samsungit.remsely.proformula.ui.individual_standings;
+package edu.samsungit.remsely.proformula.ui.adapters;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -15,6 +15,7 @@ import java.util.Collections;
 import java.util.List;
 
 import edu.samsungit.remsely.proformula.R;
+import edu.samsungit.remsely.proformula.data.models.IndividualStandingsPositionDataModel;
 import edu.samsungit.remsely.proformula.databinding.IndividualStandingsRecyclerViewItemBinding;
 
 public class IndividualStandingsRecyclerViewAdapter extends RecyclerView.Adapter<IndividualStandingsRecyclerViewAdapter.ViewHolder> {
@@ -67,7 +68,6 @@ public class IndividualStandingsRecyclerViewAdapter extends RecyclerView.Adapter
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder{
-        private final IndividualStandingsRecyclerViewItemBinding binding;
         TextView position;
         ImageView pilotFlag;
         ImageView teamLogo;
@@ -77,7 +77,6 @@ public class IndividualStandingsRecyclerViewAdapter extends RecyclerView.Adapter
 
         public ViewHolder(IndividualStandingsRecyclerViewItemBinding binding){
             super(binding.getRoot());
-            this.binding = binding;
             position = binding.individualStandingsNumber;
             pilotFlag = binding.individualStandingsPilotFlag;
             pilotName = binding.individualStandingsPilotName;
