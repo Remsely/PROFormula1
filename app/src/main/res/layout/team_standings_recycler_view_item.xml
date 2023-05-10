@@ -8,7 +8,7 @@
 
     <TextView
         android:id="@+id/team_standings_number"
-        android:layout_width="40dp"
+        android:layout_width="30dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:fontFamily="@font/open_sans_semibold"
@@ -30,7 +30,7 @@
 
     <TextView
         android:id="@+id/team_standings_team_name"
-        android:layout_width="280dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:fontFamily="@font/open_sans_semibold"

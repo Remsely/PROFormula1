@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/stage_layout"
+    android:background="@drawable/animated_frame"
+    android:padding="7dp"
+    android:layout_marginBottom="10dp">
+
+    <TextView
+        android:id="@+id/season_stage_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/open_sans_bold"
+        android:text="@string/stage_name"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/season_stage_place_flag"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/season_stage_place_flag"
+        android:layout_width="74dp"
+        android:layout_height="40dp"
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/flag"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginEnd="1dp"/>
+
+    <TextView
+        android:id="@+id/season_stage_winner"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/open_sans"
+        android:paddingStart="2dp"
+        android:text="@string/winner_or_date"
+        android:textColor="@color/gold"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/season_stage_place_flag"
+        app:layout_constraintStart_toEndOf="@+id/season_stage_winner_flag"
+        app:layout_constraintTop_toBottomOf="@+id/season_stage_name" />
+
+    <ImageView
+        android:id="@+id/season_stage_winner_flag"
+        android:layout_width="20dp"
+        android:layout_height="15dp"
+        android:background="@drawable/flag"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/season_stage_winner" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

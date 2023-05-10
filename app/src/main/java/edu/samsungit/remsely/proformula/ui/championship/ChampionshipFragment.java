@@ -15,6 +15,7 @@ import com.google.android.material.tabs.TabLayout;
 
 import edu.samsungit.remsely.proformula.databinding.FragmentChampionshipBinding;
 import edu.samsungit.remsely.proformula.ui.adapters.ViewPagerChampionshipAdapter;
+import edu.samsungit.remsely.proformula.util.DpToPx;
 
 public class ChampionshipFragment extends Fragment {
     private FragmentChampionshipBinding binding;
@@ -41,7 +42,7 @@ public class ChampionshipFragment extends Fragment {
         viewPager2 = binding.championshipViewPager;
         viewPagerChampionshipAdapter = new ViewPagerChampionshipAdapter(this);
         viewPager2.setAdapter(viewPagerChampionshipAdapter);
-        viewPager2.setPageTransformer((page, position) -> page.setTranslationX(position * 20));
+        viewPager2.setPageTransformer((page, position) -> page.setTranslationX(position * DpToPx.dpToPx(10)));
 
         frameLayout = binding.championshipFrameLayout;
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
