@@ -1,5 +1,7 @@
 package edu.samsungit.remsely.proformula.data.models;
 
+import androidx.lifecycle.LiveData;
+
 import java.util.List;
 
 import edu.samsungit.remsely.proformula.data.models.StageHeadingDataModel;
@@ -7,11 +9,11 @@ import edu.samsungit.remsely.proformula.data.models.StageScheduleDataModel;
 
 public class CalendarItemDataModel {
     private StageHeadingDataModel stageHeading;
-    private List<StageScheduleDataModel> stageScheduleList;
+    private LiveData<List<StageScheduleDataModel>> stageScheduleList;
     private int number;
 
     public CalendarItemDataModel(StageHeadingDataModel stageHeading,
-                                 List<StageScheduleDataModel> stageScheduleList, int number){
+                                 LiveData<List<StageScheduleDataModel>> stageScheduleList, int number){
         this.number = number;
         this.stageHeading = stageHeading;
         this.stageScheduleList = stageScheduleList;
@@ -21,7 +23,7 @@ public class CalendarItemDataModel {
         return number;
     }
 
-    public List<StageScheduleDataModel> getStageScheduleList(){
+    public LiveData<List<StageScheduleDataModel>> getStageScheduleList(){
         return stageScheduleList;
     }
 

@@ -2,6 +2,7 @@ package edu.samsungit.remsely.proformula.ui.home;
 
 import static android.content.ContentValues.TAG;
 
+import android.app.ProgressDialog;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
@@ -43,10 +44,10 @@ public class HomeFragment extends Fragment {
     private TextView soonStageLocation;
     private TextView recentlyStageLocation;
     private HomeViewModel homeViewModel;
-    RecyclerView stageScheduleRecyclerView;
-    RecyclerView aboutRecentlyStageRecyclerView;
-    RecyclerView recentlyRaceResultsRecyclerView;
-    RecyclerView whereWatchRecyclerView;
+    private RecyclerView stageScheduleRecyclerView;
+    private RecyclerView aboutRecentlyStageRecyclerView;
+    private RecyclerView recentlyRaceResultsRecyclerView;
+    private RecyclerView whereWatchRecyclerView;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {

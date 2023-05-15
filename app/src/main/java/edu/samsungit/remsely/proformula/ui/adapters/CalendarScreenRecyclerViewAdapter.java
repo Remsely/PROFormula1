@@ -8,6 +8,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.LifecycleOwner;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -26,8 +27,13 @@ import edu.samsungit.remsely.proformula.util.RoundedCornersToImageViewTransforma
 public class CalendarScreenRecyclerViewAdapter extends RecyclerView.Adapter<CalendarScreenRecyclerViewAdapter.ViewHolder> {
     private List<CalendarItemDataModel> calendarItems = Collections.emptyList();
     private int nextStageNumber = -1;
+    private LifecycleOwner viewLifecycleOwner;
 
     public CalendarScreenRecyclerViewAdapter(){
+    }
+
+    public void setViewLifecycleOwner(LifecycleOwner viewLifecycleOwner){
+        this.viewLifecycleOwner = viewLifecycleOwner;
     }
 
     public void setCalendarItems(List<CalendarItemDataModel> calendarItems) {
@@ -53,10 +59,13 @@ public class CalendarScreenRecyclerViewAdapter extends RecyclerView.Adapter<Cale
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         CalendarItemDataModel calendarItemDataModel = calendarItems.get(position);
 
-        StageScheduleRecyclerViewAdapter adapter = (StageScheduleRecyclerViewAdapter) holder.stageScheduleRecyclerView.getAdapter();
-        if (adapter != null) {
-            adapter.setEvents(calendarItemDataModel.getStageScheduleList());
-        }
+        calendarItemDataModel.getStageScheduleList().observe(viewLifecycleOwner, schedule -> {
+            StageScheduleRecyclerViewAdapter adapter =
+                    (StageScheduleRecyclerViewAdapter) holder.stageScheduleRecyclerView.getAdapter();
+            if (adapter != null) {
+                adapter.setEvents(schedule);
+            }
+        });
 
         holder.stagePlace.setText(calendarItemDataModel.getStageHeading().getLocation());
         holder.stageName.setText(calendarItemDataModel.getNumber() + ". " +

@@ -57,6 +57,8 @@ public class CalendarRepository {
                                             for (DataSnapshot stageSnapshot : seasonSnapshot.getChildren()){
 
                                                 List<StageScheduleDataModel> stageSchedule = new ArrayList<>();
+                                                MutableLiveData<List<StageScheduleDataModel>>
+                                                        stageScheduleLiveData = new MutableLiveData<>();
 
                                                 int number = Integer.parseInt(Objects.requireNonNull(stageSnapshot.getKey()));
 
@@ -68,6 +70,7 @@ public class CalendarRepository {
                                                             new StageScheduleDataModel(date, name);
 
                                                     stageSchedule.add(stageScheduleDataModel);
+                                                    stageScheduleLiveData.postValue(stageSchedule);
                                                 }
 
                                                 String grandPrixKey = stageSnapshot.child(GRAND_PRIX_KEY)
@@ -83,7 +86,7 @@ public class CalendarRepository {
 
                                                             CalendarItemDataModel calendarItemDataModel =
                                                                     new CalendarItemDataModel(stageHeading,
-                                                                            stageSchedule, number);
+                                                                            stageScheduleLiveData, number);
 
                                                             calendarItems.add(calendarItemDataModel);
                                                             if (calendarItems.size() >= seasonSnapshot.getChildrenCount()) {

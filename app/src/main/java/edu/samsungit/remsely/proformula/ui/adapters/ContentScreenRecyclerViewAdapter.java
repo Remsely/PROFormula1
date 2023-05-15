@@ -29,6 +29,10 @@ public class ContentScreenRecyclerViewAdapter extends RecyclerView.Adapter<Conte
 
     public ContentScreenRecyclerViewAdapter(){ }
 
+    public void setViewLifecycleOwner(LifecycleOwner viewLifecycleOwner) {
+        this.viewLifecycleOwner = viewLifecycleOwner;
+    }
+
     public void setContentAuthors(List<ContentAuthorDataModel> contentAuthors){
         this.contentAuthors = contentAuthors;
         notifyItemRangeChanged(0, contentAuthors.size());
@@ -82,10 +86,6 @@ public class ContentScreenRecyclerViewAdapter extends RecyclerView.Adapter<Conte
     @Override
     public int getItemCount() {
         return contentAuthors.size();
-    }
-
-    public void setViewLifecycleOwner(LifecycleOwner viewLifecycleOwner) {
-        this.viewLifecycleOwner = viewLifecycleOwner;
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder{

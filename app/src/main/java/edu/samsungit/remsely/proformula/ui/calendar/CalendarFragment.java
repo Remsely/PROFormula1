@@ -52,6 +52,7 @@ public class CalendarFragment extends Fragment {
             calendarViewModel.getCalendarItemsLiveData().observe(getViewLifecycleOwner(), calendarItemDataModels -> {
                 CalendarScreenRecyclerViewAdapter adapter = (CalendarScreenRecyclerViewAdapter) recyclerView.getAdapter();
                 if (adapter != null) {
+                    adapter.setViewLifecycleOwner(getViewLifecycleOwner());
                     adapter.setCalendarItems(calendarItemDataModels);
                     adapter.setNextStageNumber(num - 1);
                     recyclerView.scrollToPosition(num - 1);
