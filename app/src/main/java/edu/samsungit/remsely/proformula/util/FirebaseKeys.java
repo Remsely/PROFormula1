@@ -1,6 +1,6 @@
 package edu.samsungit.remsely.proformula.util;
 
-public class Keys {
+public class FirebaseKeys {
     public static final String MAIN_SCREEN = "Main screen";
     public static final String RECENTLY = "Recently";
     public static final String SEASONS_KEY = "Seasons key";
@@ -37,4 +37,6 @@ public class Keys {
     public static final String INDIVIDUAL_STANDINGS = "Individual standings";
     public static final String TEAM_STANDINGS = "Team standings";
     public static final String TEAMS_NAMES_KEY = "Teams names key";
+    public static final String PREVIEW = "Preview";
+    public static final String ONE = "1";
 }

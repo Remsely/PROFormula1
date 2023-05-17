@@ -1,13 +1,13 @@
 package edu.samsungit.remsely.proformula.data.repositories;
 
-import static edu.samsungit.remsely.proformula.util.Keys.CONTENT;
-import static edu.samsungit.remsely.proformula.util.Keys.DESCRIPTION;
-import static edu.samsungit.remsely.proformula.util.Keys.KEY;
-import static edu.samsungit.remsely.proformula.util.Keys.LOGO_LOWER;
-import static edu.samsungit.remsely.proformula.util.Keys.NAME_LOWER;
-import static edu.samsungit.remsely.proformula.util.Keys.RECOMMENDATION;
-import static edu.samsungit.remsely.proformula.util.Keys.REFERENCE;
-import static edu.samsungit.remsely.proformula.util.Keys.SOCIAL_NETWORKS;
+import static edu.samsungit.remsely.proformula.util.FirebaseKeys.CONTENT;
+import static edu.samsungit.remsely.proformula.util.FirebaseKeys.DESCRIPTION;
+import static edu.samsungit.remsely.proformula.util.FirebaseKeys.KEY;
+import static edu.samsungit.remsely.proformula.util.FirebaseKeys.LOGO_LOWER;
+import static edu.samsungit.remsely.proformula.util.FirebaseKeys.NAME_LOWER;
+import static edu.samsungit.remsely.proformula.util.FirebaseKeys.RECOMMENDATION;
+import static edu.samsungit.remsely.proformula.util.FirebaseKeys.REFERENCE;
+import static edu.samsungit.remsely.proformula.util.FirebaseKeys.SOCIAL_NETWORKS;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;

@@ -43,7 +43,7 @@ public class StageScheduleRecyclerViewAdapter extends RecyclerView.Adapter<Stage
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
-        private StageScheduleRecyclerViewItemBinding binding;
+        private final StageScheduleRecyclerViewItemBinding binding;
 
         public ViewHolder(StageScheduleRecyclerViewItemBinding binding) {
             super(binding.getRoot());

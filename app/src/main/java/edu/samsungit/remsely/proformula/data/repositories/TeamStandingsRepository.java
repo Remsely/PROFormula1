@@ -1,15 +1,15 @@
 package edu.samsungit.remsely.proformula.data.repositories;
 
-import static edu.samsungit.remsely.proformula.util.Keys.LOGO_UPPER;
-import static edu.samsungit.remsely.proformula.util.Keys.MAIN_SCREEN;
-import static edu.samsungit.remsely.proformula.util.Keys.POINTS;
-import static edu.samsungit.remsely.proformula.util.Keys.RECENTLY;
-import static edu.samsungit.remsely.proformula.util.Keys.SEASONS;
-import static edu.samsungit.remsely.proformula.util.Keys.SEASONS_KEY;
-import static edu.samsungit.remsely.proformula.util.Keys.TEAM;
-import static edu.samsungit.remsely.proformula.util.Keys.TEAMS;
-import static edu.samsungit.remsely.proformula.util.Keys.TEAMS_NAMES_KEY;
-import static edu.samsungit.remsely.proformula.util.Keys.TEAM_STANDINGS;
+import static edu.samsungit.remsely.proformula.util.FirebaseKeys.LOGO_UPPER;
+import static edu.samsungit.remsely.proformula.util.FirebaseKeys.MAIN_SCREEN;
+import static edu.samsungit.remsely.proformula.util.FirebaseKeys.POINTS;
+import static edu.samsungit.remsely.proformula.util.FirebaseKeys.RECENTLY;
+import static edu.samsungit.remsely.proformula.util.FirebaseKeys.SEASONS;
+import static edu.samsungit.remsely.proformula.util.FirebaseKeys.SEASONS_KEY;
+import static edu.samsungit.remsely.proformula.util.FirebaseKeys.TEAM;
+import static edu.samsungit.remsely.proformula.util.FirebaseKeys.TEAMS;
+import static edu.samsungit.remsely.proformula.util.FirebaseKeys.TEAMS_NAMES_KEY;
+import static edu.samsungit.remsely.proformula.util.FirebaseKeys.TEAM_STANDINGS;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.MutableLiveData;

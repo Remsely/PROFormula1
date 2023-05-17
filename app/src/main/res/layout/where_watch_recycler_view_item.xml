@@ -8,6 +8,8 @@
         android:textColor="@color/red"
         android:fontFamily="@font/open_sans_semibold"
         android:textSize="14sp"
+        android:maxLines="1"
+        android:ellipsize="end"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/text_view_animation_background"

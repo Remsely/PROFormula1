@@ -1,19 +1,19 @@
 package edu.samsungit.remsely.proformula.data.repositories;
 
-import static edu.samsungit.remsely.proformula.util.Keys.FLAG;
-import static edu.samsungit.remsely.proformula.util.Keys.INDIVIDUAL_STANDINGS;
-import static edu.samsungit.remsely.proformula.util.Keys.LOGO_UPPER;
-import static edu.samsungit.remsely.proformula.util.Keys.MAIN_SCREEN;
-import static edu.samsungit.remsely.proformula.util.Keys.NAME_LOWER;
-import static edu.samsungit.remsely.proformula.util.Keys.PILOT;
-import static edu.samsungit.remsely.proformula.util.Keys.PILOTS;
-import static edu.samsungit.remsely.proformula.util.Keys.POINTS;
-import static edu.samsungit.remsely.proformula.util.Keys.RECENTLY;
-import static edu.samsungit.remsely.proformula.util.Keys.SEASONS;
-import static edu.samsungit.remsely.proformula.util.Keys.SEASONS_KEY;
-import static edu.samsungit.remsely.proformula.util.Keys.SHORT_NAME;
-import static edu.samsungit.remsely.proformula.util.Keys.TEAM;
-import static edu.samsungit.remsely.proformula.util.Keys.TEAMS;
+import static edu.samsungit.remsely.proformula.util.FirebaseKeys.FLAG;
+import static edu.samsungit.remsely.proformula.util.FirebaseKeys.INDIVIDUAL_STANDINGS;
+import static edu.samsungit.remsely.proformula.util.FirebaseKeys.LOGO_UPPER;
+import static edu.samsungit.remsely.proformula.util.FirebaseKeys.MAIN_SCREEN;
+import static edu.samsungit.remsely.proformula.util.FirebaseKeys.NAME_LOWER;
+import static edu.samsungit.remsely.proformula.util.FirebaseKeys.PILOT;
+import static edu.samsungit.remsely.proformula.util.FirebaseKeys.PILOTS;
+import static edu.samsungit.remsely.proformula.util.FirebaseKeys.POINTS;
+import static edu.samsungit.remsely.proformula.util.FirebaseKeys.RECENTLY;
+import static edu.samsungit.remsely.proformula.util.FirebaseKeys.SEASONS;
+import static edu.samsungit.remsely.proformula.util.FirebaseKeys.SEASONS_KEY;
+import static edu.samsungit.remsely.proformula.util.FirebaseKeys.SHORT_NAME;
+import static edu.samsungit.remsely.proformula.util.FirebaseKeys.TEAM;
+import static edu.samsungit.remsely.proformula.util.FirebaseKeys.TEAMS;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.MutableLiveData;

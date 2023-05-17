@@ -32,7 +32,9 @@ public class SocialNetworksLinksRecyclerViewAdapter extends RecyclerView.Adapter
     @NonNull
     @Override
     public SocialNetworksLinksRecyclerViewAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        edu.samsungit.remsely.proformula.databinding.SocialNetworksLinksRecyclerViewItemBinding binding = SocialNetworksLinksRecyclerViewItemBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
+        edu.samsungit.remsely.proformula.databinding.SocialNetworksLinksRecyclerViewItemBinding binding =
+                SocialNetworksLinksRecyclerViewItemBinding.inflate(LayoutInflater
+                        .from(parent.getContext()), parent, false);
         return new ViewHolder(binding);
     }
 

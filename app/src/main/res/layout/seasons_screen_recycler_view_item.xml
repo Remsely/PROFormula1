@@ -3,10 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/simple_frame"
+    android:background="@drawable/animated_frame"
     android:paddingStart="7dp"
     android:paddingEnd="7dp"
-    android:layout_marginBottom="10dp">
+    android:layout_marginBottom="10dp"
+    android:id="@+id/seasons_screen_recycler_view_item">
 
 
     <ImageView
@@ -15,7 +16,6 @@
         android:layout_height="60dp"
         android:layout_marginBottom="7dp"
         android:layout_marginTop="7dp"
-        android:background="@drawable/flag"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -59,19 +59,19 @@
 
     <ImageView
         android:id="@+id/season_winner_pilot_flag"
-        android:layout_width="15dp"
+        android:layout_width="18dp"
         android:layout_height="10dp"
-        android:background="@drawable/flag"
         app:layout_constraintBottom_toTopOf="@+id/season_winner_team_title"
         app:layout_constraintStart_toEndOf="@+id/season_winner_title"
         app:layout_constraintTop_toTopOf="@+id/season_winner_title"
-        android:layout_marginStart="3dp" />
+        android:layout_marginStart="3dp"
+        android:scaleType="center"/>
 
     <TextView
         android:id="@+id/season_winner_pilot_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/open_sans_bold"
+        android:fontFamily="@font/open_sans_semibold"
         android:text="@string/pilot_name"
         android:textColor="@color/white"
         android:textSize="12sp"
@@ -94,20 +94,20 @@
 
     <ImageView
         android:id="@+id/season_winner_team_logo"
-        android:layout_width="15dp"
-        android:layout_height="10dp"
-        android:background="@drawable/flag"
+        android:layout_width="18dp"
+        android:layout_height="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/season_winner_team_title"
         app:layout_constraintTop_toTopOf="@+id/season_winner_team_title"
         android:layout_marginStart="3dp"
-        android:layout_marginBottom="7dp"/>
+        android:layout_marginBottom="7dp"
+        android:scaleType="centerInside"/>
 
     <TextView
         android:id="@+id/season_winner_team"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/open_sans_bold"
+        android:fontFamily="@font/open_sans_semibold"
         android:text="@string/team_name"
         android:textColor="@color/white"
         android:textSize="12sp"

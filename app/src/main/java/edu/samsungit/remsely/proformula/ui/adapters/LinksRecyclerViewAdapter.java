@@ -44,7 +44,7 @@ public class LinksRecyclerViewAdapter extends RecyclerView.Adapter<LinksRecycler
 
     static class LinkViewHolder extends RecyclerView.ViewHolder{
 
-        private WhereWatchRecyclerViewItemBinding binding;
+        private final WhereWatchRecyclerViewItemBinding binding;
 
         public LinkViewHolder(WhereWatchRecyclerViewItemBinding binding) {
             super(binding.getRoot());

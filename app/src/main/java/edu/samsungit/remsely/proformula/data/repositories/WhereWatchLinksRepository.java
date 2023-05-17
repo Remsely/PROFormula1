@@ -1,8 +1,8 @@
 package edu.samsungit.remsely.proformula.data.repositories;
 
-import static edu.samsungit.remsely.proformula.util.Keys.MAIN_SCREEN;
-import static edu.samsungit.remsely.proformula.util.Keys.SOON;
-import static edu.samsungit.remsely.proformula.util.Keys.WHERE_WATCH;
+import static edu.samsungit.remsely.proformula.util.FirebaseKeys.MAIN_SCREEN;
+import static edu.samsungit.remsely.proformula.util.FirebaseKeys.SOON;
+import static edu.samsungit.remsely.proformula.util.FirebaseKeys.WHERE_WATCH;
 
 import android.util.Log;
 

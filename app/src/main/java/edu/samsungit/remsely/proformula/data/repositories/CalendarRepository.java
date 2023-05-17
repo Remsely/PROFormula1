@@ -1,15 +1,15 @@
 package edu.samsungit.remsely.proformula.data.repositories;
 
-import static edu.samsungit.remsely.proformula.util.Keys.DATE;
-import static edu.samsungit.remsely.proformula.util.Keys.EVENTS;
-import static edu.samsungit.remsely.proformula.util.Keys.GRAND_PRIX;
-import static edu.samsungit.remsely.proformula.util.Keys.GRAND_PRIX_KEY;
-import static edu.samsungit.remsely.proformula.util.Keys.MAIN_SCREEN;
-import static edu.samsungit.remsely.proformula.util.Keys.NAME_LOWER;
-import static edu.samsungit.remsely.proformula.util.Keys.SEASONS;
-import static edu.samsungit.remsely.proformula.util.Keys.SEASONS_KEY;
-import static edu.samsungit.remsely.proformula.util.Keys.SOON;
-import static edu.samsungit.remsely.proformula.util.Keys.STAGES;
+import static edu.samsungit.remsely.proformula.util.FirebaseKeys.DATE;
+import static edu.samsungit.remsely.proformula.util.FirebaseKeys.EVENTS;
+import static edu.samsungit.remsely.proformula.util.FirebaseKeys.GRAND_PRIX;
+import static edu.samsungit.remsely.proformula.util.FirebaseKeys.GRAND_PRIX_KEY;
+import static edu.samsungit.remsely.proformula.util.FirebaseKeys.MAIN_SCREEN;
+import static edu.samsungit.remsely.proformula.util.FirebaseKeys.NAME_LOWER;
+import static edu.samsungit.remsely.proformula.util.FirebaseKeys.SEASONS;
+import static edu.samsungit.remsely.proformula.util.FirebaseKeys.SEASONS_KEY;
+import static edu.samsungit.remsely.proformula.util.FirebaseKeys.SOON;
+import static edu.samsungit.remsely.proformula.util.FirebaseKeys.STAGES;
 
 import android.util.Log;
 
@@ -89,10 +89,11 @@ public class CalendarRepository {
                                                                             stageScheduleLiveData, number);
 
                                                             calendarItems.add(calendarItemDataModel);
-                                                            if (calendarItems.size() >= seasonSnapshot.getChildrenCount()) {
-                                                                calendarItems.sort(calendarItemComparator);
-                                                                liveData.postValue(calendarItems);
-                                                            }
+//                                                            if (calendarItems.size() >= seasonSnapshot.getChildrenCount()) {
+//
+//                                                            }
+                                                            calendarItems.sort(calendarItemComparator);
+                                                            liveData.postValue(calendarItems);
                                                         }
 
                                                         @Override

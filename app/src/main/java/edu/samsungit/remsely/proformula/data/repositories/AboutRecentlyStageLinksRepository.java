@@ -1,12 +1,12 @@
 package edu.samsungit.remsely.proformula.data.repositories;
 
-import static edu.samsungit.remsely.proformula.util.Keys.ABOUT_STAGE;
-import static edu.samsungit.remsely.proformula.util.Keys.MAIN_SCREEN;
-import static edu.samsungit.remsely.proformula.util.Keys.RECENTLY;
-import static edu.samsungit.remsely.proformula.util.Keys.SEASONS;
-import static edu.samsungit.remsely.proformula.util.Keys.SEASONS_KEY;
-import static edu.samsungit.remsely.proformula.util.Keys.STAGES;
-import static edu.samsungit.remsely.proformula.util.Keys.STAGE_NUMBER;
+import static edu.samsungit.remsely.proformula.util.FirebaseKeys.ABOUT_STAGE;
+import static edu.samsungit.remsely.proformula.util.FirebaseKeys.MAIN_SCREEN;
+import static edu.samsungit.remsely.proformula.util.FirebaseKeys.RECENTLY;
+import static edu.samsungit.remsely.proformula.util.FirebaseKeys.SEASONS;
+import static edu.samsungit.remsely.proformula.util.FirebaseKeys.SEASONS_KEY;
+import static edu.samsungit.remsely.proformula.util.FirebaseKeys.STAGES;
+import static edu.samsungit.remsely.proformula.util.FirebaseKeys.STAGE_NUMBER;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
