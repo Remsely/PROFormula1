@@ -48,7 +48,15 @@ public class SelectedSeasonIndividualStandingsRepository {
                     String teamKey = nextPosition.child(TEAM).getValue(String.class);
 
                     int position = Integer.parseInt(Objects.requireNonNull(nextPosition.getKey()));
-                    String points = String.valueOf(nextPosition.child(POINTS).getValue(Integer.class));
+
+                    String points;
+                    double pointsDouble = nextPosition.child(POINTS).getValue(Double.class);
+                    if(pointsDouble == (int) pointsDouble){
+                        points = "" + ((int) pointsDouble);
+                    }
+                    else {
+                        points = "" + pointsDouble;
+                    }
 
                     if (pilotKey != null){
                         databaseReference.child(PILOTS).child(pilotKey)

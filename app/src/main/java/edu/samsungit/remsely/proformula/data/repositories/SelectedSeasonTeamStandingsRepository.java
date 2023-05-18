@@ -48,7 +48,15 @@ public class SelectedSeasonTeamStandingsRepository {
                                     List<TeamStandingsPositionDataModel> standings = new ArrayList<>();
                                     for (DataSnapshot nextPosition : teamStandingsSnapshot.getChildren()){
                                         int position = Integer.parseInt(Objects.requireNonNull(nextPosition.getKey()));
-                                        String points = String.valueOf(nextPosition.child(POINTS).getValue(Integer.class));
+
+                                        String points;
+                                        double pointsDouble = nextPosition.child(POINTS).getValue(Double.class);
+                                        if(pointsDouble == (int) pointsDouble){
+                                            points = "" + ((int) pointsDouble);
+                                        }
+                                        else {
+                                            points = "" + pointsDouble;
+                                        }
 
                                         String teamKey = nextPosition.child(TEAM).getValue(String.class);
 
