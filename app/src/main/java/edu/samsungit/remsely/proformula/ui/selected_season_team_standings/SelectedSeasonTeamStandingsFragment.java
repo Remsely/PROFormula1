@@ -17,14 +17,14 @@ import android.view.ViewGroup;
 import edu.samsungit.remsely.proformula.databinding.FragmentSelectedSeasonTeamStandingsBinding;
 import edu.samsungit.remsely.proformula.ui.adapters.recycler_views.TeamStandingsRecyclerViewAdapter;
 
-public class SelectedSeasonTeamStandings extends Fragment {
+public class SelectedSeasonTeamStandingsFragment extends Fragment {
     private FragmentSelectedSeasonTeamStandingsBinding binding;
     private String seasonsKey;
     private RecyclerView standingsRecyclerView;
     private SelectedSeasonTeamStandingsViewModel teamStandingsViewModel;
 
-    public static SelectedSeasonTeamStandings newInstance(String seasonsKey) {
-        SelectedSeasonTeamStandings fragment = new SelectedSeasonTeamStandings();
+    public static SelectedSeasonTeamStandingsFragment newInstance(String seasonsKey) {
+        SelectedSeasonTeamStandingsFragment fragment = new SelectedSeasonTeamStandingsFragment();
         Bundle args = new Bundle();
         args.putString("seasonsKey", seasonsKey);
         fragment.setArguments(args);

@@ -61,7 +61,7 @@ public class SeasonsFragment extends Fragment {
     }
 
     private void navigationToSelectedSeason(SeasonsScreenRecyclerViewAdapter adapter){
-        adapter.onItemClickListener(seasonItem -> {
+        adapter.setOnItemClickListener(seasonItem -> {
             Bundle args = new Bundle();
             args.putString("seasonsKey", seasonItem.getSeasonNumber());
             Navigation.findNavController(seasonsRecyclerView)

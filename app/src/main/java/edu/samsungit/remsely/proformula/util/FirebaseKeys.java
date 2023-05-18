@@ -39,4 +39,5 @@ public class FirebaseKeys {
     public static final String TEAMS_NAMES_KEY = "Teams names key";
     public static final String PREVIEW = "Preview";
     public static final String ONE = "1";
+    public static final String READINESS = "Readiness";
 }

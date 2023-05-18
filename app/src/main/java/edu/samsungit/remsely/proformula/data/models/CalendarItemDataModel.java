@@ -1,5 +1,6 @@
 package edu.samsungit.remsely.proformula.data.models;
 
+import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 
 import java.util.List;
@@ -31,6 +32,7 @@ public class CalendarItemDataModel {
         return stageHeading;
     }
 
+    @NonNull
     @Override
     public String toString() {
         return "CalendarItemDataModel{" +

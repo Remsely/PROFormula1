@@ -1,5 +1,7 @@
 package edu.samsungit.remsely.proformula.ui.adapters.recycler_views;
 
+import static edu.samsungit.remsely.proformula.util.DpToPx.dpToPx;
+
 import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -30,7 +32,7 @@ public class SeasonsScreenRecyclerViewAdapter extends RecyclerView.Adapter<Seaso
         notifyItemRangeChanged(0, seasonsList.size());
     }
 
-    public void onItemClickListener(OnItemClickListener listener){
+    public void setOnItemClickListener(OnItemClickListener listener){
         this.onItemClickListener = listener;
     }
 
@@ -53,7 +55,7 @@ public class SeasonsScreenRecyclerViewAdapter extends RecyclerView.Adapter<Seaso
 
         Glide.with(holder.seasonPreview.getContext())
                 .load(season.getPreviewImage())
-                .transform(new CenterCrop(), new RoundedCornersToImageViewTransformation(DpToPx.dpToPx(14)))
+                .transform(new CenterCrop(), new RoundedCornersToImageViewTransformation(dpToPx(14)))
                 .into(holder.seasonPreview);
 
         Glide.with(holder.pilotFlag.getContext()).load(season.getPilotFlag()).into(holder.pilotFlag);
