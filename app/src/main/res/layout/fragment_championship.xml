@@ -6,12 +6,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".ui.championship.ChampionshipFragment"
-    android:background="@color/black"
-    android:layout_marginStart="1dp"
-    android:layout_marginEnd="1dp">
+    android:background="@color/black">
 
     <TextView
-        android:id="@+id/home_screen_name"
+        android:id="@+id/championship_screen_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="2dp"
@@ -19,7 +17,9 @@
         android:gravity="center"
         android:text="@string/championship_screen_name"
         android:textColor="@color/red"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"/>
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/championship_tabLayout"
@@ -32,7 +32,9 @@
         app:tabIndicatorHeight="2dp"
         app:tabIndicatorFullWidth="false"
         app:tabGravity="fill"
-        android:layout_marginBottom="10dp">
+        android:layout_marginBottom="10dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp">
         
         <com.google.android.material.tabs.TabItem
             android:text="@string/pilots"
@@ -54,7 +56,9 @@
         android:id="@+id/championship_viewPager"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"/>
+        android:layout_weight="1"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"/>
     
     <FrameLayout
         android:visibility="gone"

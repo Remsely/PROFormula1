@@ -17,7 +17,7 @@
                     android:layout_marginBottom="3dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/recently_stage_name"
+                    android:id="@+id/current_season_standings_name"
                     android:text="@string/individual_standings"
                     android:textColor="@color/white"
                     android:textSize="20sp"

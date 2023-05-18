@@ -1,5 +1,7 @@
 package edu.samsungit.remsely.proformula.ui.championship;
 
+import static edu.samsungit.remsely.proformula.util.DpToPx.dpToPx;
+
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,16 +15,17 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.tabs.TabLayout;
 
+import java.util.Objects;
+
 import edu.samsungit.remsely.proformula.databinding.FragmentChampionshipBinding;
 import edu.samsungit.remsely.proformula.ui.adapters.ViewPagerChampionshipAdapter;
 import edu.samsungit.remsely.proformula.util.DpToPx;
 
 public class ChampionshipFragment extends Fragment {
     private FragmentChampionshipBinding binding;
-    TabLayout tabLayout;
-    ViewPager2 viewPager2;
-    ViewPagerChampionshipAdapter viewPagerChampionshipAdapter;
-    FrameLayout frameLayout;
+    private TabLayout tabLayout;
+    private ViewPager2 viewPager2;
+    private FrameLayout frameLayout;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -40,9 +43,9 @@ public class ChampionshipFragment extends Fragment {
         tabLayout = binding.championshipTabLayout;
 
         viewPager2 = binding.championshipViewPager;
-        viewPagerChampionshipAdapter = new ViewPagerChampionshipAdapter(this);
+        ViewPagerChampionshipAdapter viewPagerChampionshipAdapter = new ViewPagerChampionshipAdapter(this);
         viewPager2.setAdapter(viewPagerChampionshipAdapter);
-        viewPager2.setPageTransformer((page, position) -> page.setTranslationX(position * DpToPx.dpToPx(10)));
+        viewPager2.setPageTransformer((page, position) -> page.setTranslationX(position * dpToPx(10)));
 
         frameLayout = binding.championshipFrameLayout;
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
@@ -70,7 +73,7 @@ public class ChampionshipFragment extends Fragment {
                     case 0:
                     case 1:
                     case 2:
-                        tabLayout.getTabAt(position).select();
+                        Objects.requireNonNull(tabLayout.getTabAt(position)).select();
                 }
                 super.onPageSelected(position);
             }

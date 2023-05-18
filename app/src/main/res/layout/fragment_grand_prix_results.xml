@@ -30,7 +30,7 @@
 
             <ImageView
                 android:padding="5dp"
-                android:id="@+id/grand_prix_results_back_button_image_view"
+                android:id="@+id/selected_season_back_button_image_view"
                 android:layout_width="32dp"
                 android:layout_height="match_parent"
                 android:background="@drawable/back_button_to_left"
