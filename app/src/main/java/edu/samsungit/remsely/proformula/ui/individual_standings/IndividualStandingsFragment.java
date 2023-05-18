@@ -15,7 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import edu.samsungit.remsely.proformula.databinding.FragmentIndividualStandingsBinding;
-import edu.samsungit.remsely.proformula.ui.adapters.IndividualStandingsRecyclerViewAdapter;
+import edu.samsungit.remsely.proformula.ui.adapters.recycler_views.IndividualStandingsRecyclerViewAdapter;
 
 public class IndividualStandingsFragment extends Fragment {
     private FragmentIndividualStandingsBinding binding;

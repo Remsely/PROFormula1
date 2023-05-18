@@ -7,6 +7,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -14,8 +15,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import edu.samsungit.remsely.proformula.R;
 import edu.samsungit.remsely.proformula.databinding.FragmentSeasonsBinding;
-import edu.samsungit.remsely.proformula.ui.adapters.SeasonsScreenRecyclerViewAdapter;
+import edu.samsungit.remsely.proformula.ui.adapters.recycler_views.SeasonsScreenRecyclerViewAdapter;
 
 public class SeasonsFragment extends Fragment {
     private FragmentSeasonsBinding binding;
@@ -44,6 +46,8 @@ public class SeasonsFragment extends Fragment {
         seasonsRecyclerView.setItemAnimator(null);
 
         seasonsLiveDataObservation();
+
+        navigationToSelectedSeason(seasonsAdapter);
     }
 
     private void seasonsLiveDataObservation(){
@@ -53,6 +57,15 @@ public class SeasonsFragment extends Fragment {
             if(adapter != null){
                 adapter.setSeasonsList(seasonsList);
             }
+        });
+    }
+
+    private void navigationToSelectedSeason(SeasonsScreenRecyclerViewAdapter adapter){
+        adapter.onItemClickListener(seasonItem -> {
+            Bundle args = new Bundle();
+            args.putString("seasonsKey", seasonItem.getSeasonNumber());
+            Navigation.findNavController(seasonsRecyclerView)
+                    .navigate(R.id.action_navigation_seasons_to_selectedSeasonFragment, args);
         });
     }
 

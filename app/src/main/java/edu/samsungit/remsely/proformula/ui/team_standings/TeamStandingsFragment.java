@@ -15,7 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import edu.samsungit.remsely.proformula.databinding.FragmentTeamStandingsBinding;
-import edu.samsungit.remsely.proformula.ui.adapters.TeamStandingsRecyclerViewAdapter;
+import edu.samsungit.remsely.proformula.ui.adapters.recycler_views.TeamStandingsRecyclerViewAdapter;
 
 public class TeamStandingsFragment extends Fragment {
     private FragmentTeamStandingsBinding binding;

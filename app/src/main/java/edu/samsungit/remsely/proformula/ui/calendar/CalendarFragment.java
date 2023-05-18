@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import edu.samsungit.remsely.proformula.databinding.FragmentCalendarBinding;
-import edu.samsungit.remsely.proformula.ui.adapters.CalendarScreenRecyclerViewAdapter;
+import edu.samsungit.remsely.proformula.ui.adapters.recycler_views.CalendarScreenRecyclerViewAdapter;
 
 
 public class CalendarFragment extends Fragment {
@@ -48,17 +48,20 @@ public class CalendarFragment extends Fragment {
 
     @SuppressLint("NotifyDataSetChanged")
     private void calendarItemsLiveDataObservation(){
-        calendarViewModel.getNextRaceNumberLiveData().observe(getViewLifecycleOwner(), num -> {
-            calendarViewModel.getCalendarItemsLiveData().observe(getViewLifecycleOwner(), calendarItemDataModels -> {
-                CalendarScreenRecyclerViewAdapter adapter = (CalendarScreenRecyclerViewAdapter) recyclerView.getAdapter();
-                if (adapter != null) {
-                    adapter.setViewLifecycleOwner(getViewLifecycleOwner());
-                    adapter.setCalendarItems(calendarItemDataModels);
-                    adapter.setNextStageNumber(num - 1);
-                    recyclerView.scrollToPosition(num - 1);
-                }
-            });
-        });
+        calendarViewModel.getNextRaceNumberLiveData().observe(getViewLifecycleOwner(), num ->
+                calendarViewModel.getCalendarItemsLiveData().observe(getViewLifecycleOwner(),
+                        calendarItemDataModels -> {
+
+            CalendarScreenRecyclerViewAdapter adapter = (CalendarScreenRecyclerViewAdapter)
+                    recyclerView.getAdapter();
+
+            if (adapter != null) {
+                adapter.setViewLifecycleOwner(getViewLifecycleOwner());
+                adapter.setCalendarItems(calendarItemDataModels);
+                adapter.setNextStageNumber(num - 1);
+                recyclerView.scrollToPosition(num - 1);
+            }
+        }));
     }
 
     @Override

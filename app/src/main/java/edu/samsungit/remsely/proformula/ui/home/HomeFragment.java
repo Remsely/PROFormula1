@@ -1,15 +1,9 @@
 package edu.samsungit.remsely.proformula.ui.home;
 
-import static android.content.ContentValues.TAG;
-
-import android.app.ProgressDialog;
-import android.content.res.Resources;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AlphaAnimation;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -27,9 +21,9 @@ import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 
 import edu.samsungit.remsely.proformula.R;
 import edu.samsungit.remsely.proformula.databinding.FragmentHomeBinding;
-import edu.samsungit.remsely.proformula.ui.adapters.LinksRecyclerViewAdapter;
-import edu.samsungit.remsely.proformula.ui.adapters.RaceResultsRecyclerViewAdapter;
-import edu.samsungit.remsely.proformula.ui.adapters.StageScheduleRecyclerViewAdapter;
+import edu.samsungit.remsely.proformula.ui.adapters.recycler_views.LinksRecyclerViewAdapter;
+import edu.samsungit.remsely.proformula.ui.adapters.recycler_views.RaceResultsRecyclerViewAdapter;
+import edu.samsungit.remsely.proformula.ui.adapters.recycler_views.StageScheduleRecyclerViewAdapter;
 import edu.samsungit.remsely.proformula.util.DpToPx;
 import edu.samsungit.remsely.proformula.util.RoundedCornersToImageViewTransformation;
 

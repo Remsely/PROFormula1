@@ -17,7 +17,7 @@ import android.widget.LinearLayout;
 import com.google.android.material.tabs.TabLayout;
 
 import edu.samsungit.remsely.proformula.databinding.FragmentGrandPrixResultsBinding;
-import edu.samsungit.remsely.proformula.ui.adapters.ViewPagerGrandPrixResultsAdapter;
+import edu.samsungit.remsely.proformula.ui.adapters.view_pagers.ViewPagerGrandPrixResultsAdapter;
 
 public class GrandPrixResultsFragment extends Fragment {
     private FragmentGrandPrixResultsBinding binding;
@@ -25,12 +25,7 @@ public class GrandPrixResultsFragment extends Fragment {
     ViewPager2 viewPager2;
     ViewPagerGrandPrixResultsAdapter viewPagerGrandPrixResultsAdapter;
     FrameLayout frameLayout;
-    private GrandPrixResultsViewModel mViewModel;
     LinearLayout mGoToBackFragment;
-
-    public static GrandPrixResultsFragment newInstance() {
-        return new GrandPrixResultsFragment();
-    }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,

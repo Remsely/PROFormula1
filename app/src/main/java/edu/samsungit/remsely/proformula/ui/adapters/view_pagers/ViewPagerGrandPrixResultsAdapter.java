@@ -1,4 +1,4 @@
-package edu.samsungit.remsely.proformula.ui.adapters;
+package edu.samsungit.remsely.proformula.ui.adapters.view_pagers;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;

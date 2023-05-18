@@ -22,7 +22,7 @@
         android:title="@string/title_content" />
 
     <item
-        android:id="@+id/navigation_seasons"
+        android:id="@+id/seasons_screen_nested_graph"
         android:icon="@drawable/seasons_button_selector"
         android:title="@string/title_seasons" />
 

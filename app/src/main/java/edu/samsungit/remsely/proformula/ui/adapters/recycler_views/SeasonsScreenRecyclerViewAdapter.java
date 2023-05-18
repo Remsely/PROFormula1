@@ -1,4 +1,4 @@
-package edu.samsungit.remsely.proformula.ui.adapters;
+package edu.samsungit.remsely.proformula.ui.adapters.recycler_views;
 
 import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
@@ -23,10 +23,15 @@ import edu.samsungit.remsely.proformula.util.RoundedCornersToImageViewTransforma
 
 public class SeasonsScreenRecyclerViewAdapter extends RecyclerView.Adapter<SeasonsScreenRecyclerViewAdapter.ViewHolder> {
     private List<SeasonsItemDataModel> seasonsList = Collections.emptyList();
+    private OnItemClickListener onItemClickListener;
 
     public void setSeasonsList(List<SeasonsItemDataModel> seasonsList){
         this.seasonsList = seasonsList;
         notifyItemRangeChanged(0, seasonsList.size());
+    }
+
+    public void onItemClickListener(OnItemClickListener listener){
+        this.onItemClickListener = listener;
     }
 
     @NonNull
@@ -54,9 +59,7 @@ public class SeasonsScreenRecyclerViewAdapter extends RecyclerView.Adapter<Seaso
         Glide.with(holder.pilotFlag.getContext()).load(season.getPilotFlag()).into(holder.pilotFlag);
         Glide.with(holder.teamLogo.getContext()).load(season.getTeamLogo()).into(holder.teamLogo);
 
-        holder.seasonLayout.setOnClickListener(v -> {
-            //todo
-        });
+        holder.seasonLayout.setOnClickListener(v -> onItemClickListener.onItemClick(season));
     }
 
     @Override
@@ -83,5 +86,9 @@ public class SeasonsScreenRecyclerViewAdapter extends RecyclerView.Adapter<Seaso
             seasonLayout = binding.seasonsScreenRecyclerViewItem;
             seasonPreview = binding.seasonLogo;
         }
+    }
+
+    public interface OnItemClickListener{
+        void onItemClick(SeasonsItemDataModel seasonItem);
     }
 }

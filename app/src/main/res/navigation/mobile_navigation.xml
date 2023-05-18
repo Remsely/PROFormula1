@@ -23,12 +23,6 @@
         android:label="@string/title_content"
         tools:layout="@layout/fragment_content" />
 
-    <fragment
-        android:id="@+id/navigation_seasons"
-        android:name="edu.samsungit.remsely.proformula.ui.seasons.SeasonsFragment"
-        android:label="@string/title_seasons"
-        tools:layout="@layout/fragment_seasons" />
-
     <navigation android:id="@+id/main_screen_nested_graph"
         app:startDestination="@id/navigation_home">
         <fragment
@@ -61,6 +55,26 @@
             android:name="edu.samsungit.remsely.proformula.ui.notifications_settings_dialog.NotificationsSettingsFragment"
             android:label="fragment_notifications_settings"
             tools:layout="@layout/fragment_notifications_settings" />
+    </navigation>
+    <navigation android:id="@+id/seasons_screen_nested_graph"
+        app:startDestination="@id/navigation_seasons">
+        <fragment
+            android:id="@+id/selectedSeasonFragment"
+            android:name="edu.samsungit.remsely.proformula.ui.selected_season.SelectedSeasonFragment"
+            android:label="SelectedSeasonFragment" />
+        <fragment
+            android:id="@+id/navigation_seasons"
+            android:name="edu.samsungit.remsely.proformula.ui.seasons.SeasonsFragment"
+            android:label="@string/title_seasons"
+            tools:layout="@layout/fragment_seasons">
+            <action
+                android:id="@+id/action_navigation_seasons_to_selectedSeasonFragment"
+                app:destination="@id/selectedSeasonFragment"
+                app:enterAnim="@anim/slide_in_right"
+                app:exitAnim="@anim/slide_out_right"
+                app:popEnterAnim="@anim/slide_in_left"
+                app:popExitAnim="@anim/slide_out_left" />
+        </fragment>
     </navigation>
 
 

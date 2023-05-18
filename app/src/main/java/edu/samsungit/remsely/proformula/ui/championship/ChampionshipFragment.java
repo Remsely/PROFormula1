@@ -18,8 +18,7 @@ import com.google.android.material.tabs.TabLayout;
 import java.util.Objects;
 
 import edu.samsungit.remsely.proformula.databinding.FragmentChampionshipBinding;
-import edu.samsungit.remsely.proformula.ui.adapters.ViewPagerChampionshipAdapter;
-import edu.samsungit.remsely.proformula.util.DpToPx;
+import edu.samsungit.remsely.proformula.ui.adapters.view_pagers.ViewPagerChampionshipAdapter;
 
 public class ChampionshipFragment extends Fragment {
     private FragmentChampionshipBinding binding;

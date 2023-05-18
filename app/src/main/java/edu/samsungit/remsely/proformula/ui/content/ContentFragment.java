@@ -16,7 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import edu.samsungit.remsely.proformula.databinding.FragmentContentBinding;
-import edu.samsungit.remsely.proformula.ui.adapters.ContentScreenRecyclerViewAdapter;
+import edu.samsungit.remsely.proformula.ui.adapters.recycler_views.ContentScreenRecyclerViewAdapter;
 
 public class ContentFragment extends Fragment {
     private FragmentContentBinding binding;

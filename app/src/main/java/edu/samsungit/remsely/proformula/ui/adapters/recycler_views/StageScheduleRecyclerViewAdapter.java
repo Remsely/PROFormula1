@@ -1,4 +1,4 @@
-package edu.samsungit.remsely.proformula.ui.adapters;
+package edu.samsungit.remsely.proformula.ui.adapters.recycler_views;
 
 import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
