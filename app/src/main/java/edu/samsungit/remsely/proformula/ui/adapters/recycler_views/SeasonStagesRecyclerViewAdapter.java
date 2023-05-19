@@ -1,4 +1,4 @@
-package edu.samsungit.remsely.proformula.ui.selected_season_stages;
+package edu.samsungit.remsely.proformula.ui.adapters.recycler_views;
 
 import static edu.samsungit.remsely.proformula.util.DpToPx.dpToPx;
 
@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -19,6 +20,7 @@ import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import java.util.Collections;
 import java.util.List;
 
+import edu.samsungit.remsely.proformula.R;
 import edu.samsungit.remsely.proformula.data.models.SeasonStagesItemDataModel;
 import edu.samsungit.remsely.proformula.databinding.SeasonStagesRecyclerViewItemBinding;
 import edu.samsungit.remsely.proformula.util.RoundedCornersToImageViewTransformation;
@@ -50,15 +52,29 @@ public class SeasonStagesRecyclerViewAdapter extends RecyclerView.Adapter<Season
         SeasonStagesItemDataModel stage = stagesList.get(position);
 
         holder.stageName.setText(stage.getStageNumber() + ". " + stage.getStageHeadingDataModel().getName());
-        holder.pilotName.setText(stage.getPilotName());
+
+        if (stage.getPilotName() != null){
+            holder.pilotName.setText(stage.getPilotName());
+            holder.pilotName.setTextColor(ContextCompat
+                    .getColor(holder.pilotName.getContext(), R.color.gold));
+
+            Glide.with(holder.pilotFlag.getContext()).load(stage.getPilotFlag()).into(holder.pilotFlag);
+
+            holder.itemLayout.setOnClickListener(v -> onItemClickListener.onItemClick(stage));
+            holder.pilotFlag.setVisibility(View.VISIBLE);
+        }
+        else{
+            holder.pilotName.setText("Предстоит");
+            holder.pilotName.setTextColor(ContextCompat
+                    .getColor(holder.pilotName.getContext(), R.color.red));
+
+            holder.pilotFlag.setVisibility(View.GONE);
+        }
 
         Glide.with(holder.stageFlag.getContext()).load(stage.getStageHeadingDataModel().getFlag())
                 .transform(new CenterCrop(), new RoundedCornersToImageViewTransformation(dpToPx(14)))
                 .into(holder.stageFlag);
 
-        Glide.with(holder.pilotFlag.getContext()).load(stage.getPilotFlag()).into(holder.pilotFlag);
-
-        holder.itemLayout.setOnClickListener(v -> onItemClickListener.onItemClick(stage));
     }
 
     @Override

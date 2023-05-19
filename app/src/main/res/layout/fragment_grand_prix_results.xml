@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:background="@color/black">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/grand_prix_results_screen_top_panel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -26,30 +26,36 @@
             android:layout_height="45dp"
             android:background="@drawable/animated_frame"
             android:gravity="center"
-            android:padding="5dp">
+            android:padding="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
-                android:padding="5dp"
                 android:id="@+id/selected_season_back_button_image_view"
                 android:layout_width="32dp"
                 android:layout_height="match_parent"
-                android:background="@drawable/back_button_to_left"
+                android:background="@drawable/back_button_to_right"
+                android:padding="5dp"
                 android:scaleType="centerInside" />
         </LinearLayout>
 
         <TextView
-            android:layout_marginTop="4dp"
-            android:paddingLeft="4dp"
             android:id="@+id/grand_prix_results_screen_name"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/open_sans_bold"
-            android:gravity="center"
-            android:text="ГРАН-ПРИ АВСТРАЛИИ"
+            android:gravity="left"
+            android:paddingLeft="4dp"
+            android:text="@string/season"
             android:textColor="@color/red"
-            android:textSize="25sp" />
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/grand_prix_results_back_button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/grand_prix_results_heading"

@@ -7,7 +7,7 @@
         android:title="@string/title_home" />
 
     <item
-        android:id="@+id/navigation_championship"
+        android:id="@+id/championchip_nested_graph"
         android:icon="@drawable/championship_button_selector"
         android:title="@string/title_championship" />
 

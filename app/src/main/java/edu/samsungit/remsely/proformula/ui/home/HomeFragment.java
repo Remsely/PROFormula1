@@ -42,6 +42,8 @@ public class HomeFragment extends Fragment {
     private RecyclerView aboutRecentlyStageRecyclerView;
     private RecyclerView recentlyRaceResultsRecyclerView;
     private RecyclerView whereWatchRecyclerView;
+    private Bundle args;
+    private boolean recentlyStageReadiness;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -56,6 +58,8 @@ public class HomeFragment extends Fragment {
     }
 
     private void init(){
+        args = new Bundle();
+
         mOpenNotificationSettingsFragment = binding.notificationsButton; // Навигация на уведомления
         mOpenGrandPrixResultsFragment = binding.recentlyStageFrame; // Навигация на результаты недавнего Гран-при
 
@@ -73,6 +77,8 @@ public class HomeFragment extends Fragment {
         recentlyStageLocation = binding.recentlyStagePlace;
 
         homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
+
+
 
         stageScheduleRecyclerView = binding.soonStageScheduleRecyclerView;
         StageScheduleRecyclerViewAdapter scheduleAdapter = new StageScheduleRecyclerViewAdapter();
@@ -119,15 +125,25 @@ public class HomeFragment extends Fragment {
     }
 
     private void recentlyStageHeadingLiveDataObservation(){
-        homeViewModel.getRecentlyStageHeadingLiveData().observe(this, heading -> {
+        homeViewModel.getRecentlyStageHeadingLiveData().observe(this, heading ->
+                homeViewModel.getCurrentSeasonKeyLiveData().observe(this, season ->
+                        homeViewModel.getRecentlyStageNumberLiveData().observe(this, number ->{
+
             if(heading != null){
                 Glide.with(HomeFragment.this).load(heading.getFlag())
                         .transform(new CenterCrop(), new RoundedCornersToImageViewTransformation(DpToPx.dpToPx(14)))
                         .into(recentlyStageFlag);
+
                 recentlyStageLocation.setText(heading.getLocation());
                 recentlyStageName.setText(heading.getName());
+
+                args.putString("stageName", heading.getName());
+                args.putString("stageLocation", heading.getLocation());
+                args.putString("stageFlag", heading.getFlag());
+                args.putString("seasonsKey", season);
+                args.putString("stageNumber", number);
             }
-        });
+        })));
     }
 
     private void whereWatchLinksLiveDataObservation(){
@@ -178,7 +194,8 @@ public class HomeFragment extends Fragment {
     }
 
     public void navigateToGrandPrixResults(){
-        mOpenGrandPrixResultsFragment.setOnClickListener(v -> Navigation.findNavController(v)
-                .navigate(R.id.action_navigation_home_to_grandPrixResultsFragment));
+            mOpenGrandPrixResultsFragment.setOnClickListener((View.OnClickListener) v ->
+                    Navigation.findNavController(v).
+                            navigate(R.id.action_navigation_home_to_grandPrixResultsFragment, args));
     }
 }

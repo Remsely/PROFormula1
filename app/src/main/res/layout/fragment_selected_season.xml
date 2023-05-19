@@ -22,14 +22,14 @@
             android:gravity="center"
             android:padding="5dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
 
             <ImageView
                 android:id="@+id/selected_season_back_button_image_view"
                 android:layout_width="32dp"
                 android:layout_height="match_parent"
-                android:background="@drawable/back_button_to_left"
+                android:background="@drawable/back_button_to_right"
                 android:padding="5dp"
                 android:scaleType="centerInside" />
         </LinearLayout>
@@ -43,9 +43,8 @@
             android:text="@string/season"
             android:textColor="@color/red"
             android:textSize="30sp"
-            app:layout_constraintBottom_toBottomOf="@+id/selected_season_back_button"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/selected_season_back_button"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -1,6 +1,7 @@
-package edu.samsungit.remsely.proformula.ui.selected_season_stages;
+package edu.samsungit.remsely.proformula.data.repositories;
 
 import static edu.samsungit.remsely.proformula.util.FirebaseKeys.EVENTS;
+import static edu.samsungit.remsely.proformula.util.FirebaseKeys.FIVE;
 import static edu.samsungit.remsely.proformula.util.FirebaseKeys.FLAG;
 import static edu.samsungit.remsely.proformula.util.FirebaseKeys.GRAND_PRIX;
 import static edu.samsungit.remsely.proformula.util.FirebaseKeys.GRAND_PRIX_KEY;
@@ -50,7 +51,7 @@ public class SelectedSeasonsStagesRepository {
                             .getValue(Boolean.class));
                     int stageNumber = Integer.parseInt(Objects.requireNonNull(stageSnapshot.getKey()));
                     String grandPrixKey = stageSnapshot.child(GRAND_PRIX_KEY).getValue(String.class);
-                    String pilotKey = stageSnapshot.child(EVENTS).child(ONE).child(RESULTS)
+                    String pilotKey = stageSnapshot.child(EVENTS).child(FIVE).child(RESULTS)
                             .child(ONE).child(PILOT).getValue(String.class);
 
                     if (pilotKey != null){

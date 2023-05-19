@@ -1,5 +1,8 @@
 package edu.samsungit.remsely.proformula.ui.grand_prix_results;
 
+import static edu.samsungit.remsely.proformula.util.DpToPx.dpToPx;
+
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -14,18 +17,23 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.google.android.material.tabs.TabLayout;
 
 import edu.samsungit.remsely.proformula.databinding.FragmentGrandPrixResultsBinding;
 import edu.samsungit.remsely.proformula.ui.adapters.view_pagers.ViewPagerGrandPrixResultsAdapter;
+import edu.samsungit.remsely.proformula.util.RoundedCornersToImageViewTransformation;
 
 public class GrandPrixResultsFragment extends Fragment {
     private FragmentGrandPrixResultsBinding binding;
-    TabLayout tabLayout;
-    ViewPager2 viewPager2;
-    ViewPagerGrandPrixResultsAdapter viewPagerGrandPrixResultsAdapter;
-    FrameLayout frameLayout;
-    LinearLayout mGoToBackFragment;
+    private TabLayout tabLayout;
+    private ViewPager2 viewPager2;
+    private ViewPagerGrandPrixResultsAdapter viewPagerGrandPrixResultsAdapter;
+    private FrameLayout frameLayout;
+    private LinearLayout mGoToBackFragment;
+    private String seasonKey;
+    private String stageNumber;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -37,6 +45,25 @@ public class GrandPrixResultsFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        init();
+    }
+
+    @SuppressLint("SetTextI18n")
+    private void init(){
+        if (getArguments() != null){
+            seasonKey = getArguments().getString("seasonsKey");
+            binding.grandPrixResultsScreenName.setText("СЕЗОН " + seasonKey);
+
+            stageNumber = getArguments().getString("stageNumber");
+
+            binding.grandPrixResultsStageName.setText(getArguments().getString("stageName"));
+            binding.grandPrixResultsStagePlace.setText(getArguments().getString("stageLocation"));
+
+            Glide.with(binding.grandPrixResultsStageFlag).load(getArguments().getString("stageFlag"))
+                    .transform(new CenterCrop(), new RoundedCornersToImageViewTransformation(dpToPx(14)))
+                    .into(binding.grandPrixResultsStageFlag);
+        }
+
         tabLayout = binding.grandPrixResultsTabLayout;
         viewPager2 = binding.grandPrixResultsViewPager;
         viewPagerGrandPrixResultsAdapter = new ViewPagerGrandPrixResultsAdapter(this);
