@@ -1,4 +1,4 @@
-package edu.samsungit.remsely.proformula.ui.race_against_time;
+package edu.samsungit.remsely.proformula.ui.about_stage;
 
 import androidx.lifecycle.ViewModelProvider;
 
@@ -13,17 +13,17 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import edu.samsungit.remsely.proformula.R;
-import edu.samsungit.remsely.proformula.databinding.FragmentRaceAgainstTimeResultsBinding;
+import edu.samsungit.remsely.proformula.databinding.FragmentAboutStageBinding;
 import edu.samsungit.remsely.proformula.databinding.FragmentRaceWithPointsBinding;
 import edu.samsungit.remsely.proformula.ui.race_with_points.RaceWithPointsFragment;
 
-public class RaceAgainstTimeResultsFragment extends Fragment {
+public class AboutStageFragment extends Fragment {
     private String seasonsKey;
     private String stageNumber;
-    private FragmentRaceAgainstTimeResultsBinding binding;
+    private FragmentAboutStageBinding binding;
 
-    public static RaceAgainstTimeResultsFragment newInstance(String seasonsKey, String stageNumber) {
-        RaceAgainstTimeResultsFragment fragment = new RaceAgainstTimeResultsFragment();
+    public static AboutStageFragment newInstance(String seasonsKey, String stageNumber) {
+        AboutStageFragment fragment = new AboutStageFragment();
         Bundle args = new Bundle();
         args.putString("seasonsKey", seasonsKey);
         args.putString("stageNumber", stageNumber);
@@ -34,10 +34,9 @@ public class RaceAgainstTimeResultsFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        binding = FragmentRaceAgainstTimeResultsBinding.inflate(inflater, container, false);
+        binding = FragmentAboutStageBinding.inflate(inflater, container, false);
         return binding.getRoot();
     }
-
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {

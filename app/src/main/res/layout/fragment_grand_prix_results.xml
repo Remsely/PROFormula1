@@ -18,7 +18,7 @@
         android:gravity="top"
         android:orientation="horizontal"
         android:layout_gravity="fill_horizontal"
-        android:layout_marginBottom="8dp">
+        android:layout_marginBottom="10dp">
 
         <LinearLayout
             android:id="@+id/grand_prix_results_back_button"
@@ -68,7 +68,7 @@
         android:paddingLeft="7dp"
         android:paddingRight="7dp"
         android:background="@drawable/simple_frame"
-        android:layout_marginBottom="8dp">
+        android:layout_marginBottom="10dp">
 
 
         <TextView
@@ -142,6 +142,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/race"/>
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/about_stage"/>
     </com.google.android.material.tabs.TabLayout>
 
     <androidx.viewpager2.widget.ViewPager2

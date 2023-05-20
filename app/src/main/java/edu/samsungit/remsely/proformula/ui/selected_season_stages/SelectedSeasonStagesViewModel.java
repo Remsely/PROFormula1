@@ -19,7 +19,6 @@ public class SelectedSeasonStagesViewModel extends ViewModel {
     public void setSeasonStagesLiveData(String seasonKey){
         seasonStagesLiveData = selectedSeasonsStagesRepository.getSeasonStagesLiveData(seasonKey);
     }
-
     public MutableLiveData<List<SeasonStagesItemDataModel>> getSeasonStagesLiveData() {
         return seasonStagesLiveData;
     }

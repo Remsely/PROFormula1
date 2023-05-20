@@ -13,26 +13,39 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import edu.samsungit.remsely.proformula.R;
+import edu.samsungit.remsely.proformula.databinding.FragmentRaceWithPointsBinding;
 
 public class RaceWithPointsFragment extends Fragment {
+    private String seasonsKey;
+    private String stageNumber;
+    private FragmentRaceWithPointsBinding binding;
 
-    private RaceWithPointsViewModel mViewModel;
-
-    public static RaceWithPointsFragment newInstance() {
-        return new RaceWithPointsFragment();
+    public static RaceWithPointsFragment newInstance(String seasonsKey, String stageNumber) {
+        RaceWithPointsFragment fragment = new RaceWithPointsFragment();
+        Bundle args = new Bundle();
+        args.putString("seasonsKey", seasonsKey);
+        args.putString("stageNumber", stageNumber);
+        fragment.setArguments(args);
+        return fragment;
     }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_race_with_points, container, false);
+        binding = FragmentRaceWithPointsBinding.inflate(inflater, container, false);
+        return binding.getRoot();
     }
 
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        mViewModel = new ViewModelProvider(this).get(RaceWithPointsViewModel.class);
-        // TODO: Use the ViewModel
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        init();
     }
 
+    private void init(){
+        if (getArguments() != null){
+            seasonsKey = getArguments().getString("seasonsKey");
+            stageNumber = getArguments().getString("stageNumber");
+        }
+    }
 }

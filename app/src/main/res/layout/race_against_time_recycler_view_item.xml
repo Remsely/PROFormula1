@@ -7,7 +7,7 @@
     android:layout_marginBottom="2dp">
 
     <TextView
-        android:id="@+id/individual_standings_number"
+        android:id="@+id/race_against_time_number"
         android:layout_width="40dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
@@ -20,17 +20,17 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/individual_standings_pilot_flag"
+        android:id="@+id/race_against_time_pilot_flag"
         android:layout_width="18dp"
         android:layout_height="11dp"
         android:layout_gravity="center_vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/individual_standings_number"
+        app:layout_constraintStart_toEndOf="@+id/race_against_time_number"
         app:layout_constraintTop_toTopOf="parent"
         android:scaleType="center"/>
 
     <TextView
-        android:id="@+id/individual_standings_pilot_name"
+        android:id="@+id/race_against_time_pilot_name"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
@@ -39,20 +39,20 @@
         android:textColor="@color/white"
         android:textSize="13sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/individual_standings_pilot_flag"
+        app:layout_constraintStart_toEndOf="@+id/race_against_time_pilot_flag"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/individual_standings_team_logo"
+        android:id="@+id/race_against_time_team_logo"
         android:layout_width="17dp"
         android:layout_height="11dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/individual_standings_pilot_name"
+        app:layout_constraintStart_toEndOf="@+id/race_against_time_pilot_name"
         app:layout_constraintTop_toTopOf="parent"
         android:scaleType="centerInside"/>
 
     <TextView
-        android:id="@+id/individual_standings_team_name"
+        android:id="@+id/race_against_time_team_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
@@ -61,12 +61,12 @@
         android:textColor="@color/white"
         android:textSize="13sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/individual_standings_points"
-        app:layout_constraintStart_toEndOf="@+id/individual_standings_team_logo"
+        app:layout_constraintEnd_toStartOf="@+id/race_against_time_time"
+        app:layout_constraintStart_toEndOf="@+id/race_against_time_team_logo"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/individual_standings_points"
+        android:id="@+id/race_against_time_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/open_sans_semibold"

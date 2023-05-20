@@ -40,4 +40,5 @@ public class FirebaseKeys {
     public static final String PREVIEW = "Preview";
     public static final String ONE = "1";
     public static final String READINESS = "Readiness";
+    public static final String IS_RACE = "Is race";
 }

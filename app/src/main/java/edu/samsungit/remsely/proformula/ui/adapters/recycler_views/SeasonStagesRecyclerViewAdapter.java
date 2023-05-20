@@ -61,6 +61,7 @@ public class SeasonStagesRecyclerViewAdapter extends RecyclerView.Adapter<Season
             Glide.with(holder.pilotFlag.getContext()).load(stage.getPilotFlag()).into(holder.pilotFlag);
 
             holder.itemLayout.setOnClickListener(v -> onItemClickListener.onItemClick(stage));
+            holder.itemLayout.setBackgroundResource(R.drawable.animated_frame);
             holder.pilotFlag.setVisibility(View.VISIBLE);
         }
         else{
@@ -68,6 +69,8 @@ public class SeasonStagesRecyclerViewAdapter extends RecyclerView.Adapter<Season
             holder.pilotName.setTextColor(ContextCompat
                     .getColor(holder.pilotName.getContext(), R.color.red));
 
+            holder.itemLayout.setOnClickListener(null);
+            holder.itemLayout.setBackgroundResource(R.drawable.simple_frame);
             holder.pilotFlag.setVisibility(View.GONE);
         }
 
