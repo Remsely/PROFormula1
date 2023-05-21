@@ -3,7 +3,7 @@ package edu.samsungit.remsely.proformula.data.repositories;
 import static edu.samsungit.remsely.proformula.util.FirebaseKeys.DATE;
 import static edu.samsungit.remsely.proformula.util.FirebaseKeys.EVENTS;
 import static edu.samsungit.remsely.proformula.util.FirebaseKeys.MAIN_SCREEN;
-import static edu.samsungit.remsely.proformula.util.FirebaseKeys.NAME_LOWER;
+import static edu.samsungit.remsely.proformula.util.FirebaseKeys.NAME;
 import static edu.samsungit.remsely.proformula.util.FirebaseKeys.SEASONS;
 import static edu.samsungit.remsely.proformula.util.FirebaseKeys.SEASONS_KEY;
 import static edu.samsungit.remsely.proformula.util.FirebaseKeys.SOON;
@@ -50,7 +50,7 @@ public class SoonStageScheduleRepository {
                                             List<StageScheduleDataModel> list = new ArrayList<>();
                                             for(DataSnapshot data : dataSnapshot.getChildren()){
                                                 String date = data.child(DATE).getValue(String.class);
-                                                String event = data.child(NAME_LOWER).getValue(String.class);
+                                                String event = data.child(NAME).getValue(String.class);
                                                 StageScheduleDataModel dataModel = new StageScheduleDataModel(date, event);
                                                 list.add(dataModel);
                                             }

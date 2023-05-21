@@ -1,12 +1,12 @@
 package edu.samsungit.remsely.proformula.data.models;
 
 public class SeasonsItemDataModel {
-    private String seasonNumber;
-    private String pilotName;
-    private String pilotFlag;
-    private String teamName;
-    private String teamLogo;
-    private String previewImage;
+    private final String seasonNumber;
+    private final String pilotName;
+    private final String pilotFlag;
+    private final String teamName;
+    private final String teamLogo;
+    private final String previewImage;
 
     public SeasonsItemDataModel(String seasonNumber, String pilotName, String pilotFlag,
                                 String teamName, String teamLogo, String previewImage){

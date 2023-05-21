@@ -1,8 +1,8 @@
 package edu.samsungit.remsely.proformula.data.models;
 
 public class SocialNetworkReferencesDataModel {
-    private String reference;
-    private String image;
+    private final String reference;
+    private final String image;
 
     public SocialNetworkReferencesDataModel(String reference, String image){
         this.image = image;

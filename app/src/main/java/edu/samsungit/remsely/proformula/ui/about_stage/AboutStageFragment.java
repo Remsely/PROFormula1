@@ -7,20 +7,22 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import edu.samsungit.remsely.proformula.R;
 import edu.samsungit.remsely.proformula.databinding.FragmentAboutStageBinding;
-import edu.samsungit.remsely.proformula.databinding.FragmentRaceWithPointsBinding;
-import edu.samsungit.remsely.proformula.ui.race_with_points.RaceWithPointsFragment;
+import edu.samsungit.remsely.proformula.ui.adapters.recycler_views.LinksRecyclerViewAdapter;
 
 public class AboutStageFragment extends Fragment {
     private String seasonsKey;
     private String stageNumber;
     private FragmentAboutStageBinding binding;
+    private AboutStageViewModel aboutStageViewModel;
+    private RecyclerView linksRecyclerView;
 
     public static AboutStageFragment newInstance(String seasonsKey, String stageNumber) {
         AboutStageFragment fragment = new AboutStageFragment();
@@ -49,5 +51,25 @@ public class AboutStageFragment extends Fragment {
             seasonsKey = getArguments().getString("seasonsKey");
             stageNumber = getArguments().getString("stageNumber");
         }
+
+        aboutStageViewModel = new ViewModelProvider(this).get(AboutStageViewModel.class);
+
+        linksRecyclerView = binding.aboutStageLinksRecyclerView;
+        LinksRecyclerViewAdapter linksAdapter = new LinksRecyclerViewAdapter();
+        linksRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        linksRecyclerView.setAdapter(linksAdapter);
+        linksRecyclerView.setItemAnimator(null);
+
+        aboutStageLiveDataObservation();
+    }
+
+    private void aboutStageLiveDataObservation(){
+        aboutStageViewModel.setAboutStageLiveData(seasonsKey, stageNumber);
+        aboutStageViewModel.getAboutStageLiveData().observe(this, links ->{
+            LinksRecyclerViewAdapter adapter = (LinksRecyclerViewAdapter) linksRecyclerView.getAdapter();
+            if (adapter != null){
+                adapter.setLinksList(links);
+            }
+        });
     }
 }

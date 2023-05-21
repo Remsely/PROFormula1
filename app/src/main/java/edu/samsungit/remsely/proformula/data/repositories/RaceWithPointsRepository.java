@@ -1,21 +1,16 @@
 package edu.samsungit.remsely.proformula.data.repositories;
 
 import static edu.samsungit.remsely.proformula.util.FirebaseKeys.EVENTS;
-import static edu.samsungit.remsely.proformula.util.FirebaseKeys.FIVE;
 import static edu.samsungit.remsely.proformula.util.FirebaseKeys.FLAG;
 import static edu.samsungit.remsely.proformula.util.FirebaseKeys.LOGO_UPPER;
-import static edu.samsungit.remsely.proformula.util.FirebaseKeys.MAIN_SCREEN;
 import static edu.samsungit.remsely.proformula.util.FirebaseKeys.NAME;
 import static edu.samsungit.remsely.proformula.util.FirebaseKeys.PILOT;
 import static edu.samsungit.remsely.proformula.util.FirebaseKeys.PILOTS;
 import static edu.samsungit.remsely.proformula.util.FirebaseKeys.POINTS;
-import static edu.samsungit.remsely.proformula.util.FirebaseKeys.RECENTLY;
 import static edu.samsungit.remsely.proformula.util.FirebaseKeys.RESULTS;
 import static edu.samsungit.remsely.proformula.util.FirebaseKeys.SEASONS;
-import static edu.samsungit.remsely.proformula.util.FirebaseKeys.SEASONS_KEY;
 import static edu.samsungit.remsely.proformula.util.FirebaseKeys.SHORT_NAME;
 import static edu.samsungit.remsely.proformula.util.FirebaseKeys.STAGES;
-import static edu.samsungit.remsely.proformula.util.FirebaseKeys.STAGE_NUMBER;
 import static edu.samsungit.remsely.proformula.util.FirebaseKeys.TEAM;
 import static edu.samsungit.remsely.proformula.util.FirebaseKeys.TEAMS;
 import static edu.samsungit.remsely.proformula.util.FirebaseKeys.TIME;
@@ -37,40 +32,35 @@ import java.util.Objects;
 
 import edu.samsungit.remsely.proformula.data.models.RaceResultsDataModel;
 
-public class RecentlyStageRaceResultsRepository {
+public class RaceWithPointsRepository {
     private final DatabaseReference databaseReference;
 
-    public RecentlyStageRaceResultsRepository(){
+    public RaceWithPointsRepository(){
         databaseReference = FirebaseDatabase.getInstance().getReference();
     }
 
-    public LiveData<List<RaceResultsDataModel>> getRecentlyRaceResultsLiveData(){
-        MutableLiveData<List<RaceResultsDataModel>> recentlyRaceResultsLiveData = new MutableLiveData<>();
-        databaseReference.child(MAIN_SCREEN).child(RECENTLY)
-                .addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                String seasonsKey = snapshot.child(SEASONS_KEY).getValue(String.class);
-                String stageNumber = snapshot.child(STAGE_NUMBER).getValue(String.class);
+    public LiveData<List<RaceResultsDataModel>> getRaceWithPointsLiveData(
+            String seasonsKey, String stageNumber, String eventNumber){
+        MutableLiveData<List<RaceResultsDataModel>> liveData = new MutableLiveData<>();
 
-                if (seasonsKey != null && stageNumber != null) {
-                    databaseReference.child(SEASONS).child(seasonsKey).child(STAGES)
-                            .child(stageNumber).child(EVENTS).child(FIVE).child(RESULTS)
-                            .addValueEventListener(new ValueEventListener() {
-                                @Override
-                                public void onDataChange(@NonNull DataSnapshot snapshot2) {
-                                    List<RaceResultsDataModel> mData = new ArrayList<>();
-                                    for (DataSnapshot data : snapshot2.getChildren()){
-                                        String pilotKey = data.child(PILOT).getValue(String.class);
-                                        String teamKey = data.child(TEAM).getValue(String.class);
+        if (seasonsKey != null && stageNumber != null) {
+            databaseReference.child(SEASONS).child(seasonsKey).child(STAGES)
+                    .child(stageNumber).child(EVENTS).child(eventNumber).child(RESULTS)
+                    .addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot2) {
+                            List<RaceResultsDataModel> mData = new ArrayList<>();
+                            for (DataSnapshot data : snapshot2.getChildren()){
+                                String pilotKey = data.child(PILOT).getValue(String.class);
+                                String teamKey = data.child(TEAM).getValue(String.class);
 
-                                        int position = Integer.parseInt(Objects.requireNonNull(data.getKey()));
-                                        String time = data.child(TIME).getValue(String.class);
-                                        String points = data.child(POINTS).getValue(String.class);
+                                int position = Integer.parseInt(Objects.requireNonNull(data.getKey()));
+                                String time = data.child(TIME).getValue(String.class);
+                                String points = data.child(POINTS).getValue(String.class);
 
-                                        if (pilotKey != null) {
-                                            databaseReference.child(PILOTS).child(pilotKey)
-                                                    .addListenerForSingleValueEvent(new ValueEventListener() {
+                                if (pilotKey != null) {
+                                    databaseReference.child(PILOTS).child(pilotKey)
+                                            .addListenerForSingleValueEvent(new ValueEventListener() {
                                                 @Override
                                                 public void onDataChange(@NonNull DataSnapshot snapshot3) {
                                                     String pilotName = snapshot3.child(NAME).getValue(String.class);
@@ -87,7 +77,7 @@ public class RecentlyStageRaceResultsRepository {
                                                                                 position, pilotFlag, pilotName, teamLogo, teamName, time, points);
                                                                         mData.add(raceResultsDataModel);
                                                                         mData.sort(Comparator.comparingInt(RaceResultsDataModel::getP));
-                                                                        recentlyRaceResultsLiveData.postValue(mData);
+                                                                        liveData.postValue(mData);
                                                                     }
 
                                                                     @Override
@@ -103,26 +93,16 @@ public class RecentlyStageRaceResultsRepository {
 
                                                 }
                                             });
-                                        }
-                                        if(position == 10){
-                                            break;
-                                        }
-                                    }
                                 }
+                            }
+                        }
 
-                                @Override
-                                public void onCancelled(@NonNull DatabaseError error) {
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
 
-                                }
-                            });
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-        return recentlyRaceResultsLiveData;
+                        }
+                    });
+        }
+        return liveData;
     }
 }

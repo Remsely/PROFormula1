@@ -20,7 +20,6 @@ import java.util.List;
 
 import edu.samsungit.remsely.proformula.data.models.SeasonsItemDataModel;
 import edu.samsungit.remsely.proformula.databinding.SeasonsScreenRecyclerViewItemBinding;
-import edu.samsungit.remsely.proformula.util.DpToPx;
 import edu.samsungit.remsely.proformula.util.RoundedCornersToImageViewTransformation;
 
 public class SeasonsScreenRecyclerViewAdapter extends RecyclerView.Adapter<SeasonsScreenRecyclerViewAdapter.ViewHolder> {

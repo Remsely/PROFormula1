@@ -1,17 +1,15 @@
 package edu.samsungit.remsely.proformula.data.models;
 
-public class RaceResultsDataModel {
+public class QualificationResultsDataModel {
     private final String pilot;
-    private final String points;
     private final String team;
     private final String time;
     private final int p;
     private final String pilotFlag;
     private final String teamLogo;
 
-    public RaceResultsDataModel(int p, String pilotFlag, String pilot, String teamLogo, String team, String time, String points){
+    public QualificationResultsDataModel(int p, String pilotFlag, String pilot, String teamLogo, String team, String time){
         this.pilot = pilot;
-        this.points = points;
         this.team = team;
         this.time = time;
         this.p = p;
@@ -21,10 +19,6 @@ public class RaceResultsDataModel {
 
     public String getPilot(){
         return pilot;
-    }
-
-    public String getPoints(){
-        return points;
     }
 
     public String getTeam(){

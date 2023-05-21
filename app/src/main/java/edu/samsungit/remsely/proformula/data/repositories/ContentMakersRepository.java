@@ -4,7 +4,7 @@ import static edu.samsungit.remsely.proformula.util.FirebaseKeys.CONTENT;
 import static edu.samsungit.remsely.proformula.util.FirebaseKeys.DESCRIPTION;
 import static edu.samsungit.remsely.proformula.util.FirebaseKeys.KEY;
 import static edu.samsungit.remsely.proformula.util.FirebaseKeys.LOGO_LOWER;
-import static edu.samsungit.remsely.proformula.util.FirebaseKeys.NAME_LOWER;
+import static edu.samsungit.remsely.proformula.util.FirebaseKeys.NAME;
 import static edu.samsungit.remsely.proformula.util.FirebaseKeys.RECOMMENDATION;
 import static edu.samsungit.remsely.proformula.util.FirebaseKeys.REFERENCE;
 import static edu.samsungit.remsely.proformula.util.FirebaseKeys.SOCIAL_NETWORKS;
@@ -42,7 +42,7 @@ public class ContentMakersRepository {
                     String description = contentSnapshot.child(DESCRIPTION).getValue(String.class);
                     boolean recommendation = Boolean.TRUE.equals(contentSnapshot.child(RECOMMENDATION).getValue(Boolean.class));
                     String logo = contentSnapshot.child(LOGO_LOWER).getValue(String.class);
-                    String name = contentSnapshot.child(NAME_LOWER).getValue(String.class);
+                    String name = contentSnapshot.child(NAME).getValue(String.class);
 
                     MutableLiveData<List<SocialNetworkReferencesDataModel>> referencesLiveData = new MutableLiveData<>();
                     List<SocialNetworkReferencesDataModel> referencesList = new ArrayList<>();

@@ -29,9 +29,6 @@ public class RoundedCornersToImageViewTransformation extends BitmapTransformatio
         if (source == null) return null;
 
         Bitmap result = pool.get(source.getWidth(), source.getHeight(), Bitmap.Config.ARGB_8888);
-        if (result == null) {
-            result = Bitmap.createBitmap(source.getWidth(), source.getHeight(), Bitmap.Config.ARGB_8888);
-        }
 
         Canvas canvas = new Canvas(result);
         Paint paint = new Paint();

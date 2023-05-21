@@ -5,7 +5,7 @@ import static edu.samsungit.remsely.proformula.util.FirebaseKeys.EVENTS;
 import static edu.samsungit.remsely.proformula.util.FirebaseKeys.GRAND_PRIX;
 import static edu.samsungit.remsely.proformula.util.FirebaseKeys.GRAND_PRIX_KEY;
 import static edu.samsungit.remsely.proformula.util.FirebaseKeys.MAIN_SCREEN;
-import static edu.samsungit.remsely.proformula.util.FirebaseKeys.NAME_LOWER;
+import static edu.samsungit.remsely.proformula.util.FirebaseKeys.NAME;
 import static edu.samsungit.remsely.proformula.util.FirebaseKeys.SEASONS;
 import static edu.samsungit.remsely.proformula.util.FirebaseKeys.SEASONS_KEY;
 import static edu.samsungit.remsely.proformula.util.FirebaseKeys.SOON;
@@ -64,7 +64,7 @@ public class CalendarRepository {
 
                                                 for (DataSnapshot eventSnapshot : stageSnapshot.child(EVENTS).getChildren()){
                                                     String date = eventSnapshot.child(DATE).getValue(String.class);
-                                                    String name = eventSnapshot.child(NAME_LOWER).getValue(String.class);
+                                                    String name = eventSnapshot.child(NAME).getValue(String.class);
 
                                                     StageScheduleDataModel stageScheduleDataModel =
                                                             new StageScheduleDataModel(date, name);

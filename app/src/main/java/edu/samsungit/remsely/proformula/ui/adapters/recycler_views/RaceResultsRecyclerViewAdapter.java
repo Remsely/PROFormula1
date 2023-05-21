@@ -79,7 +79,6 @@ public class RaceResultsRecyclerViewAdapter extends RecyclerView.Adapter<RaceRes
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder{
-
         private final RaceResultsRecyclerViewItemBinding binding;
 
         public ViewHolder(RaceResultsRecyclerViewItemBinding binding) {

@@ -1,5 +1,7 @@
 package edu.samsungit.remsely.proformula.data.models;
 
+import androidx.annotation.NonNull;
+
 public class StageHeadingDataModel {
     private String flag;
     private String location;
@@ -25,6 +27,7 @@ public class StageHeadingDataModel {
         return name;
     }
 
+    @NonNull
     @Override
     public String toString() {
         return "StageHeadingDataModel{" +

@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:paddingLeft="7dp"
             android:paddingRight="7dp"
-            android:text="@string/about_recently_stage"
+            android:text="@string/videos_about_grang_prix"
             android:textColor="@color/white"
             android:textSize="17sp"
             android:fontFamily="@font/open_sans_bold"

@@ -12,17 +12,15 @@
         android:orientation="horizontal"
         android:background="@drawable/simple_frame"
         android:layout_marginTop="10dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginEnd="1dp"
-        android:paddingBottom="3dp">
+        android:paddingBottom="3dp"
+        android:paddingTop="3dp">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/race_against_time_recycler_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="2dp"
-            android:layout_marginEnd="2dp"
-            android:layout_marginBottom="1dp"/>
+            android:layout_marginStart="7dp"
+            android:layout_marginEnd="7dp"/>
     </LinearLayout>
 
 </LinearLayout>

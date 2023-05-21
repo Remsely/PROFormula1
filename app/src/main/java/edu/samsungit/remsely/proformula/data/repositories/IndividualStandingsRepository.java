@@ -4,7 +4,7 @@ import static edu.samsungit.remsely.proformula.util.FirebaseKeys.FLAG;
 import static edu.samsungit.remsely.proformula.util.FirebaseKeys.INDIVIDUAL_STANDINGS;
 import static edu.samsungit.remsely.proformula.util.FirebaseKeys.LOGO_UPPER;
 import static edu.samsungit.remsely.proformula.util.FirebaseKeys.MAIN_SCREEN;
-import static edu.samsungit.remsely.proformula.util.FirebaseKeys.NAME_LOWER;
+import static edu.samsungit.remsely.proformula.util.FirebaseKeys.NAME;
 import static edu.samsungit.remsely.proformula.util.FirebaseKeys.PILOT;
 import static edu.samsungit.remsely.proformula.util.FirebaseKeys.PILOTS;
 import static edu.samsungit.remsely.proformula.util.FirebaseKeys.POINTS;
@@ -71,7 +71,7 @@ public class IndividualStandingsRepository {
                                             .addListenerForSingleValueEvent(new ValueEventListener() {
                                                 @Override
                                                 public void onDataChange(@NonNull DataSnapshot pilotSnapshot) {
-                                                    String pilotName = pilotSnapshot.child(NAME_LOWER).getValue(String.class);
+                                                    String pilotName = pilotSnapshot.child(NAME).getValue(String.class);
                                                     String pilotFlag = pilotSnapshot.child(FLAG).getValue(String.class);
 
                                                     if (teamKey != null){

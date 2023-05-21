@@ -5,13 +5,10 @@ import androidx.lifecycle.LiveData;
 
 import java.util.List;
 
-import edu.samsungit.remsely.proformula.data.models.StageHeadingDataModel;
-import edu.samsungit.remsely.proformula.data.models.StageScheduleDataModel;
-
 public class CalendarItemDataModel {
-    private StageHeadingDataModel stageHeading;
-    private LiveData<List<StageScheduleDataModel>> stageScheduleList;
-    private int number;
+    private final StageHeadingDataModel stageHeading;
+    private final LiveData<List<StageScheduleDataModel>> stageScheduleList;
+    private final int number;
 
     public CalendarItemDataModel(StageHeadingDataModel stageHeading,
                                  LiveData<List<StageScheduleDataModel>> stageScheduleList, int number){

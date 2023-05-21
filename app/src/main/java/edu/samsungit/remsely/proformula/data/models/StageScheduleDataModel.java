@@ -1,8 +1,10 @@
 package edu.samsungit.remsely.proformula.data.models;
 
+import androidx.annotation.NonNull;
+
 public class StageScheduleDataModel {
-    private String date;
-    private String event;
+    private final String date;
+    private final String event;
 
     public StageScheduleDataModel(String date, String event){
         this.date = date;
@@ -17,6 +19,7 @@ public class StageScheduleDataModel {
         return event;
     }
 
+    @NonNull
     @Override
     public String toString() {
         return "StageScheduleDataModel{" +

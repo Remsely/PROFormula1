@@ -2,7 +2,7 @@ package edu.samsungit.remsely.proformula.data.repositories;
 
 import static edu.samsungit.remsely.proformula.util.FirebaseKeys.EVENTS;
 import static edu.samsungit.remsely.proformula.util.FirebaseKeys.IS_RACE;
-import static edu.samsungit.remsely.proformula.util.FirebaseKeys.NAME_LOWER;
+import static edu.samsungit.remsely.proformula.util.FirebaseKeys.NAME;
 import static edu.samsungit.remsely.proformula.util.FirebaseKeys.SEASONS;
 import static edu.samsungit.remsely.proformula.util.FirebaseKeys.STAGES;
 
@@ -40,7 +40,7 @@ public class GrandPrixResultsTabLayoutHeadingsRepository {
                 List<GrandPrixResultsTabLayoutHeadingDataModel> events = new ArrayList<>();
                 for (DataSnapshot eventSnapshot : snapshot.getChildren()){
                     boolean isRace = Boolean.TRUE.equals(eventSnapshot.child(IS_RACE).getValue(Boolean.class));
-                    String name = eventSnapshot.child(NAME_LOWER).getValue(String.class);
+                    String name = eventSnapshot.child(NAME).getValue(String.class);
                     events.add(new GrandPrixResultsTabLayoutHeadingDataModel(isRace, name));
                 }
                 liveData.postValue(events);

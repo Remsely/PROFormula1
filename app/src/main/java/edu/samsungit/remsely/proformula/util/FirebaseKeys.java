@@ -21,8 +21,7 @@ public class FirebaseKeys {
     public static final String TIME = "Time";
     public static final String POINTS = "Points";
     public static final String PILOTS = "Pilots";
-    public static final String NAME_LOWER = "name";
-    public static final String NAME_UPPER = "Name";
+    public static final String NAME = "name";
     public static final String FLAG = "flag";
     public static final String TEAMS = "Teams";
     public static final String SHORT_NAME = "Short name";

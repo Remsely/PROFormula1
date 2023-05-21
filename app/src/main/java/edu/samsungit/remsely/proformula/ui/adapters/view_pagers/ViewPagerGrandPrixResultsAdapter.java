@@ -43,11 +43,13 @@ public class ViewPagerGrandPrixResultsAdapter extends FragmentStateAdapter {
         if (position == 5) {
             return AboutStageFragment.newInstance(seasonsKey, stageNumber);
         }
-        GrandPrixResultsTabLayoutHeadingDataModel heading = headingsList.get(abs(position - 4));
+        int index = abs(position - 4);
+        GrandPrixResultsTabLayoutHeadingDataModel heading = headingsList.get(index);
+
         if (heading.getIsRace()) {
-            return RaceWithPointsFragment.newInstance(seasonsKey, stageNumber);
+            return RaceWithPointsFragment.newInstance(seasonsKey, stageNumber, String.valueOf(index + 1));
         }
-        return RaceAgainstTimeResultsFragment.newInstance(seasonsKey, stageNumber);
+        return RaceAgainstTimeResultsFragment.newInstance(seasonsKey, stageNumber, String.valueOf(index + 1));
     }
 
     @Override

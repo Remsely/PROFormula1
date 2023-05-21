@@ -1,10 +1,10 @@
 package edu.samsungit.remsely.proformula.data.models;
 
 public class TeamStandingsPositionDataModel {
-    private String points;
-    private String teamFullName;
-    private int p;
-    private String teamLogo;
+    private final String points;
+    private final String teamFullName;
+    private final int p;
+    private final String teamLogo;
 
     public TeamStandingsPositionDataModel(int p, String teamLogo, String teamFullName, String points){
         this.points = points;

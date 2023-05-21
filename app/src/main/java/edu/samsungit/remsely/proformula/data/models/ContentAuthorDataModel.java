@@ -5,11 +5,11 @@ import androidx.lifecycle.LiveData;
 import java.util.List;
 
 public class ContentAuthorDataModel {
-    private String description;
-    private boolean recommendation;
-    private String logo;
-    private String name;
-    private LiveData<List<SocialNetworkReferencesDataModel>> socialNetworks;
+    private final String description;
+    private final boolean recommendation;
+    private final String logo;
+    private final String name;
+    private final LiveData<List<SocialNetworkReferencesDataModel>> socialNetworks;
 
     public ContentAuthorDataModel(String name, String logo, String description, boolean recommendation, LiveData<List<SocialNetworkReferencesDataModel>> socialNetworks){
         this.description = description;

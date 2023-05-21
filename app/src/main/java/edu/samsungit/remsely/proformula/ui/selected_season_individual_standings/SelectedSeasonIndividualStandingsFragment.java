@@ -63,7 +63,7 @@ public class SelectedSeasonIndividualStandingsFragment extends Fragment {
 
     private void individualStandingsLiveDataObservation(){
         individualStandingsViewModel.setIndividualStandingsLiveData(seasonsKey);
-        individualStandingsViewModel.getIndividualStandingsLiveData().observe(getViewLifecycleOwner(), standings -> {
+        individualStandingsViewModel.getIndividualStandingsLiveData().observe(this, standings -> {
             IndividualStandingsRecyclerViewAdapter adapter = (IndividualStandingsRecyclerViewAdapter)
                     standingsRecyclerView.getAdapter();
             if(adapter != null){

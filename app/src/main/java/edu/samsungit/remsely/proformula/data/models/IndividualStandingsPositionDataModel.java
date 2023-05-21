@@ -1,12 +1,12 @@
 package edu.samsungit.remsely.proformula.data.models;
 
 public class IndividualStandingsPositionDataModel {
-    private String pilot;
-    private String points;
-    private String team;
-    private int p;
-    private String pilotFlag;
-    private String teamLogo;
+    private final String pilot;
+    private final String points;
+    private final String team;
+    private final int p;
+    private final String pilotFlag;
+    private final String teamLogo;
 
     public IndividualStandingsPositionDataModel(int p, String pilotFlag, String pilot, String teamLogo, String team, String points){
         this.pilot = pilot;

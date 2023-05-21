@@ -18,7 +18,6 @@ public class ViewPagerChampionshipAdapter extends FragmentStateAdapter {
     @Override
     public Fragment createFragment(int position) {
         switch (position){
-            case 0: return new IndividualStandingsFragment();
             case 1: return new TeamStandingsFragment();
             case 2: return new SeasonStagesFragment();
             default: return new IndividualStandingsFragment();

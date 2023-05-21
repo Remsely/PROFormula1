@@ -43,7 +43,6 @@ public class HomeFragment extends Fragment {
     private RecyclerView recentlyRaceResultsRecyclerView;
     private RecyclerView whereWatchRecyclerView;
     private Bundle args;
-    private boolean recentlyStageReadiness;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
