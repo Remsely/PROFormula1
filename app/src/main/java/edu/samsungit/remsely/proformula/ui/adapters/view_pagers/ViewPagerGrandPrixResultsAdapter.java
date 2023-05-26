@@ -10,10 +10,10 @@ import java.util.Collections;
 import java.util.List;
 
 import edu.samsungit.remsely.proformula.data.models.GrandPrixResultsTabLayoutHeadingDataModel;
-import edu.samsungit.remsely.proformula.ui.about_stage.AboutStageFragment;
-import edu.samsungit.remsely.proformula.ui.grand_prix_results.GrandPrixResultsFragment;
-import edu.samsungit.remsely.proformula.ui.race_against_time.RaceAgainstTimeResultsFragment;
-import edu.samsungit.remsely.proformula.ui.race_with_points.RaceWithPointsFragment;
+import edu.samsungit.remsely.proformula.ui.fragments.about_stage.AboutStageFragment;
+import edu.samsungit.remsely.proformula.ui.fragments.grand_prix_results.GrandPrixResultsFragment;
+import edu.samsungit.remsely.proformula.ui.fragments.race_against_time.RaceAgainstTimeResultsFragment;
+import edu.samsungit.remsely.proformula.ui.fragments.race_with_points.RaceWithPointsFragment;
 
 public class ViewPagerGrandPrixResultsAdapter extends FragmentStateAdapter {
     private List<GrandPrixResultsTabLayoutHeadingDataModel> headingsList = Collections.emptyList();

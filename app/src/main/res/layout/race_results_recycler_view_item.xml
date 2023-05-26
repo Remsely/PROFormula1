@@ -23,7 +23,7 @@
         <ImageView
             android:id="@+id/stage_results_pilot_flag"
             android:layout_width="18dp"
-            android:layout_height="10dp"
+            android:layout_height="11dp"
             android:scaleType="center" />
 
         <TextView

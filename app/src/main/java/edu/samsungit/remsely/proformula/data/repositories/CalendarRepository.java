@@ -89,11 +89,10 @@ public class CalendarRepository {
                                                                             stageScheduleLiveData, number);
 
                                                             calendarItems.add(calendarItemDataModel);
-//                                                            if (calendarItems.size() >= seasonSnapshot.getChildrenCount()) {
-//
-//                                                            }
-                                                            calendarItems.sort(calendarItemComparator);
-                                                            liveData.postValue(calendarItems);
+                                                            if (calendarItems.size() >= seasonSnapshot.getChildrenCount()) {
+                                                                calendarItems.sort(calendarItemComparator);
+                                                                liveData.postValue(calendarItems);
+                                                            }
                                                         }
 
                                                         @Override

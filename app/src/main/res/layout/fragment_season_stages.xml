@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.season_stages.SeasonStagesFragment"
+    tools:context=".ui.fragments.season_stages.SeasonStagesFragment"
     android:background="@color/black"
     android:orientation="vertical">
 

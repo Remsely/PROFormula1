@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.team_standings.TeamStandingsFragment"
+    tools:context=".ui.fragments.team_standings.TeamStandingsFragment"
     android:orientation="vertical"
     android:layout_marginStart="1dp"
     android:layout_marginEnd="1dp"

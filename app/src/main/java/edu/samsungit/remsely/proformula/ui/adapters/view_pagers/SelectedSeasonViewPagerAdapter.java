@@ -4,10 +4,10 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-import edu.samsungit.remsely.proformula.ui.selected_season.SelectedSeasonFragment;
-import edu.samsungit.remsely.proformula.ui.selected_season_individual_standings.SelectedSeasonIndividualStandingsFragment;
-import edu.samsungit.remsely.proformula.ui.selected_season_stages.SelectedSeasonStagesFragment;
-import edu.samsungit.remsely.proformula.ui.selected_season_team_standings.SelectedSeasonTeamStandingsFragment;
+import edu.samsungit.remsely.proformula.ui.fragments.selected_season.SelectedSeasonFragment;
+import edu.samsungit.remsely.proformula.ui.fragments.selected_season_individual_standings.SelectedSeasonIndividualStandingsFragment;
+import edu.samsungit.remsely.proformula.ui.fragments.selected_season_stages.SelectedSeasonStagesFragment;
+import edu.samsungit.remsely.proformula.ui.fragments.selected_season_team_standings.SelectedSeasonTeamStandingsFragment;
 
 public class SelectedSeasonViewPagerAdapter extends FragmentStateAdapter {
     private String seasonsKey;

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.race_against_time.RaceAgainstTimeResultsFragment"
+    tools:context=".ui.fragments.race_against_time.RaceAgainstTimeResultsFragment"
     android:background="@color/black">
 
     <LinearLayout

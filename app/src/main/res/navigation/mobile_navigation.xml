@@ -7,13 +7,13 @@
 
     <fragment
         android:id="@+id/navigation_calendar"
-        android:name="edu.samsungit.remsely.proformula.ui.calendar.CalendarFragment"
+        android:name="edu.samsungit.remsely.proformula.ui.fragments.calendar.CalendarFragment"
         android:label="@string/title_calendar"
         tools:layout="@layout/fragment_calendar" />
 
     <fragment
         android:id="@+id/navigation_content"
-        android:name="edu.samsungit.remsely.proformula.ui.content.ContentFragment"
+        android:name="edu.samsungit.remsely.proformula.ui.fragments.content.ContentFragment"
         android:label="@string/title_content"
         tools:layout="@layout/fragment_content" />
 
@@ -21,12 +21,12 @@
         app:startDestination="@id/navigation_home">
         <fragment
             android:id="@+id/grandPrixResultsFragment"
-            android:name="edu.samsungit.remsely.proformula.ui.grand_prix_results.GrandPrixResultsFragment"
+            android:name="edu.samsungit.remsely.proformula.ui.fragments.grand_prix_results.GrandPrixResultsFragment"
             android:label="fragment_grand_prix_results"
             tools:layout="@layout/fragment_grand_prix_results" />
         <fragment
             android:id="@+id/navigation_home"
-            android:name="edu.samsungit.remsely.proformula.ui.home.HomeFragment"
+            android:name="edu.samsungit.remsely.proformula.ui.fragments.home.HomeFragment"
             android:label="@string/title_home"
             tools:layout="@layout/fragment_home">
             <action
@@ -46,7 +46,7 @@
         </fragment>
         <fragment
             android:id="@+id/navigation_notifications_settings"
-            android:name="edu.samsungit.remsely.proformula.ui.notifications_settings_dialog.NotificationsSettingsFragment"
+            android:name="edu.samsungit.remsely.proformula.ui.fragments.notifications_settings_dialog.NotificationsSettingsFragment"
             android:label="fragment_notifications_settings"
             tools:layout="@layout/fragment_notifications_settings" />
     </navigation>
@@ -54,12 +54,12 @@
         app:startDestination="@id/navigation_seasons">
         <fragment
             android:id="@+id/grandPrixResultsFragment"
-            android:name="edu.samsungit.remsely.proformula.ui.grand_prix_results.GrandPrixResultsFragment"
+            android:name="edu.samsungit.remsely.proformula.ui.fragments.grand_prix_results.GrandPrixResultsFragment"
             android:label="fragment_grand_prix_results"
             tools:layout="@layout/fragment_grand_prix_results" />
         <fragment
             android:id="@+id/selectedSeasonFragment"
-            android:name="edu.samsungit.remsely.proformula.ui.selected_season.SelectedSeasonFragment"
+            android:name="edu.samsungit.remsely.proformula.ui.fragments.selected_season.SelectedSeasonFragment"
             android:label="SelectedSeasonFragment" >
             <action
                 android:id="@+id/action_selectedSeasonFragment_to_grandPrixResultsFragment"
@@ -71,7 +71,7 @@
         </fragment>
         <fragment
             android:id="@+id/navigation_seasons"
-            android:name="edu.samsungit.remsely.proformula.ui.seasons.SeasonsFragment"
+            android:name="edu.samsungit.remsely.proformula.ui.fragments.seasons.SeasonsFragment"
             android:label="@string/title_seasons"
             tools:layout="@layout/fragment_seasons">
             <action
@@ -87,7 +87,7 @@
         app:startDestination="@id/navigation_championship">
         <fragment
             android:id="@+id/navigation_championship"
-            android:name="edu.samsungit.remsely.proformula.ui.championship.ChampionshipFragment"
+            android:name="edu.samsungit.remsely.proformula.ui.fragments.championship.ChampionshipFragment"
             android:label="@string/title_championship"
             tools:layout="@layout/fragment_championship">
             <action
@@ -100,7 +100,7 @@
         </fragment>
         <fragment
             android:id="@+id/grandPrixResultsFragment"
-            android:name="edu.samsungit.remsely.proformula.ui.grand_prix_results.GrandPrixResultsFragment"
+            android:name="edu.samsungit.remsely.proformula.ui.fragments.grand_prix_results.GrandPrixResultsFragment"
             android:label="fragment_grand_prix_results"
             tools:layout="@layout/fragment_grand_prix_results" />
     </navigation>
